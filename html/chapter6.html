@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="./">
+    <title>第6章：传动系统设计</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/highlight.css">
+    <script src="assets/script.js" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: false,
+                packages: {'[+]': ['noerrors', 'ams']}
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            loader: {
+                load: ['[tex]/noerrors', '[tex]/ams']
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>目录</h3>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" id="sidebar-search-input" placeholder="搜索..." autocomplete="off">
+            </div>
+            <div id="tree-container">
+                <nav class="tree-nav" role="tree">
+                    <div class="tree-item " >
+                        <a href="index.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">机械设计实践教程</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter1.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第1章：机械设计基础</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter2.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第2章：CAD软件基础操作</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter3.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第3章：机械结构设计原理</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter4.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第4章：螺纹连接与紧固件</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter5.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第5章：轴承与关节系统</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item active" >
+                        <a href="chapter6.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第6章：传动系统设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter7.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第7章：舵机原理与选型</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter8.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第8章：3D打印设计指南</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter9.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第9章：铝材加工与应用</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter10.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第10章：LEGO技术积木机械设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter11.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第11章：配重与动平衡</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter12.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第12章：CAN总线与控制系统</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter13.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第13章：润滑与维护保养</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter14.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第14章：簧片与弹性元件</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter15.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第15章：热管理与散热设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter16.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第16章：线束管理与电气集成</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter17.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第17章：机械故障诊断技术</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter18.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第18章：综合设计案例</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="CLAUDE.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">Untitled</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <article>
+                <h1 id="6">第6章：传动系统设计</h1>
+<p>传动系统是机械设计的核心组件，负责将动力从源头传递到执行机构，同时实现速度、扭矩和运动方向的转换。本章将介绍常见传动方式的设计原理、选型方法和实践技巧，重点讲解齿轮、带传动、链传动和丝杠系统的应用。通过学习本章内容，读者将掌握传动系统的设计计算、精度控制和故障排除方法。</p>
+<h2 id="61">6.1 齿轮传动基础</h2>
+<p>齿轮传动是最常见、最可靠的机械传动方式，具有传动效率高（95-99%）、传动比准确、承载能力强等优点。设计良好的齿轮系统可以运行数万小时而几乎无需维护。</p>
+<h3 id="611">6.1.1 齿轮类型与特点</h3>
+<p><strong>直齿轮（Spur Gear）</strong></p>
+<ul>
+<li>最简单、成本最低的齿轮类型</li>
+<li>传动效率高达98%</li>
+<li>噪音较大，不适合高速运转</li>
+<li>轴向力为零，轴承设计简单</li>
+<li>适用场景：低速重载、成本敏感的应用</li>
+</ul>
+<p><strong>斜齿轮（Helical Gear）</strong></p>
+<ul>
+<li>运转平稳，噪音小</li>
+<li>承载能力比直齿轮高15-20%</li>
+<li>产生轴向力，需要推力轴承</li>
+<li>螺旋角通常选择15°-25°</li>
+<li>适用场景：高速传动、需要静音的场合</li>
+</ul>
+<p><strong>锥齿轮（Bevel Gear）</strong></p>
+<ul>
+<li>用于相交轴之间的传动</li>
+<li>直锥齿轮加工简单但噪音大</li>
+<li>螺旋锥齿轮运转平稳但成本高</li>
+<li>需要精确的轴向定位</li>
+<li>适用场景：90°转向传动、差速器</li>
+</ul>
+<p><strong>蜗轮蜗杆（Worm Gear）</strong></p>
+<ul>
+<li>单级传动比可达100:1</li>
+<li>自锁特性（传动比&gt;30时）</li>
+<li>传动效率低（40-90%）</li>
+<li>发热量大，需要良好散热</li>
+<li>适用场景：大减速比、需要自锁的场合</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>     直齿轮对         斜齿轮对          锥齿轮对         蜗轮蜗杆
+    ┌──┐ ┌──┐      ┌──┐ ┌──┐       ┌──┐           ╭──╮
+    │  ├─┤  │      │ /├─┤\ │       │  ├──┐        ══╪══
+    └──┘ └──┘      └──┘ └──┘       └──┘  └──┘      └─┴─┘
+      平行轴         平行轴          相交轴         交错轴
+</code></pre></div>
+
+<h3 id="612">6.1.2 模数与齿数选择</h3>
+<p>模数（m）是齿轮设计的基础参数，决定了齿的大小和强度。</p>
+<p><strong>模数选择原则：</strong></p>
+<ul>
+<li>标准模数优先：0.5, 0.8, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10</li>
+<li>小模数（m&lt;2）：精密传动、仪器仪表</li>
+<li>中模数（2≤m≤6）：一般机械传动</li>
+<li>大模数（m&gt;6）：重型机械、矿山设备</li>
+</ul>
+<p><strong>齿数设计要点：</strong></p>
+<ul>
+<li>最小齿数：直齿轮17齿，斜齿轮14齿（避免根切）</li>
+<li>齿数互质：减少周期性误差累积</li>
+<li>总齿数&gt;100：提高传动平稳性</li>
+<li>传动比精确：z₂/z₁ = 传动比（误差&lt;0.1%）</li>
+</ul>
+<p><strong>快速估算公式：</strong></p>
+<div class="codehilite"><pre><span></span><code>分度圆直径 d = m × z
+中心距 a = (d₁ + d₂) / 2 = m(z₁ + z₂) / 2
+齿高 h = 2.25m（标准齿）
+齿宽 b = (8~12) × m（一般推荐）
+</code></pre></div>
+
+<h3 id="613">6.1.3 齿轮强度计算</h3>
+<p><strong>弯曲强度校核（防止轮齿折断）：</strong></p>
+<p>$$\sigma_F = \frac{2000 T K_A K_V K_{F\beta} K_{F\alpha}}{b m^2 z Y_{Fa} Y_{Sa}} \leq [\sigma_F]$$
+其中：</p>
+<ul>
+<li>T：扭矩（N·m）</li>
+<li>K_A：使用系数（平稳1.0，中等冲击1.25，严重冲击1.75）</li>
+<li>K_V：动载系数（低速1.0，中速1.2，高速1.4）</li>
+<li>b：齿宽（mm）</li>
+<li>Y_{Fa}：齿形系数（查表，约2.3-3.0）</li>
+</ul>
+<p><strong>接触强度校核（防止齿面点蚀）：</strong>
+$$\sigma_H = Z_E Z_H Z_\varepsilon \sqrt{\frac{2000 T K_A K_V K_{H\beta} K_{H\alpha}}{b d_1^2} \cdot \frac{u+1}{u}} \leq [\sigma_H]$$
+<strong>经验法则（快速设计）：</strong></p>
+<ul>
+<li>模数 m ≥ 2.5 × ³√(T/z)（T单位N·m）</li>
+<li>齿宽 b = 10m（一般齿轮）</li>
+<li>齿宽 b = 15m（重载齿轮）</li>
+<li>材料选择：45钢调质（一般），40Cr调质（中载），20CrMnTi渗碳（重载）</li>
+</ul>
+<h3 id="614">6.1.4 齿轮精度等级</h3>
+<p><strong>ISO精度等级（1-12级，数字越小精度越高）：</strong></p>
+<ul>
+<li>3-5级：精密仪器、测量齿轮</li>
+<li>6-8级：一般机械传动</li>
+<li>9-10级：低速重载传动</li>
+<li>11-12级：手动传动、农业机械</li>
+</ul>
+<p><strong>精度选择参考：</strong></p>
+<div class="codehilite"><pre><span></span><code>圆周速度v(m/s)  推荐精度等级
+    v &lt; 3           9-10
+   3 &lt; v &lt; 10       7-9
+  10 &lt; v &lt; 20       6-8
+    v &gt; 20          5-7
+</code></pre></div>
+
+<p><strong>公差配合：</strong></p>
+<ul>
+<li>齿厚公差：-0.05m ~ -0.15m（预留磨损量）</li>
+<li>中心距公差：±0.02a（a为中心距）</li>
+<li>齿向公差：0.01b（b为齿宽）</li>
+<li>径向跳动：0.03m（影响传动平稳性）</li>
+</ul>
+<h3 id="615">6.1.5 齿轮箱设计要点</h3>
+<p><strong>结构设计原则：</strong></p>
+<ol>
+<li>箱体刚度：壁厚≥8mm，加强筋间距&lt;100mm</li>
+<li>轴承跨距：L/d = 3~5（L跨距，d轴径）</li>
+<li>观察窗：便于检查齿轮啮合和油位</li>
+<li>通气孔：防止内部压力升高</li>
+<li>放油螺塞：最低点设置，便于换油</li>
+</ol>
+<p><strong>润滑设计：</strong></p>
+<ul>
+<li>浸油润滑：v&lt;12m/s，油面高度为大齿轮半径的1/3</li>
+<li>喷油润滑：v&gt;12m/s，油压0.05-0.1MPa</li>
+<li>脂润滑：v&lt;5m/s，开式传动或间歇工作</li>
+<li>油量估算：0.5-1L/kW（闭式齿轮箱）</li>
+</ul>
+<p><strong>热平衡校核：</strong></p>
+<div class="codehilite"><pre><span></span><code>发热功率 P_heat = (1-η) × P_input
+散热功率 P_cool = h × A × ΔT
+平衡温升 ΔT = P_heat / (h × A)
+</code></pre></div>
+
+<p>其中：</p>
+<ul>
+<li>h：散热系数（自然冷却15W/(m²·K)，强制风冷30W/(m²·K)）</li>
+<li>A：箱体散热面积</li>
+<li>ΔT：温升（一般&lt;40°C）</li>
+</ul>
+<h2 id="62">6.2 带传动与链传动</h2>
+<p>带传动和链传动适用于中心距较大的场合，具有缓冲吸振、过载保护等优点。选择时需权衡精度、噪音、维护和成本等因素。</p>
+<h3 id="621">6.2.1 同步带传动设计</h3>
+<p>同步带（齿形带）结合了带传动和链传动的优点，无滑动、传动比准确、噪音小。</p>
+<p><strong>常用型号与特点：</strong></p>
+<div class="codehilite"><pre><span></span><code>型号    齿距(mm)  适用功率(kW)  线速度(m/s)  应用场景
+MXL     2.032     &lt;0.1          &lt;10          仪器、3D打印机
+XL      5.080     &lt;0.5          &lt;20          办公设备
+L       9.525     &lt;3            &lt;30          轻工机械
+H       12.700    &lt;10           &lt;40          工业传动
+XH      22.225    &lt;50           &lt;35          重型设备
+</code></pre></div>
+
+<p><strong>带轮齿数选择：</strong></p>
+<ul>
+<li>最小齿数：小带轮≥10齿（MXL/XL），≥14齿（L/H）</li>
+<li>速比限制：i≤8（单级传动）</li>
+<li>齿数组合：避免公约数，如20/60改为19/57</li>
+</ul>
+<p><strong>带长计算：</strong>
+$$L = 2a + \frac{\pi(D_1+D_2)}{2} + \frac{(D_2-D_1)^2}{4a}$$
+<strong>张紧力设置：</strong></p>
+<ul>
+<li>初张力：F₀ = (50~80)N/cm带宽</li>
+<li>挠度法：按压带中点，挠度=跨距×1.5%</li>
+<li>音频法：弹拨带子，音调清脆无杂音</li>
+</ul>
+<p><strong>同步带失效模式：</strong></p>
+<ol>
+<li>齿面磨损：张力过大或不足</li>
+<li>带齿剪切：过载或冲击</li>
+<li>带背龟裂：带轮太小或温度过高</li>
+<li>跳齿：张力不足或负载波动大</li>
+</ol>
+<h3 id="622-v">6.2.2 V带传动应用</h3>
+<p>V带传动依靠摩擦力传递动力，有一定滑动率（1-2%），但具有过载保护功能。</p>
+<p><strong>V带型号选择：</strong></p>
+<div class="codehilite"><pre><span></span><code>型号   顶宽(mm)  功率范围(kW)  应用
+Z      10        &lt;0.5          家电、仪器
+A      13        0.4-5         农机、风机
+B      17        2-20          泵、压缩机
+C      22        7.5-75        大型设备
+D      32        30-200        重型机械
+</code></pre></div>
+
+<p><strong>设计要点：</strong></p>
+<ul>
+<li>包角α≥120°（小带轮）</li>
+<li>中心距：0.7(D₁+D₂) &lt; a &lt; 2(D₁+D₂)</li>
+<li>带速：5m/s &lt; v &lt; 25m/s（最佳15-20m/s）</li>
+<li>根数：不超过10根，否则载荷不均</li>
+</ul>
+<p><strong>张紧与维护：</strong></p>
+<ul>
+<li>新带初次运转后需重新张紧（伸长1-2%）</li>
+<li>定期检查张力（每200小时）</li>
+<li>多根带必须配组使用（长度差&lt;0.5%）</li>
+<li>避免油污，保持带轮槽清洁</li>
+</ul>
+<h3 id="623">6.2.3 链传动特性</h3>
+<p>链传动传动比准确、效率高（98%），但有多边形效应造成速度波动。</p>
+<p><strong>链条规格（ISO 606）：</strong></p>
+<div class="codehilite"><pre><span></span><code>链号    节距(mm)   破断载荷(kN)   常用场景
+25      6.35       3.0            仪器、模型
+35      9.525      7.8            摩托车
+40      12.70      14.1           轻工机械
+50      15.875     22.2           农业机械
+60      19.05      31.8           工业传动
+80      25.40      56.7           重型设备
+</code></pre></div>
+
+<p><strong>链轮设计：</strong></p>
+<ul>
+<li>小链轮齿数：z₁≥17（低速），z₁≥25（高速）</li>
+<li>大链轮齿数：z₂≤120（避免跳齿）</li>
+<li>齿数选择奇数，链节选择偶数</li>
+<li>链轮材料：45钢（HRC40-45）或40Cr</li>
+</ul>
+<p><strong>链条选型计算：</strong>
+$$P_{ca} = \frac{P \cdot K_A \cdot K_z}{K_m \cdot K_L}$$
+其中：</p>
+<ul>
+<li>P：传递功率</li>
+<li>K_A：工况系数（1.0-2.5）</li>
+<li>K_z：齿数系数</li>
+<li>K_m：多排系数</li>
+<li>K_L：链长系数</li>
+</ul>
+<p><strong>链传动布置：</strong></p>
+<div class="codehilite"><pre><span></span><code>     推荐布置              避免布置
+    ○━━━━━○            ○
+    水平或倾斜&lt;60°         ┃  垂直布置
+                          ○  （下垂过大）
+
+    ○╲                   ○━━○━━○
+      ╲○  中心距大时       多级传动
+       加托板或张紧轮       （累积误差）
+</code></pre></div>
+
+<h3 id="624">6.2.4 张紧机构设计</h3>
+<p>正确的张紧是带链传动正常工作的关键，张紧力过大增加磨损，过小造成打滑或跳齿。</p>
+<p><strong>自动张紧装置：</strong></p>
+<ol>
+<li>
+<p><strong>弹簧张紧器</strong>
+   - 恒定张力，自动补偿伸长
+   - 适用于空间有限的场合
+   - 弹簧力 = 2×带张力</p>
+</li>
+<li>
+<p><strong>重锤张紧器</strong>
+   - 最简单可靠
+   - 需要垂直空间
+   - 重锤重量 = 带张力/9.8</p>
+</li>
+<li>
+<p><strong>液压/气压张紧器</strong>
+   - 张力可调
+   - 适用于大功率传动
+   - 需要辅助动力源</p>
+</li>
+</ol>
+<p><strong>手动张紧结构：</strong></p>
+<div class="codehilite"><pre><span></span><code>   滑槽式张紧           偏心式张紧          摆臂式张紧
+   ○ ←→               ○                    ╱○
+   ═══○═══            ◐ ○                ○─┘
+   电机底座滑动         偏心轴承座           摆臂调节
+</code></pre></div>
+
+<p><strong>张紧力检测方法：</strong></p>
+<ol>
+<li><strong>挠度法</strong>：最常用，简单直观</li>
+<li><strong>频率法</strong>：精确但需要仪器</li>
+<li><strong>力矩法</strong>：适用于安装阶段</li>
+<li><strong>伸长量法</strong>：适用于长带</li>
+</ol>
+<h3 id="625">6.2.5 传动效率分析</h3>
+<p><strong>各类传动效率对比：</strong></p>
+<div class="codehilite"><pre><span></span><code>传动类型        效率(%)    功率损失原因
+齿轮传动        95-99      齿面摩擦、搅油
+同步带传动      96-98      带齿变形、轴承摩擦
+V带传动         92-96      滑动摩擦、弯曲损失
+链传动          96-98      铰链摩擦、冲击
+蜗轮蜗杆        40-90      滑动摩擦为主
+</code></pre></div>
+
+<p><strong>效率优化措施：</strong></p>
+<ol>
+<li><strong>减少预紧力</strong>：满足不打滑前提下最小化</li>
+<li><strong>优化传动比</strong>：避免过大或过小</li>
+<li><strong>改善润滑</strong>：链传动定期加油</li>
+<li><strong>提高制造精度</strong>：减少冲击和振动</li>
+<li><strong>合理选型</strong>：功率匹配，避免大马拉小车</li>
+</ol>
+<p><strong>功率损失计算：</strong>
+$$P_{loss} = P_{input} \times (1-\eta)$$
+$$温升 = \frac{P_{loss}}{散热系数 \times 散热面积}$$
+注意：连续运转时温升不应超过40°C，间歇运转可放宽至60°C。</p>
+<h2 id="63">6.3 丝杠与导轨系统</h2>
+<p>丝杠导轨系统是精密定位和直线运动的核心部件，广泛应用于CNC机床、3D打印机、自动化设备等领域。正确的选型和配置直接影响系统的精度、刚度和寿命。本节将详细介绍丝杠导轨的选型计算、安装调试和维护方法。</p>
+<h3 id="631">6.3.1 滚珠丝杠选型</h3>
+<p>滚珠丝杠通过滚珠在螺母和丝杠之间的滚动实现高效传动，效率可达90-95%，是精密定位的首选方案。</p>
+<p><strong>关键参数定义：</strong></p>
+<ul>
+<li>导程（Ph）：丝杠旋转一圈的直线位移</li>
+<li>公称直径（d₀）：丝杠外径</li>
+<li>滚珠直径（Dw）：通常为导程的0.6-0.7倍</li>
+<li>动载荷（Ca）：寿命100万转时的载荷能力</li>
+<li>静载荷（C₀a）：产生永久变形时的载荷</li>
+</ul>
+<p><strong>精度等级选择（JIS B 1192）：</strong></p>
+<div class="codehilite"><pre><span></span><code>等级   定位精度(μm/300mm)  重复定位精度(μm)  应用场景
+C0         ±3                 ±2             超精密加工
+C1         ±5                 ±3             精密机床
+C3         ±8                 ±4             一般CNC
+C5         ±18                ±6             3D打印机
+C7         ±50                ±15            传送装置
+C10        ±210               ±30            手动调节
+</code></pre></div>
+
+<p><strong>导程选择原则：</strong></p>
+<ul>
+<li>高速度要求：大导程（10-20mm）</li>
+<li>高精度要求：小导程（2-5mm）</li>
+<li>高推力要求：小导程配大直径</li>
+<li>折中方案：导程=直径×0.2-0.3</li>
+</ul>
+<p><strong>寿命计算：</strong>
+$$L_{10} = \left(\frac{C_a}{F_m \cdot f_w}\right)^3 \times 10^6 \text{ (转)}$$</p>
+<p>$$L_h = \frac{L_{10}}{60 \cdot n} \text{ (小时)}$$
+其中：</p>
+<ul>
+<li>F_m：平均载荷（N）</li>
+<li>f_w：载荷系数（平稳1.0-1.2，振动1.5-2.0）</li>
+<li>n：转速（rpm）</li>
+</ul>
+<p><strong>临界转速校核（防止共振）：</strong>
+$$n_{cr} = \frac{f \times 10^7 \times d_r}{L^2} \times k$$
+其中：</p>
+<ul>
+<li>f：支撑系数（固定-固定2.0，固定-支撑1.5，固定-自由0.4）</li>
+<li>d_r：丝杠底径（mm）</li>
+<li>L：支撑跨距（mm）</li>
+<li>k：安全系数（取0.8）</li>
+</ul>
+<p><strong>滚珠丝杠选型步骤：</strong></p>
+<ol>
+<li>计算最大轴向载荷（包括加速力）</li>
+<li>确定最高转速和平均转速</li>
+<li>计算所需动载荷Ca</li>
+<li>选择合适的型号（留20%余量）</li>
+<li>校核临界转速</li>
+<li>验证定位精度满足要求</li>
+</ol>
+<p><strong>预压方式与刚度：</strong></p>
+<div class="codehilite"><pre><span></span><code>预压类型    预压量    轴向刚度提升   适用场景
+无预压      0%        基准           单向载荷
+轻预压      2%        1.5倍         一般定位
+中预压      5%        2.0倍         精密加工
+重预压      8%        2.5倍         高刚度需求
+</code></pre></div>
+
+<h3 id="632">6.3.2 梯形丝杠应用</h3>
+<p>梯形丝杠（ACME丝杠）结构简单、自锁性好、成本低，适用于低速重载和手动调节场合。</p>
+<p><strong>梯形丝杠特点：</strong></p>
+<ul>
+<li>传动效率：25-45%（与摩擦系数相关）</li>
+<li>自锁条件：螺旋升角&lt;摩擦角（通常&lt;5°）</li>
+<li>反向间隙：0.05-0.5mm（可通过消隙螺母改善）</li>
+<li>使用寿命：取决于磨损率而非疲劳</li>
+</ul>
+<p><strong>材料组合选择：</strong></p>
+<div class="codehilite"><pre><span></span><code>丝杠材料      螺母材料       摩擦系数   PV值(MPa·m/s)  应用
+45钢         青铜          0.10-0.15    10           标准应用
+不锈钢       塑料(POM)     0.15-0.20    5            食品机械
+调质钢       铸铁          0.15-0.20    8            重载低速
+不锈钢       PTFE复合      0.08-0.12    15           免润滑
+</code></pre></div>
+
+<p><strong>载荷计算（防止螺纹压溃）：</strong>
+$$p = \frac{F}{\pi \cdot d_2 \cdot H \cdot z} \leq [p]$$
+其中：</p>
+<ul>
+<li>F：轴向力（N）</li>
+<li>d_2：中径（mm）</li>
+<li>H：螺母高度（mm）</li>
+<li>z：螺纹头数</li>
+<li>[p]：许用压强（青铜15MPa，塑料5MPa）</li>
+</ul>
+<p><strong>扭矩计算：</strong>
+$$T = \frac{F \cdot P_h}{2\pi \cdot \eta} = F \cdot d_2 \cdot \tan(\alpha + \rho) / 2$$
+其中：</p>
+<ul>
+<li>P_h：导程</li>
+<li>η：传动效率</li>
+<li>α：螺旋升角</li>
+<li>ρ：摩擦角</li>
+</ul>
+<p><strong>消隙螺母设计：</strong></p>
+<ol>
+<li><strong>双螺母预紧</strong>：弹簧或垫片调节</li>
+<li><strong>开口螺母</strong>：径向压紧</li>
+<li><strong>锥形螺母</strong>：轴向调节径向间隙</li>
+<li><strong>注塑螺母</strong>：零间隙，适合轻载</li>
+</ol>
+<h3 id="633">6.3.3 直线导轨配置</h3>
+<p>直线导轨提供精确的直线运动导向，与丝杠配合实现精密定位。</p>
+<p><strong>导轨类型对比：</strong></p>
+<div class="codehilite"><pre><span></span><code>类型         精度等级   刚度    成本   维护    应用场景
+滚珠导轨     H/P/SP    高      中     定期    CNC/3D打印
+滚柱导轨     P/SP/UP   很高    高     定期    重型机床
+静压导轨     超高      很高    很高   复杂    超精密加工
+V型滚轮     中        中      低     简单    轻载传送
+圆棒导轨     低        低      很低   简单    简易设备
+</code></pre></div>
+
+<p><strong>滚珠导轨精度等级：</strong></p>
+<ul>
+<li>普通级（N）：±50μm/m，一般自动化</li>
+<li>高级（H）：±20μm/m，精密设备</li>
+<li>精密级（P）：±10μm/m，测量设备</li>
+<li>超精密（SP）：±5μm/m，半导体设备</li>
+<li>极精密（UP）：±3μm/m，光学设备</li>
+</ul>
+<p><strong>载荷计算要点：</strong></p>
+<p>基本动载荷寿命：
+$$L = \left(\frac{C}{P \cdot f_w}\right)^3 \times 50 \text{ (km)}$$
+等效载荷计算（考虑力矩）：
+$$P_{eq} = P_{radial} + \frac{M_{pitch}}{2l} + \frac{M_{yaw}}{2w}$$
+其中：</p>
+<ul>
+<li>l：滑块长度</li>
+<li>w：导轨间距（双轨情况）</li>
+</ul>
+<p><strong>导轨配置原则：</strong></p>
+<div class="codehilite"><pre><span></span><code>     单轨配置              双轨配置            三轨配置
+    ┌─────┐              ┌─────┐           ┌─────┐
+    │     │              │     │           │  ●  │
+    │  ●  │              │●   ●│           │●   ●│
+    │     │              │     │           │     │
+    └─────┘              └─────┘           └─────┘
+   轻载/短行程          标准配置/长行程      超宽平台/重载
+</code></pre></div>
+
+<p><strong>预压等级选择：</strong></p>
+<ul>
+<li>无预压（ZF）：单向载荷，低精度</li>
+<li>轻预压（Z0）：0-0.02C，一般精度</li>
+<li>中预压（Z1）：0.07C，高精度</li>
+<li>重预压（Z2）：0.13C，高刚度</li>
+</ul>
+<h3 id="634">6.3.4 精度与预紧</h3>
+<p>精度和预紧是影响定位系统性能的关键因素，需要在精度、刚度和寿命之间找到平衡。</p>
+<p><strong>系统精度构成：</strong>
+$$\sigma_{total} = \sqrt{\sigma_{screw}^2 + \sigma_{rail}^2 + \sigma_{mount}^2 + \sigma_{thermal}^2}$$
+各项误差来源：</p>
+<ul>
+<li>丝杠精度：导程误差、径向跳动</li>
+<li>导轨精度：直线度、平行度</li>
+<li>安装精度：垂直度、同轴度</li>
+<li>热变形：温升引起的伸长</li>
+</ul>
+<p><strong>预紧力设置原则：</strong></p>
+<ol>
+<li>
+<p><strong>丝杠预紧</strong>
+   - 预拉伸量：ΔL = 3×10⁻⁵ × L（mm）
+   - 预拉力：F = ΔL × E × A / L
+   - 效果：补偿热伸长，提高刚度</p>
+</li>
+<li>
+<p><strong>轴承预紧</strong>
+   - 背对背配置（DB）：承受双向载荷
+   - 面对面配置（DF）：承受倾覆力矩
+   - 串联配置（DT）：提高承载能力
+   - 预紧力：额定载荷的5-10%</p>
+</li>
+<li>
+<p><strong>导轨预紧</strong>
+   - 过盈配合：0.003-0.005mm
+   - 效果：消除间隙，提高刚度2-3倍
+   - 代价：增加摩擦力30-50%</p>
+</li>
+</ol>
+<p><strong>精度补偿方法：</strong></p>
+<div class="codehilite"><pre><span></span><code>补偿类型        实现方式           补偿范围      成本
+机械补偿        反向间隙补偿       ±0.1mm       低
+光栅尺反馈      闭环控制          ±0.001mm     中
+激光干涉仪      误差映射表        ±0.0001mm    高
+软件补偿        螺距误差补偿      周期性误差    低
+</code></pre></div>
+
+<p><strong>温度补偿：</strong>
+$$\Delta L = \alpha \cdot L \cdot \Delta T$$
+材料热膨胀系数（×10⁻⁶/°C）：</p>
+<ul>
+<li>钢：11.5</li>
+<li>铝：23.0</li>
+<li>铸铁：10.5</li>
+<li>花岗岩：8.0</li>
+</ul>
+<h3 id="635">6.3.5 润滑与防护</h3>
+<p>良好的润滑和防护是确保丝杠导轨长期稳定运行的关键。</p>
+<p><strong>润滑方式选择：</strong></p>
+<div class="codehilite"><pre><span></span><code>润滑类型     适用速度    补充周期    优点          缺点
+油脂润滑     &lt;10m/min   500小时     简单便宜      散热差
+油雾润滑     &lt;30m/min   连续        冷却好        设备复杂
+油气润滑     &lt;60m/min   连续        最小用量      成本高
+浸油润滑     &lt;5m/min    1000小时    可靠          密封要求高
+</code></pre></div>
+
+<p><strong>润滑剂选择指南：</strong></p>
+<ul>
+<li>低速重载：NLGI 2号锂基脂</li>
+<li>高速轻载：低粘度润滑油（VG32）</li>
+<li>极端温度：合成润滑剂</li>
+<li>食品级：FDA认证白油</li>
+</ul>
+<p><strong>防护等级要求：</strong></p>
+<ul>
+<li>IP54：一般室内环境</li>
+<li>IP65：有切削液飞溅</li>
+<li>IP67：大量冷却液冲洗</li>
+<li>IP69K：高压清洗环境</li>
+</ul>
+<p><strong>防护罩设计：</strong></p>
+<div class="codehilite"><pre><span></span><code>     风琴罩              钢带罩            卷帘罩
+    ╱╲╱╲╱╲           ═══════          ┌──────┐
+   适合低速短行程      适合高速长行程     适合垂直运动
+</code></pre></div>
+
+<p><strong>日常维护要点：</strong></p>
+<ol>
+<li><strong>润滑周期</strong>：根据使用强度，100-500小时</li>
+<li><strong>清洁频率</strong>：每班次清理切屑和污物</li>
+<li><strong>间隙检查</strong>：每月检测反向间隙</li>
+<li><strong>预紧力检查</strong>：每季度测量预紧扭矩</li>
+<li><strong>精度检验</strong>：每年进行精度检测</li>
+</ol>
+<h2 id="64">6.4 传动比计算</h2>
+<p>传动比设计是机械系统的核心参数，直接影响系统的速度、扭矩、精度和动态响应。合理的传动比配置可以优化电机选型、提高系统效率、改善控制性能。本节将详细介绍传动比的计算方法、优化原则和实际应用技巧。</p>
+<h3 id="641">6.4.1 单级传动比设计</h3>
+<p>单级传动结构简单、效率高，但传动比范围有限，通常用于传动比小于10的场合。</p>
+<p><strong>传动比定义：</strong>
+$$i = \frac{n_{input}}{n_{output}} = \frac{\omega_{input}}{\omega_{output}} = \frac{z_{driven}}{z_{driver}}$$
+<strong>各类传动的合理传动比范围：</strong></p>
+<div class="codehilite"><pre><span></span><code>传动类型        单级传动比范围   最佳范围    效率(%)
+圆柱齿轮        1-8             3-5         95-98
+锥齿轮          1-5             2-3         94-97
+蜗轮蜗杆        5-80            15-40       40-90
+同步带          1-10            2-5         96-98
+V带             1-7             2-4         92-96
+链传动          1-8             2-5         96-98
+摩擦轮          1-7             2-4         85-95
+</code></pre></div>
+
+<p><strong>传动比选择原则：</strong></p>
+<ol>
+<li>
+<p><strong>速度匹配原则</strong>
+$$i = \frac{n_{motor} \times \eta_{duty}}{n_{load}}$$
+其中η_duty为负载率，通常取0.7-0.9</p>
+</li>
+<li>
+<p><strong>扭矩匹配原则</strong>
+$$i = \frac{T_{load}}{T_{motor} \times \eta}$$
+需考虑加速扭矩和摩擦损失</p>
+</li>
+<li>
+<p><strong>分辨率原则</strong>（步进/伺服系统）
+$$i = \frac{分辨率要求}{电机步距角} \times 安全系数$$
+<strong>标准传动比优先选择：</strong></p>
+</li>
+</ol>
+<ul>
+<li>优先1级：1, 1.25, 1.6, 2, 2.5, 3.15, 4, 5, 6.3, 8, 10</li>
+<li>优先2级：1.12, 1.4, 1.8, 2.24, 2.8, 3.55, 4.5, 5.6, 7.1, 9</li>
+</ul>
+<p><strong>圆整传动比的影响：</strong></p>
+<div class="codehilite"><pre><span></span><code>实际传动比偏差 = (i_actual - i_theoretical) / i_theoretical × 100%
+
+允许偏差范围：
+
+<span class="k">-</span> 一般传动：±3%
+<span class="k">-</span> 进给传动：±1%
+<span class="k">-</span> 分度传动：±0.1%
+<span class="k">-</span> 同步传动：0%（必须精确）
+</code></pre></div>
+
+<h3 id="642">6.4.2 多级传动优化</h3>
+<p>多级传动可实现大传动比，但需要合理分配各级传动比以优化整体性能。</p>
+<p><strong>多级传动比分配原则：</strong></p>
+<ol>
+<li>
+<p><strong>等强度原则</strong>（齿轮传动）
+   各级齿轮弯曲强度相等，通常：
+$$i_1 : i_2 : i_3 = 1 : 0.7 : 0.5$$</p>
+</li>
+<li>
+<p><strong>最小惯量原则</strong>（伺服系统）
+$$i_1 = \sqrt[n]{i_{total}}$$
+各级传动比相等，使折算到电机轴的惯量最小</p>
+</li>
+<li>
+<p><strong>最小体积原则</strong>
+$$i_1 &gt; i_2 &gt; i_3$$
+前密后疏，高速级传动比大</p>
+</li>
+<li>
+<p><strong>最高效率原则</strong>
+   将效率高的传动放在高速级，减少功率损失</p>
+</li>
+</ol>
+<p><strong>两级传动比分配：</strong>
+$$i_1 = \sqrt{i_{total} \times K}$$
+$$i_2 = i_{total} / i_1$$
+其中K为分配系数：</p>
+<ul>
+<li>齿轮传动：K = 1.3-1.5</li>
+<li>带传动：K = 1.2-1.3</li>
+<li>链传动：K = 1.1-1.2</li>
+</ul>
+<p><strong>三级传动优化实例：</strong></p>
+<div class="codehilite"><pre><span></span><code>总传动比 i = 100
+方案一（等比）：i₁=4.64, i₂=4.64, i₃=4.64
+方案二（前密）：i₁=6.3, i₂=4, i₃=4
+方案三（优化）：i₁=5, i₂=5, i₃=4
+
+评价指标：
+
+- 传动效率：方案三最高（0.95³=0.857）
+- 结构紧凑：方案二最优
+- 制造成本：方案三最低（标准传动比）
+</code></pre></div>
+
+<p><strong>级数选择原则：</strong></p>
+<div class="codehilite"><pre><span></span><code>传动比范围    推荐级数    典型结构
+i &lt; 8         单级        直接传动
+8 &lt; i &lt; 40    两级        电机→减速器→负载
+40 &lt; i &lt; 200  三级        电机→变速箱→减速器→负载
+i &gt; 200       四级或复合   多级齿轮箱或齿轮+蜗杆
+</code></pre></div>
+
+<h3 id="643">6.4.3 速度与扭矩关系</h3>
+<p>传动系统中速度与扭矩呈反比关系，理解这一关系对系统设计至关重要。</p>
+<p><strong>基本关系式：</strong>
+$$P = T \times \omega = T \times \frac{2\pi n}{60} = \frac{T \times n}{9.55}$$</p>
+<p>$$T_2 = T_1 \times i \times \eta$$</p>
+<p>$$n_2 = \frac{n_1}{i}$$
+其中：</p>
+<ul>
+<li>P：功率（W）</li>
+<li>T：扭矩（N·m）</li>
+<li>n：转速（rpm）</li>
+<li>η：传动效率</li>
+</ul>
+<p><strong>速度-扭矩特性曲线：</strong></p>
+<div class="codehilite"><pre><span></span><code>扭矩T ↑
+      │     恒扭矩区      恒功率区
+      │    ╱────────╲
+      │   ╱          ╲
+      │  ╱            ╲___
+      │ ╱                  ───___
+      │╱                         ───
+      └────────────────────────────→ 速度n
+       0   基速n_b   最高速n_max
+</code></pre></div>
+
+<p><strong>不同电机的调速特性：</strong></p>
+<ol>
+<li>
+<p><strong>直流电机</strong>
+   - 基速以下：恒扭矩调速（调电压）
+   - 基速以上：恒功率调速（弱磁）</p>
+</li>
+<li>
+<p><strong>交流异步电机</strong>
+   - 变频调速：0-50Hz恒扭矩，50Hz以上恒功率
+   - 极数变换：阶梯式调速</p>
+</li>
+<li>
+<p><strong>伺服电机</strong>
+   - 额定转速以下：恒扭矩输出
+   - 额定转速以上：功率受限</p>
+</li>
+<li>
+<p><strong>步进电机</strong>
+   - 低速大扭矩，高速扭矩急剧下降
+   - 存在共振区，需避开</p>
+</li>
+</ol>
+<p><strong>减速增扭计算实例：</strong></p>
+<div class="codehilite"><pre><span></span><code>电机参数：额定扭矩1N·m，额定转速3000rpm
+负载需求：100N·m，30rpm
+
+所需传动比：i = 3000/30 = 100
+输出扭矩：T_out = 1 × 100 × 0.9 = 90N·m（不足）
+需要更大电机：T_motor = 100/(100×0.9) = 1.11N·m
+</code></pre></div>
+
+<p><strong>加速扭矩计算：</strong>
+$$T_{acc} = T_{load} + J_{total} \times \alpha$$</p>
+<p>$$J_{total} = J_{motor} + \frac{J_{load}}{i^2}$$
+其中：</p>
+<ul>
+<li>J：转动惯量（kg·m²）</li>
+<li>α：角加速度（rad/s²）</li>
+</ul>
+<h3 id="644">6.4.4 惯量匹配原则</h3>
+<p>惯量匹配是伺服系统设计的关键，直接影响系统的动态响应和稳定性。</p>
+<p><strong>惯量比定义：</strong>
+$$\lambda = \frac{J_{load}}{J_{motor}} = \frac{J_L/i^2}{J_m}$$
+<strong>推荐惯量比范围：</strong></p>
+<div class="codehilite"><pre><span></span><code>应用类型          推荐惯量比λ    说明
+高精度定位        1-3           响应快，控制精度高
+一般定位          3-10          平衡性能与成本
+进给传动          5-15          允许较大惯量比
+快速响应          &lt;5            加减速频繁的场合
+重载起动          10-30         起动扭矩大的场合
+</code></pre></div>
+
+<p><strong>惯量计算公式集：</strong></p>
+<ol>
+<li>
+<p><strong>圆柱体（实心轴）</strong>
+$$J = \frac{1}{2}mr^2 = \frac{\pi \rho L r^4}{2}$$</p>
+</li>
+<li>
+<p><strong>空心圆柱</strong>
+$$J = \frac{1}{2}m(r_o^2 + r_i^2)$$</p>
+</li>
+<li>
+<p><strong>长方体（绕中心轴）</strong>
+$$J = \frac{1}{12}m(a^2 + b^2)$$</p>
+</li>
+<li>
+<p><strong>丝杠折算</strong>
+$$J_{screw} = \frac{1}{2}m_{screw}r^2 + m_{load}\left(\frac{P_h}{2\pi}\right)^2$$</p>
+</li>
+<li>
+<p><strong>齿轮折算</strong>
+$$J_{eq} = J_1 + \frac{J_2}{i_{12}^2} + \frac{J_3}{i_{13}^2}$$
+<strong>传动比对惯量匹配的影响：</strong></p>
+</li>
+</ol>
+<p>折算惯量与传动比的关系：
+$$J_{reflected} = \frac{J_{load}}{i^2}$$
+存在最优传动比使惯量比最佳：
+$$i_{opt} = \sqrt{\frac{J_{load}}{J_{motor} \times \lambda_{target}}}$$
+<strong>惯量匹配优化策略：</strong></p>
+<ol>
+<li>
+<p><strong>增加传动比</strong>
+   - 效果：降低折算惯量（按i²）
+   - 代价：降低最高速度，增加传动环节</p>
+</li>
+<li>
+<p><strong>选用大惯量电机</strong>
+   - 效果：直接改善惯量比
+   - 代价：成本增加，效率降低</p>
+</li>
+<li>
+<p><strong>增加飞轮</strong>
+   - 效果：增加系统惯量，稳定运行
+   - 代价：降低加速性能</p>
+</li>
+<li>
+<p><strong>优化机械结构</strong>
+   - 减轻运动部件质量
+   - 采用空心轴、铝合金等轻质材料
+   - 合理布置质量分布</p>
+</li>
+</ol>
+<p><strong>动态性能评估：</strong></p>
+<p>系统自然频率：
+$$f_n = \frac{1}{2\pi}\sqrt{\frac{K_{total}}{J_{total}}}$$
+阶跃响应时间：
+$$t_s \approx 3\sqrt{\frac{J_{total}}{K_{servo}}}$$
+最大加速度：
+$$a_{max} = \frac{T_{max} - T_{friction}}{J_{total}}$$
+<strong>实际案例：XY平台惯量匹配</strong></p>
+<div class="codehilite"><pre><span></span><code>负载质量：10kg
+丝杠导程：10mm
+移动速度：500mm/s
+加速时间：0.1s
+
+计算过程：
+
+1. 负载惯量：J_L = 10×(10/2π)² = 2.53×10⁻³ kg·m²
+2. 目标惯量比：λ = 5
+3. 所需电机惯量：J_m = 2.53×10⁻³/5 = 5×10⁻⁴ kg·m²
+4. 加速扭矩：T = J×α = 5×10⁻⁴×314 = 0.16 N·m
+5. 选择电机：额定扭矩&gt;0.3N·m（留2倍余量）
+</code></pre></div>
+
+<h2 id="65">6.5 回程间隙消除方法</h2>
+<p>回程间隙（Backlash）是机械传动系统中不可避免的现象，由于制造公差、装配间隙和磨损等因素造成。虽然适当的间隙有利于润滑和热膨胀补偿，但在精密定位系统中，回程间隙会导致定位误差、振动和控制不稳定。本节介绍各种消除或补偿回程间隙的实用方法。</p>
+<h3 id="651">6.5.1 齿轮间隙补偿</h3>
+<p>齿轮传动的间隙主要来源于齿侧间隙和中心距偏差，典型值为0.05-0.3mm。消除齿轮间隙可以提高传动精度和响应速度。</p>
+<p><strong>齿轮间隙的来源：</strong></p>
+<ul>
+<li>制造公差：齿厚公差通常为-0.05~-0.15mm</li>
+<li>中心距误差：±0.02mm的中心距误差产生0.04mm间隙</li>
+<li>温度变化：温差20°C产生0.05mm膨胀差</li>
+<li>齿面磨损：使用后齿厚减小0.01-0.1mm</li>
+<li>轴承游隙：径向游隙折算到齿面</li>
+</ul>
+<p><strong>机械消隙方法：</strong></p>
+<ol>
+<li><strong>双片齿轮（剪刀齿轮）</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><code>结构示意：
+     主齿轮  副齿轮  弹簧
+       \    /    /
+        ●══●═══○  
+       / \  \ 
+   配对齿轮
+</code></pre></div>
+
+<ul>
+<li>原理：两片齿轮通过弹簧错开半个齿距</li>
+<li>优点：完全消除间隙，双向有效</li>
+<li>缺点：增加摩擦，需要2倍驱动力</li>
+<li>应用：仪表、分度机构</li>
+</ul>
+<ol start="2">
+<li>
+<p><strong>锥齿轮轴向调整</strong>
+   - 原理：调整锥齿轮轴向位置改变啮合间隙
+   - 调整量：轴向移动1mm约改变0.1mm侧隙
+   - 方法：垫片调整或螺纹调节
+   - 注意：需同时调整两个锥齿轮</p>
+</li>
+<li>
+<p><strong>偏心轴套调整</strong>
+   - 原理：旋转偏心套改变中心距
+   - 偏心量：0.1-0.3mm
+   - 优点：调整方便，可补偿磨损
+   - 应用：可调中心距的齿轮箱</p>
+</li>
+<li>
+<p><strong>斜齿轮轴向预紧</strong>
+   - 原理：利用斜齿轮的轴向力消除间隙
+   - 方法：弹簧或碟簧轴向加载
+   - 预紧力：F = T×tan(β)/r（β为螺旋角）
+   - 效果：可消除80%以上间隙</p>
+</li>
+</ol>
+<p><strong>齿轮间隙测量方法：</strong></p>
+<div class="codehilite"><pre><span></span><code>测量方法        精度(μm)   操作难度   适用场合
+百分表法        1-5        简单       装配检测
+塞尺法          10-50      简单       现场快检
+压铅丝法        5-20       中等       批量检测
+双百分表法      1-2        复杂       精密测量
+激光测距法      0.1-1      复杂       在线监测
+</code></pre></div>
+
+<p><strong>间隙控制标准：</strong></p>
+<ul>
+<li>精密传动：0.02-0.05mm</li>
+<li>一般传动：0.05-0.15mm  </li>
+<li>重载传动：0.15-0.30mm</li>
+<li>手动传动：0.20-0.50mm</li>
+</ul>
+<h3 id="652">6.5.2 双驱动消隙</h3>
+<p>双驱动消隙通过两个电机施加相反的预紧力矩，使传动系统始终处于单向受力状态，从根本上消除间隙影响。</p>
+<p><strong>双电机消隙原理：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="w">     </span><span class="err">主电机</span><span class="n">M1</span><span class="w"> </span><span class="err">←─┐</span>
+<span class="w">                </span><span class="err">├─→</span><span class="w"> </span><span class="err">齿轮</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="err">负载</span>
+<span class="w">     </span><span class="err">从电机</span><span class="n">M2</span><span class="w"> </span><span class="err">←─┘</span>
+
+<span class="w">     </span><span class="err">扭矩分配：</span>
+<span class="w">     </span><span class="n">T1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T_load</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">T_bias</span>
+<span class="w">     </span><span class="n">T2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">T_bias</span>
+<span class="w">     </span><span class="err">其中</span><span class="n">T_bias为预紧力矩</span><span class="err">（</span><span class="mi">5</span><span class="o">-</span><span class="mi">20</span><span class="o">%</span><span class="err">额定扭矩）</span>
+</code></pre></div>
+
+<p><strong>控制策略：</strong></p>
+<ol>
+<li>
+<p><strong>主从控制模式</strong>
+   - 主电机：位置环+速度环+电流环
+   - 从电机：力矩模式，提供恒定反向力矩
+   - 预紧力矩：额定力矩的10-15%
+   - 优点：控制简单，稳定可靠
+   - 缺点：能耗较高</p>
+</li>
+<li>
+<p><strong>同步控制模式</strong>
+   - 两电机均为位置控制
+   - 位置偏差：0.1-0.5°（机械弹性范围内）
+   - 控制器：主从同步或虚拟主轴
+   - 优点：动态性能好
+   - 缺点：参数调试复杂</p>
+</li>
+<li>
+<p><strong>交叉耦合控制</strong>
+$$u_1 = K_p(θ_r - θ_1) + K_c(θ_2 - θ_1)$$
+   $$u_2 = K_p(θ_r - θ_2) + K_c(θ_1 - θ_2)$$
+其中K_c为耦合增益</p>
+</li>
+</ol>
+<p><strong>双丝杠驱动（龙门结构）：</strong></p>
+<div class="codehilite"><pre><span></span><code>配置方式：
+    Y1 ═══════════ Y2    双边驱动
+       ║         ║
+       ║    X    ║       
+       ║         ║
+
+同步要求：
+
+- 位置同步误差 &lt; 0.02mm
+- 速度同步误差 &lt; 1%
+- 加速度同步误差 &lt; 5%
+</code></pre></div>
+
+<p><strong>实施要点：</strong></p>
+<ol>
+<li>机械对称性：两侧传动刚度相等</li>
+<li>电气匹配：电机参数一致性&gt;95%</li>
+<li>编码器分辨率：≥10000脉冲/转</li>
+<li>控制周期：&lt;1ms（快速响应）</li>
+<li>过载保护：防止结构变形</li>
+</ol>
+<p><strong>双驱动的优缺点：</strong></p>
+<ul>
+<li>优点：完全消除间隙、提高刚度、增加驱动力</li>
+<li>缺点：成本翻倍、控制复杂、能耗增加30%</li>
+<li>适用：高精度机床、大型龙门结构</li>
+</ul>
+<h3 id="653">6.5.3 预紧力调整</h3>
+<p>通过施加适当的预紧力，可以消除传动链中的间隙，提高系统刚度和精度。预紧力需要在消隙效果和寿命损失之间找到平衡。</p>
+<p><strong>滚珠丝杠预紧方式：</strong></p>
+<ol>
+<li><strong>双螺母预紧</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><code>垫片式：     ┌─┬─┐
+            │ │ │ 垫片
+════════════╪═╪═╪════════
+            └─┴─┘
+
+螺纹式：     ┌─┬─┐
+            │ ↻ │ 调节螺母
+════════════╪═══╪════════
+            └───┘
+</code></pre></div>
+
+<ul>
+<li>预紧力：动载荷的5-10%</li>
+<li>调整方法：垫片厚度或螺纹旋转</li>
+<li>预紧力矩：T = F×P/(2π×η)</li>
+<li>刚度提升：1.5-2倍</li>
+</ul>
+<ol start="2">
+<li>
+<p><strong>过盈配合钢球</strong>
+   - 钢球直径：公称+0.001-0.003mm
+   - 预紧量：额定载荷的2-8%
+   - 特点：预紧力恒定，不可调
+   - 寿命影响：降低20-30%</p>
+</li>
+<li>
+<p><strong>偏心套预紧</strong>
+   - 通过偏心套调整螺母位置
+   - 调整精度：0.001mm
+   - 适用：需要精确调整的场合</p>
+</li>
+</ol>
+<p><strong>轴承预紧配置：</strong></p>
+<div class="codehilite"><pre><span></span><code>配置方式        预紧效果    适用场合
+背对背(DB)      ●→|←●      高刚度、承受倾覆力矩
+面对面(DF)      ●←|→●      温度变化大的场合
+串联(DT)        ●→ →●      单向大载荷
+</code></pre></div>
+
+<p><strong>预紧力设定原则：</strong></p>
+<ul>
+<li>轻预紧（2%C）：高速、低载、长寿命要求</li>
+<li>中预紧（5%C）：一般精度和刚度要求</li>
+<li>重预紧（8%C）：高精度、高刚度、低速</li>
+</ul>
+<p><strong>预紧力检测方法：</strong></p>
+<ol>
+<li>
+<p><strong>力矩法</strong>
+   - 测量启动力矩或运行力矩
+   - 预紧力矩 = 0.5×μ×F×d
+   - 精度：±20%</p>
+</li>
+<li>
+<p><strong>位移法</strong>
+   - 测量施加载荷后的位移
+   - 刚度K = F/δ
+   - 精度：±10%</p>
+</li>
+<li>
+<p><strong>振动法</strong>
+   - 测量系统固有频率
+   - f ∝ √(K/m)
+   - 可在线监测</p>
+</li>
+</ol>
+<p><strong>预紧力的温度补偿：</strong>
+$$F_{actual} = F_{initial} + E×A×α×ΔT$$
+温度补偿措施：</p>
+<ul>
+<li>使用相同材料减少热膨胀差</li>
+<li>采用恒力弹簧自动补偿</li>
+<li>主动温控保持恒定温度</li>
+<li>软件补偿温度漂移</li>
+</ul>
+<h3 id="654">6.5.4 软件补偿策略</h3>
+<p>软件补偿是成本最低的消隙方法，通过控制算法补偿机械间隙，适用于间隙稳定且可测量的系统。</p>
+<p><strong>间隙补偿算法：</strong></p>
+<ol>
+<li><strong>固定补偿法</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 伪代码</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">direction_changed</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">new_direction</span> <span class="o">==</span> <span class="n">FORWARD</span><span class="p">):</span>
+        <span class="n">position</span> <span class="o">+=</span> <span class="n">BACKLASH_VALUE</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">position</span> <span class="o">-=</span> <span class="n">BACKLASH_VALUE</span>
+</code></pre></div>
+
+<ul>
+<li>补偿值：通过测量确定（0.01-0.5mm）</li>
+<li>优点：简单可靠</li>
+<li>缺点：不能适应间隙变化</li>
+</ul>
+<ol start="2">
+<li><strong>速度相关补偿</strong>
+$$Compensation = B_0 + B_1 × v + B_2 × v^2$$</li>
+</ol>
+<ul>
+<li>B₀：静态间隙</li>
+<li>B₁：粘性摩擦系数</li>
+<li>B₂：动态效应系数</li>
+</ul>
+<ol start="3">
+<li>
+<p><strong>自适应补偿</strong>
+   - 在线识别间隙大小
+   - 使用观测器估计间隙状态
+   - 根据历史数据更新补偿值
+   - 适应磨损和温度变化</p>
+</li>
+<li>
+<p><strong>分段线性补偿</strong></p>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>位置区间      补偿值
+0-100mm      0.05mm
+100-200mm    0.06mm
+200-300mm    0.07mm
+300-400mm    0.06mm
+</code></pre></div>
+
+<ul>
+<li>补偿螺距累积误差</li>
+<li>建立误差映射表</li>
+</ul>
+<p><strong>双向逼近定位：</strong></p>
+<div class="codehilite"><pre><span></span><code>目标位置：X_target
+
+正向逼近：
+
+1. 快速移动到 X_target - Offset
+2. 慢速正向移动到 X_target
+
+负向逼近：
+
+1. 快速移动到 X_target + Offset  
+2. 慢速负向移动到 X_target
+
+Offset = 2 × Backlash（确保跨越间隙）
+</code></pre></div>
+
+<p><strong>摩擦补偿模型：</strong></p>
+<ol>
+<li>
+<p><strong>库仑+粘性摩擦</strong>
+$$F_f = F_c × sign(v) + F_v × v$$</p>
+</li>
+<li>
+<p><strong>Stribeck摩擦模型</strong>
+$$F_f = F_c + (F_s - F_c)e^{-(v/v_s)^2} + F_v × v$$</p>
+</li>
+</ol>
+<ul>
+<li>F_s：静摩擦力</li>
+<li>F_c：库仑摩擦力</li>
+<li>v_s：Stribeck速度</li>
+</ul>
+<ol start="3">
+<li><strong>LuGre动态摩擦模型</strong>
+   - 考虑摩擦的动态特性
+   - 包含预滑动区域
+   - 适用于精密控制</li>
+</ol>
+<p><strong>实施注意事项：</strong></p>
+<ol>
+<li>
+<p><strong>测量间隙</strong>
+   - 使用激光干涉仪或编码器
+   - 多点测量取平均值
+   - 定期更新补偿参数</p>
+</li>
+<li>
+<p><strong>避免过补偿</strong>
+   - 补偿值设为实测值的80-90%
+   - 设置补偿上限
+   - 监测异常跳变</p>
+</li>
+<li>
+<p><strong>平滑处理</strong>
+   - S型加减速曲线
+   - 低通滤波器消除突变
+   - 避免补偿引起的振动</p>
+</li>
+<li>
+<p><strong>补偿使能条件</strong>
+   - 速度低于阈值时使能
+   - 定位模式使能，连续运动禁用
+   - 紧急停止时禁用补偿</p>
+</li>
+</ol>
+<p><strong>综合补偿策略选择：</strong></p>
+<div class="codehilite"><pre><span></span><code>精度要求        推荐方法              成本
+±0.1mm         软件固定补偿          低
+±0.05mm        软件自适应+预紧力     中
+±0.01mm        双驱动+软件补偿       高  
+±0.005mm       机械消隙+闭环反馈     很高
+</code></pre></div>
+
+<h2 id="66-3dxy">6.6 案例研究：3D打印机XY平台传动系统设计</h2>
+<h2 id="67">6.7 高级话题：谐波减速器与摆线针轮减速器</h2>
+<h2 id="_1">本章小结</h2>
+<h2 id="_2">练习题</h2>
+<h2 id="_3">常见陷阱与错误</h2>
+<h2 id="_4">最佳实践检查清单</h2>
+            </article>
+            
+            <nav class="page-nav"><a href="chapter5.html" class="nav-link prev">← 第5章：轴承与关节系统</a><a href="chapter7.html" class="nav-link next">第7章：舵机原理与选型 →</a></nav>
+        </main>
+    </div>
+</body>
+</html>

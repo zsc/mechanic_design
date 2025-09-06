@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="./">
+    <title>第4章：螺纹连接与紧固件</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/highlight.css">
+    <script src="assets/script.js" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: false,
+                packages: {'[+]': ['noerrors', 'ams']}
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            loader: {
+                load: ['[tex]/noerrors', '[tex]/ams']
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>目录</h3>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" id="sidebar-search-input" placeholder="搜索..." autocomplete="off">
+            </div>
+            <div id="tree-container">
+                <nav class="tree-nav" role="tree">
+                    <div class="tree-item " >
+                        <a href="index.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">机械设计实践教程</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter1.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第1章：机械设计基础</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter2.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第2章：CAD软件基础操作</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter3.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第3章：机械结构设计原理</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item active" >
+                        <a href="chapter4.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第4章：螺纹连接与紧固件</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter5.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第5章：轴承与关节系统</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter6.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第6章：传动系统设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter7.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第7章：舵机原理与选型</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter8.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第8章：3D打印设计指南</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter9.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第9章：铝材加工与应用</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter10.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第10章：LEGO技术积木机械设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter11.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第11章：配重与动平衡</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter12.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第12章：CAN总线与控制系统</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter13.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第13章：润滑与维护保养</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter14.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第14章：簧片与弹性元件</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter15.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第15章：热管理与散热设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter16.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第16章：线束管理与电气集成</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter17.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第17章：机械故障诊断技术</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter18.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第18章：综合设计案例</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="CLAUDE.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">Untitled</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <article>
+                <h1 id="4">第4章：螺纹连接与紧固件</h1>
+<h2 id="_1">章节大纲</h2>
+<ol>
+<li>
+<p><strong>螺纹基础知识</strong>
+   - 螺纹规格与标准（公制/英制）
+   - 螺纹参数：螺距、导程、牙型角
+   - 粗牙与细牙的选择</p>
+</li>
+<li>
+<p><strong>拧紧力矩与预紧力</strong>
+   - 拧紧力矩计算公式
+   - 摩擦系数的影响
+   - 力矩扳手的使用</p>
+</li>
+<li>
+<p><strong>防松措施</strong>
+   - 机械防松方法
+   - 化学防松（螺纹胶）
+   - 特殊防松紧固件</p>
+</li>
+<li>
+<p><strong>垫片与辅助元件</strong>
+   - 平垫、弹垫、锁紧垫片
+   - 垫片材料选择
+   - 安装顺序与技巧</p>
+</li>
+<li>
+<p><strong>案例研究：高振动环境下的螺栓连接设计</strong></p>
+</li>
+<li>
+<p><strong>高级话题：螺栓组连接的载荷分配与失效分析</strong></p>
+</li>
+<li>
+<p><strong>本章小结</strong></p>
+</li>
+<li>
+<p><strong>练习题</strong></p>
+</li>
+<li>
+<p><strong>常见陷阱与错误</strong></p>
+</li>
+<li>
+<p><strong>最佳实践检查清单</strong></p>
+</li>
+</ol>
+<hr />
+<h2 id="_2">开篇段落</h2>
+<p>螺纹连接是机械设计中最基础也是最重要的连接方式之一。据统计，一架波音747飞机上有超过300万个紧固件，一辆汽车包含约3000个螺栓螺母。本章将深入探讨螺纹连接的原理、设计要点和实践技巧。我们将学习如何正确选择紧固件规格、计算拧紧力矩、实施有效的防松措施，以及在不同工况下优化螺栓连接设计。</p>
+<p>对于程序员和AI科学家来说，理解螺纹连接就像理解代码中的接口设计——看似简单，但细节决定成败。一个松动的螺栓可能导致整个系统崩溃，正如一个错误的API调用可能让整个程序崩溃。螺纹连接的标准化程度极高，这种标准化思想与软件工程中的设计模式异曲同工。</p>
+<p>学习目标：</p>
+<ol>
+<li>掌握螺纹标准体系，能够正确识别和选择螺纹规格</li>
+<li>理解预紧力与拧紧力矩的关系，能够准确计算和控制</li>
+<li>熟悉各种防松措施的原理和适用场景</li>
+<li>能够分析螺栓连接的失效模式并提出改进方案</li>
+</ol>
+<h2 id="_3">螺纹基础知识</h2>
+<h3 id="_4">螺纹规格与标准</h3>
+<p>螺纹连接的第一步是选择正确的规格。全球主要使用两大标准体系，这种二元体系的存在类似于编程中的大端序与小端序，是历史发展的产物。理解这两个体系的差异，就像掌握不同编程语言的语法——虽然本质相同，但细节决定成败。</p>
+<p><strong>公制螺纹（ISO标准）</strong></p>
+<ul>
+<li>标记方式：M + 公称直径 × 螺距</li>
+<li>例如：M8×1.25 表示公称直径8mm，螺距1.25mm</li>
+<li>粗牙螺纹省略螺距标记：M8 默认螺距为1.25mm</li>
+<li>覆盖区域：欧洲、亚洲、大部分发展中国家</li>
+<li>ISO标准族：ISO 68（基本牙型）、ISO 261（尺寸）、ISO 965（公差）</li>
+<li>材料标准：DIN（德国）、JIS（日本）、GB（中国）基本兼容</li>
+</ul>
+<p><strong>常用公制粗牙螺纹默认螺距表：</strong>
+| 规格 | M3 | M4 | M5 | M6 | M8 | M10 | M12 | M16 | M20 |</p>
+<table>
+<thead>
+<tr>
+<th>规格</th>
+<th>M3</th>
+<th>M4</th>
+<th>M5</th>
+<th>M6</th>
+<th>M8</th>
+<th>M10</th>
+<th>M12</th>
+<th>M16</th>
+<th>M20</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>螺距(mm)</td>
+<td>0.5</td>
+<td>0.7</td>
+<td>0.8</td>
+<td>1.0</td>
+<td>1.25</td>
+<td>1.5</td>
+<td>1.75</td>
+<td>2.0</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>底孔直径(mm)</td>
+<td>2.5</td>
+<td>3.3</td>
+<td>4.2</td>
+<td>5.0</td>
+<td>6.8</td>
+<td>8.5</td>
+<td>10.2</td>
+<td>14.0</td>
+<td>17.5</td>
+</tr>
+<tr>
+<td>六角头对边(mm)</td>
+<td>5.5</td>
+<td>7</td>
+<td>8</td>
+<td>10</td>
+<td>13</td>
+<td>16</td>
+<td>18</td>
+<td>24</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<p><strong>英制螺纹（UNC/UNF标准）</strong></p>
+<ul>
+<li>UNC（Unified National Coarse）：粗牙</li>
+<li>UNF（Unified National Fine）：细牙</li>
+<li>标记方式：直径-每英寸牙数</li>
+<li>例如：1/4-20 表示直径1/4英寸，每英寸20牙</li>
+<li>覆盖区域：美国、加拿大、部分航空航天领域</li>
+<li>相关标准：ASME B1.1（统一英制螺纹）</li>
+<li>特点：小于1/4"用编号表示（#0到#12）</li>
+</ul>
+<p><strong>英制螺纹快速转换：</strong>
+| UNC规格 | 直径(inch) | 直径(mm) | TPI | 螺距(mm) | 近似公制 |</p>
+<table>
+<thead>
+<tr>
+<th>UNC规格</th>
+<th>直径(inch)</th>
+<th>直径(mm)</th>
+<th>TPI</th>
+<th>螺距(mm)</th>
+<th>近似公制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#4-40</td>
+<td>0.112</td>
+<td>2.84</td>
+<td>40</td>
+<td>0.635</td>
+<td>≈M3</td>
+</tr>
+<tr>
+<td>#6-32</td>
+<td>0.138</td>
+<td>3.51</td>
+<td>32</td>
+<td>0.794</td>
+<td>≈M3.5</td>
+</tr>
+<tr>
+<td>#8-32</td>
+<td>0.164</td>
+<td>4.17</td>
+<td>32</td>
+<td>0.794</td>
+<td>≈M4</td>
+</tr>
+<tr>
+<td>1/4-20</td>
+<td>0.250</td>
+<td>6.35</td>
+<td>20</td>
+<td>1.270</td>
+<td>≈M6</td>
+</tr>
+<tr>
+<td>5/16-18</td>
+<td>0.313</td>
+<td>7.94</td>
+<td>18</td>
+<td>1.411</td>
+<td>≈M8</td>
+</tr>
+<tr>
+<td>3/8-16</td>
+<td>0.375</td>
+<td>9.53</td>
+<td>16</td>
+<td>1.588</td>
+<td>≈M10</td>
+</tr>
+</tbody>
+</table>
+<p><strong>特殊标准补充：</strong></p>
+<ul>
+<li><strong>管螺纹</strong>：</li>
+<li>NPT（美制锥管螺纹）：锥度1:16，自密封</li>
+<li>BSPT（英制锥管螺纹）：55°牙型角</li>
+<li>G螺纹（英制直管螺纹）：需配合密封件</li>
+<li>注意：NPT与G螺纹绝不兼容！</li>
+<li><strong>梯形螺纹</strong>：用于传动，如丝杠（Tr标记）</li>
+<li>标准：Tr16×4 表示直径16mm，导程4mm</li>
+<li>效率：30-40%（普通螺纹仅15-25%）</li>
+<li><strong>自攻螺纹</strong>：ST系列，用于薄板连接</li>
+<li>Type A：尖头，用于薄金属板</li>
+<li>Type B：钝头，用于厚板</li>
+<li>Type AB：通用型</li>
+</ul>
+<p><strong>标准选择决策树：</strong></p>
+<div class="codehilite"><pre><span></span><code>项目位置？
+├─ 亚洲/欧洲 → 公制ISO
+├─ 北美 → 英制UNC/UNF
+└─ 国际项目
+    ├─ 航空航天 → 英制（传统）
+    ├─ 汽车 → 看主机厂（日系=公制，美系=英制）
+    └─ 通用机械 → 公制（供应链优势）
+</code></pre></div>
+
+<p><strong>选择原则：</strong></p>
+<ol>
+<li>优先选择所在地区的主流标准（减少采购成本）</li>
+<li>考虑供应链的便利性（标准件库存）</li>
+<li>航空航天领域偏好英制（历史原因，NASA/Boeing影响）</li>
+<li>汽车工业混用（日系偏公制，美系偏英制）</li>
+<li>维修便利性（统一工具规格）</li>
+<li>成本考虑：公制标准件通常更便宜（全球产量大）</li>
+</ol>
+<h3 id="_5">螺纹参数详解</h3>
+<p>理解螺纹的几何参数就像理解数据结构——每个参数都有其存在的意义和相互关系。螺纹本质上是一个螺旋面，将旋转运动转换为直线运动，这种转换的效率和可靠性取决于这些参数的精确配合。</p>
+<div class="codehilite"><pre><span></span><code>      ┌─── 牙顶（大径d）
+      │   ╱╲
+      │  ╱  ╲     ← 牙型角（公制60°，英制60°）
+      │ ╱    ╲
+      │╱      ╲   ← 牙侧角30°
+     ─┴────────┴─  ← 牙底（小径d₁）
+      │← 螺距P →│
+
+      中径d₂（理论接触直径）
+
+展开的螺旋线：
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+↑                                        ↗
+│                                    ↗ λ（螺旋升角）
+│L（导程）                        ↗
+│                              ↗
+↓                          ↗
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+←────────── πd₂（中径周长）──────────→
+</code></pre></div>
+
+<p><strong>三个关键直径：</strong></p>
+<ol>
+<li>
+<p><strong>大径（公称直径d）</strong>：螺纹的最大直径，即牙顶直径
+   - 决定螺栓的标称规格
+   - 用于计算拧紧力矩
+   - 公差等级：6g（外螺纹）、6H（内螺纹）</p>
+</li>
+<li>
+<p><strong>中径（d₂）</strong>：牙厚等于牙间宽度处的直径，是螺纹配合的理论直径
+   - 螺纹强度计算的基准
+   - 决定配合质量的关键参数
+   - 公差控制最严格的尺寸</p>
+</li>
+<li>
+<p><strong>小径（d₁）</strong>：螺纹的最小直径，即牙底直径
+   - 决定螺栓的最小截面积
+   - 应力集中的危险位置
+   - 疲劳破坏的起始点</p>
+</li>
+</ol>
+<p><strong>几何关系（ISO公制螺纹）：</strong></p>
+<ul>
+<li>小径：$d_1 = d - 1.2269P$（外螺纹）</li>
+<li>中径：$d_2 = d - 0.6495P$</li>
+<li>牙高：$h = 0.6134P$</li>
+<li>应力截面积：$A_s = \frac{\pi}{4}\left(\frac{d_2 + d_3}{2}\right)^2$
+  其中$d_3 = d - 1.2269P$（应力计算用小径）</li>
+</ul>
+<p><strong>实用计算示例（M10螺栓）：</strong></p>
+<div class="codehilite"><pre><span></span><code>公称直径 d = 10mm
+螺距 P = 1.5mm（粗牙）
+
+小径：d₁ = 10 - 1.2269×1.5 = 8.16mm
+中径：d₂ = 10 - 0.6495×1.5 = 9.03mm
+牙高：h = 0.6134×1.5 = 0.92mm
+应力截面积：As = 58mm²
+
+→ 这就是为什么M10螺栓的有效承载面积只有58mm²，
+  而不是78.5mm²（按公称直径计算）
+</code></pre></div>
+
+<p><strong>关键参数深度解析：</strong></p>
+<p><strong>螺距（Pitch, P）</strong>：相邻两牙对应点的轴向距离</p>
+<ul>
+<li>决定因素：材料强度、装配速度、自锁要求</li>
+<li>影响：螺纹强度、装配时间、防松性能</li>
+<li>测量方法：螺距规、光学投影仪</li>
+</ul>
+<p><strong>导程（Lead, L）</strong>：螺纹旋转一圈的轴向移动距离</p>
+<ul>
+<li>单线螺纹：L = P（最常见，自锁性好）</li>
+<li>优点：制造简单、自锁可靠</li>
+<li>应用：99%的紧固螺纹</li>
+<li>双线螺纹：L = 2P（快速移动）</li>
+<li>优点：装配速度快一倍</li>
+<li>缺点：自锁性差、制造复杂</li>
+<li>应用：灯泡螺口、某些快速接头</li>
+<li>多线螺纹：L = n × P（n为线数）</li>
+<li>应用：丝杠、千斤顶、阀门手轮</li>
+<li>典型：三线、四线（平衡速度与强度）</li>
+</ul>
+<p><strong>牙型角（Thread Angle）</strong>：螺纹牙型的夹角</p>
+<ul>
+<li>标准三角螺纹：60°（ISO、UN标准）</li>
+<li>自锁性：良好（摩擦角约14.5°）</li>
+<li>强度：中等</li>
+<li>效率：15-25%</li>
+<li>惠氏螺纹：55°（英国标准BSW）</li>
+<li>特点：牙根圆角大，抗疲劳好</li>
+<li>现状：逐渐被ISO标准取代</li>
+<li>梯形螺纹：30°（传动用）</li>
+<li>标记：Tr（如Tr16×4）</li>
+<li>效率：30-40%</li>
+<li>应用：丝杠、升降机</li>
+<li>锯齿形螺纹：33°/3°（单向承载）</li>
+<li>特点：一面陡一面缓</li>
+<li>应用：压力机、千斤顶</li>
+<li>ACME螺纹：29°（美国梯形）</li>
+<li>与公制梯形螺纹略有差异</li>
+</ul>
+<p><strong>螺旋升角（Helix Angle, λ）</strong>：
+$$\tan \lambda = \frac{L}{\pi d_2}$$
+自锁条件分析：</p>
+<ul>
+<li>自锁条件：$\lambda &lt; \rho$（ρ为当量摩擦角）</li>
+<li>当量摩擦角：$\rho = \arctan(\mu/\cos\alpha)$</li>
+<li>μ：摩擦系数（0.1-0.2）</li>
+<li>α：牙侧角（30°对于60°牙型）</li>
+<li>典型值：</li>
+<li>紧固螺纹：λ = 2-4°（强自锁）</li>
+<li>传动螺纹：λ = 5-15°（效率优先）</li>
+<li>临界角度：λ ≈ 6°（平衡点）</li>
+</ul>
+<p><strong>效率计算：</strong>
+$$\eta = \frac{\tan\lambda}{\tan(\lambda + \rho)}$$
+示例计算（M10×1.5）：</p>
+<ul>
+<li>螺旋升角：λ = arctan(1.5/(π×9.03)) = 3.03°</li>
+<li>摩擦角：ρ = arctan(0.15/cos30°) = 9.9°</li>
+<li>效率：η = tan(3.03°)/tan(12.93°) = 23%</li>
+<li>结论：77%的能量被摩擦消耗！</li>
+</ul>
+<p><strong>公差与配合等级：</strong></p>
+<div class="codehilite"><pre><span></span><code>外螺纹公差：4h, 6h, 6g（常用）, 8g
+内螺纹公差：5H, 6H（常用）, 7H
+
+配合推荐：
+精密配合：5H/4h
+一般配合：6H/6g（最常用）
+粗糙配合：7H/8g
+
+字母含义：
+大写 = 内螺纹
+小写 = 外螺纹
+H/h = 基本偏差为0
+g = 负偏差（间隙配合）
+</code></pre></div>
+
+<h3 id="_6">粗牙与细牙的选择原则</h3>
+<p>螺纹的粗细选择是设计中的重要决策，类似于选择数据结构——没有绝对的好坏，只有适合与否。</p>
+<p><strong>粗牙螺纹优势：</strong></p>
+<ul>
+<li><strong>装配速度快</strong>：螺距大，相同圈数移动距离更长</li>
+<li>M10粗牙（P=1.5）转10圈移动15mm</li>
+<li>M10细牙（P=1.0）转10圈仅移动10mm</li>
+<li><strong>自锁性能好</strong>：螺旋升角小，摩擦力矩大</li>
+<li><strong>抗疲劳性能优异</strong>：牙根圆角大，应力集中小</li>
+<li><strong>适合频繁拆装</strong>：牙型强壮，不易损坏</li>
+<li><strong>攻丝容易</strong>：切削量少，丝锥寿命长</li>
+<li><strong>标准件易得</strong>：库存充足，成本低</li>
+</ul>
+<p><strong>细牙螺纹优势：</strong></p>
+<ul>
+<li><strong>承载能力强</strong>：</li>
+<li>相同长度内牙数多，载荷分配均匀</li>
+<li>M10×1.0细牙比M10×1.5粗牙多50%接触面积</li>
+<li><strong>防松性能好</strong>：</li>
+<li>螺旋升角更小（λ细 &lt; λ粗）</li>
+<li>相同松动角度下，轴向位移小</li>
+<li><strong>精密调节</strong>：单圈移动量小，便于微调</li>
+<li><strong>适合薄壁件连接</strong>：</li>
+<li>牙深浅，对壁厚要求低</li>
+<li>减少材料去除量</li>
+<li><strong>振动环境下稳定性好</strong>：</li>
+<li>预紧力损失率低</li>
+<li>适合航空航天应用</li>
+</ul>
+<p><strong>定量选择准则：</strong></p>
+<ol>
+<li><strong>基于材料厚度：</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><code>t &lt; 0.8D  → 必须用细牙（否则螺纹强度不足）
+0.8D ≤ t &lt; 1.5D → 优先细牙
+1.5D ≤ t &lt; 3D → 优先粗牙
+t ≥ 3D → 粗牙（除非特殊要求）
+
+其中：t = 材料厚度，D = 螺纹公称直径
+</code></pre></div>
+
+<ol start="2">
+<li><strong>基于材料强度：</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><code>铝合金、塑料 → 粗牙（避免螺纹剥离）
+高强度钢 → 可用细牙
+铸铁 → 粗牙（脆性材料）
+</code></pre></div>
+
+<ol start="3">
+<li><strong>基于使用环境：</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><code>振动频率 &gt; 50Hz → 细牙 + 防松
+温度变化 &gt; 100°C → 粗牙（热应力考虑）
+腐蚀环境 → 粗牙（容错性好）
+</code></pre></div>
+
+<p><strong>实际案例对比：</strong>
+| 应用场景 | 推荐选择 | 原因 |</p>
+<table>
+<thead>
+<tr>
+<th>应用场景</th>
+<th>推荐选择</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>发动机缸盖</td>
+<td>细牙</td>
+<td>高预紧力需求，防泄漏</td>
+</tr>
+<tr>
+<td>机箱外壳</td>
+<td>粗牙</td>
+<td>频繁拆装，成本优先</td>
+</tr>
+<tr>
+<td>光学仪器调节</td>
+<td>细牙</td>
+<td>精密定位需求</td>
+</tr>
+<tr>
+<td>振动筛框架</td>
+<td>细牙+防松</td>
+<td>高频振动环境</td>
+</tr>
+<tr>
+<td>3D打印机框架</td>
+<td>粗牙</td>
+<td>通用性，易维护</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">拧紧力矩与预紧力</h2>
+<h3 id="_8">拧紧力矩计算</h3>
+<p>螺栓的拧紧力矩与预紧力的关系是螺栓连接设计的核心。这个关系类似于欧姆定律在电路中的地位——简单但极其重要。</p>
+<p><strong>基本公式：</strong>
+$$T = K \cdot F_0 \cdot d$$
+其中：</p>
+<ul>
+<li>T：拧紧力矩（N·m）</li>
+<li>K：扭矩系数（典型值0.15-0.25）</li>
+<li>F₀：预紧力（N）</li>
+<li>d：螺栓公称直径（m）</li>
+</ul>
+<p><strong>扭矩系数K的详细分析：</strong></p>
+<p>K值实际上包含了螺纹摩擦和端面摩擦两部分：
+$$K = \frac{1}{2d}\left[\frac{P}{\pi} + \mu_t \cdot d_2 \cdot \sec\alpha + \mu_b \cdot d_b\right]$$
+简化工程计算：
+$$K \approx 0.16 + 0.58\mu_t + 0.35\mu_b$$
+其中：</p>
+<ul>
+<li>μ_t：螺纹摩擦系数</li>
+<li>μ_b：支承面摩擦系数</li>
+</ul>
+<p><strong>不同条件下的K值：</strong></p>
+<p>| 表面状态 | 螺纹摩擦系数 | 端面摩擦系数 | K值范围 | 推荐值 |</p>
+<table>
+<thead>
+<tr>
+<th>表面状态</th>
+<th>螺纹摩擦系数</th>
+<th>端面摩擦系数</th>
+<th>K值范围</th>
+<th>推荐值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>干燥无镀层</td>
+<td>0.12-0.18</td>
+<td>0.12-0.18</td>
+<td>0.18-0.23</td>
+<td>0.20</td>
+</tr>
+<tr>
+<td>镀锌（薄）</td>
+<td>0.13-0.19</td>
+<td>0.13-0.19</td>
+<td>0.19-0.24</td>
+<td>0.22</td>
+</tr>
+<tr>
+<td>镀锌（厚）</td>
+<td>0.15-0.22</td>
+<td>0.15-0.22</td>
+<td>0.22-0.28</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>磷化处理</td>
+<td>0.11-0.17</td>
+<td>0.11-0.17</td>
+<td>0.17-0.22</td>
+<td>0.20</td>
+</tr>
+<tr>
+<td>机油润滑</td>
+<td>0.08-0.12</td>
+<td>0.08-0.12</td>
+<td>0.13-0.17</td>
+<td>0.15</td>
+</tr>
+<tr>
+<td>二硫化钼</td>
+<td>0.06-0.10</td>
+<td>0.06-0.10</td>
+<td>0.11-0.15</td>
+<td>0.13</td>
+</tr>
+<tr>
+<td>特氟龙涂层</td>
+<td>0.05-0.08</td>
+<td>0.05-0.08</td>
+<td>0.10-0.13</td>
+<td>0.12</td>
+</tr>
+</tbody>
+</table>
+<p><strong>力矩分配分析：</strong></p>
+<p>拧紧力矩的能量分配（典型值）：</p>
+<ul>
+<li>50% 消耗于螺母/螺栓头下的端面摩擦</li>
+<li>40% 消耗于螺纹副的摩擦</li>
+<li>10% 转化为螺栓的拉伸（有用功）</li>
+</ul>
+<p>这意味着90%的输入能量都被摩擦消耗了！这就是为什么：</p>
+<ol>
+<li>润滑如此重要（可将有用功提升到15-20%）</li>
+<li>力矩控制不如直接测量预紧力准确</li>
+<li>重复使用的螺栓K值会变化</li>
+</ol>
+<p><strong>K值的测定方法：</strong></p>
+<ol>
+<li>
+<p><strong>实验测定法</strong>（最准确）：
+   - 使用测力垫圈或超声波测量实际预紧力
+   - 记录对应的拧紧力矩
+   - 计算：$K = T/(F_0 \cdot d)$</p>
+</li>
+<li>
+<p><strong>查表法</strong>（最常用）：
+   - 使用制造商提供的数据
+   - 考虑具体的表面处理和润滑条件</p>
+</li>
+<li>
+<p><strong>经验估算法</strong>：
+   - 一般装配：K = 0.20
+   - 重要连接：实测或K = 0.18-0.22
+   - 带润滑：K = 0.15</p>
+</li>
+</ol>
+<h3 id="_9">预紧力的确定</h3>
+<p>预紧力的选择是螺栓设计的核心决策，就像选择数据库的事务隔离级别——太低会出问题，太高也会带来副作用。合理的预紧力能确保连接的可靠性，同时避免螺栓过载。</p>
+<p><strong>预紧力设计原则：</strong></p>
+<p>预紧力应在螺栓屈服强度的50%-70%范围内：
+$$F_0 = (0.5 \sim 0.7) \cdot A_s \cdot \sigma_y$$
+其中：</p>
+<ul>
+<li>A_s：螺栓应力截面积（注意不是公称面积）</li>
+<li>σ_y：螺栓材料屈服强度</li>
+</ul>
+<p><strong>为什么是50%-70%？</strong></p>
+<ul>
+<li><strong>下限50%</strong>：留出工作载荷的安全余量</li>
+<li><strong>上限70%</strong>：防止蠕变和应力松弛</li>
+<li><strong>最佳点65%</strong>：平衡可靠性和材料利用率</li>
+</ul>
+<p><strong>螺栓强度等级解读：</strong></p>
+<div class="codehilite"><pre><span></span><code>强度等级标记：X.Y（如8.8、10.9、12.9）
+X = 抗拉强度/100 (MPa)
+Y = 屈服强度/抗拉强度 × 10
+
+示例：8.8级螺栓
+
+- 抗拉强度：8×100 = 800 MPa
+- 屈服强度：800×0.8 = 640 MPa
+- 推荐预紧应力：640×0.65 = 416 MPa
+</code></pre></div>
+
+<p><strong>常用螺栓强度等级对比：</strong>
+| 等级 | 材料 | 屈服强度(MPa) | 抗拉强度(MPa) | 应用场景 |</p>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>材料</th>
+<th>屈服强度(MPa)</th>
+<th>抗拉强度(MPa)</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.8</td>
+<td>低碳钢</td>
+<td>320</td>
+<td>400</td>
+<td>轻载、非关键连接</td>
+</tr>
+<tr>
+<td>5.8</td>
+<td>低碳钢</td>
+<td>400</td>
+<td>500</td>
+<td>一般机械</td>
+</tr>
+<tr>
+<td>8.8</td>
+<td>中碳钢淬火</td>
+<td>640</td>
+<td>800</td>
+<td>标准选择</td>
+</tr>
+<tr>
+<td>10.9</td>
+<td>合金钢淬火</td>
+<td>900</td>
+<td>1000</td>
+<td>高强度要求</td>
+</tr>
+<tr>
+<td>12.9</td>
+<td>合金钢淬火</td>
+<td>1080</td>
+<td>1200</td>
+<td>极限强度应用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>常用螺栓预紧力快速查表：</strong></p>
+<p><strong>8.8级螺栓（最常用）：</strong>
+| 规格 | As(mm²) | 预紧力(kN) | 拧紧力矩(N·m) | 扳手规格 |</p>
+<table>
+<thead>
+<tr>
+<th>规格</th>
+<th>As(mm²)</th>
+<th>预紧力(kN)</th>
+<th>拧紧力矩(N·m)</th>
+<th>扳手规格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M3</td>
+<td>5.03</td>
+<td>2.1</td>
+<td>1.3</td>
+<td>5.5mm</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>8.78</td>
+<td>3.8</td>
+<td>3.0</td>
+<td>7mm</td>
+</tr>
+<tr>
+<td>M5</td>
+<td>14.2</td>
+<td>6.2</td>
+<td>6.0</td>
+<td>8mm</td>
+</tr>
+<tr>
+<td>M6</td>
+<td>20.1</td>
+<td>8.7</td>
+<td>10</td>
+<td>10mm</td>
+</tr>
+<tr>
+<td>M8</td>
+<td>36.6</td>
+<td>16</td>
+<td>25</td>
+<td>13mm</td>
+</tr>
+<tr>
+<td>M10</td>
+<td>58.0</td>
+<td>25</td>
+<td>50</td>
+<td>16/17mm</td>
+</tr>
+<tr>
+<td>M12</td>
+<td>84.3</td>
+<td>37</td>
+<td>85</td>
+<td>18/19mm</td>
+</tr>
+<tr>
+<td>M16</td>
+<td>157</td>
+<td>68</td>
+<td>210</td>
+<td>24mm</td>
+</tr>
+<tr>
+<td>M20</td>
+<td>245</td>
+<td>106</td>
+<td>410</td>
+<td>30mm</td>
+</tr>
+</tbody>
+</table>
+<p><strong>10.9级螺栓（高强度）：</strong>
+| 规格 | 预紧力(kN) | 拧紧力矩(N·m) | 相比8.8级提升 |</p>
+<table>
+<thead>
+<tr>
+<th>规格</th>
+<th>预紧力(kN)</th>
+<th>拧紧力矩(N·m)</th>
+<th>相比8.8级提升</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M6</td>
+<td>12.3</td>
+<td>14</td>
+<td>+41%</td>
+</tr>
+<tr>
+<td>M8</td>
+<td>22.4</td>
+<td>35</td>
+<td>+40%</td>
+</tr>
+<tr>
+<td>M10</td>
+<td>35.5</td>
+<td>70</td>
+<td>+42%</td>
+</tr>
+<tr>
+<td>M12</td>
+<td>51.6</td>
+<td>120</td>
+<td>+39%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>不锈钢螺栓（A2-70）特别注意：</strong></p>
+<ul>
+<li>屈服强度：450 MPa（低于8.8级）</li>
+<li>预紧力降低30-40%</li>
+<li>易发生咬死（需润滑）</li>
+<li>扭矩系数K值更高（0.25-0.30）</li>
+</ul>
+<h3 id="_10">力矩扳手的正确使用</h3>
+<ol>
+<li>
+<p><strong>预置式力矩扳手</strong>
+   - 设定目标力矩值
+   - 听到"咔嗒"声立即停止
+   - 避免反复拧紧</p>
+</li>
+<li>
+<p><strong>数显式力矩扳手</strong>
+   - 实时显示力矩值
+   - 可设置报警阈值
+   - 适合精密装配</p>
+</li>
+<li>
+<p><strong>拧紧顺序原则</strong></p>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>对于圆形法兰：
+
+    1
+   ╱ ╲
+  4   2
+   ╲ ╱
+    3
+
+顺序：1→3→2→4（对角拧紧）
+</code></pre></div>
+
+<h2 id="_11">防松措施</h2>
+<h3 id="_12">机械防松方法</h3>
+<ol>
+<li>
+<p><strong>弹簧垫圈</strong>
+- 原理：利用弹性变形维持预紧力
+- 适用：一般振动环境
+- 注意：高温下会失效</p>
+</li>
+<li>
+<p><strong>锁紧螺母</strong>
+- 双螺母锁紧
+- 尼龙嵌件锁紧螺母
+- 全金属锁紧螺母</p>
+</li>
+<li>
+<p><strong>开口销与城堡螺母</strong></p>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>    ┌─────┐
+    │╱╲╱╲╱│  ← 城堡螺母
+    └─────┘
+      │││
+      ╰┴╯    ← 开口销
+</code></pre></div>
+
+<ol start="4">
+<li><strong>止动垫片</strong>
+- 内齿、外齿止动垫片
+- 双联止动垫片
+- 适用于高可靠性要求场合</li>
+</ol>
+<h3 id="_13">化学防松——螺纹胶应用</h3>
+<p><strong>螺纹胶分类：</strong></p>
+<ol>
+<li>
+<p><strong>低强度（紫色）</strong>
+   - 扭矩：5-10 N·m
+   - 用途：调节螺钉、小螺钉</p>
+</li>
+<li>
+<p><strong>中强度（蓝色）</strong>
+   - 扭矩：15-30 N·m
+   - 用途：可拆卸连接
+   - 最常用型号：Loctite 243</p>
+</li>
+<li>
+<p><strong>高强度（红色）</strong>
+   - 扭矩：40-60 N·m
+   - 用途：永久连接
+   - 型号：Loctite 271</p>
+</li>
+</ol>
+<p><strong>使用技巧：</strong></p>
+<ul>
+<li>清洁螺纹表面（去油）</li>
+<li>涂抹量：覆盖2-3个螺纹</li>
+<li>固化时间：24小时完全固化</li>
+<li>工作温度：-55°C至150°C</li>
+</ul>
+<h3 id="_14">特殊防松紧固件</h3>
+<ol>
+<li>
+<p><strong>施必牢（Spiralock）螺纹</strong>
+- 30°楔形斜面设计
+- 防松效果优于普通螺纹5倍
+- 成本较高，用于关键连接</p>
+</li>
+<li>
+<p><strong>Nordlock垫圈</strong>
+- 楔形凸轮表面
+- 预紧力增大而非减小
+- 可重复使用</p>
+</li>
+<li>
+<p><strong>钢丝螺套（Helicoil）</strong>
+- 修复损坏螺纹孔
+- 提高螺纹强度
+- 改善载荷分布</p>
+</li>
+</ol>
+<h2 id="_15">垫片与辅助元件</h2>
+<h3 id="_16">垫片类型与功能</h3>
+<p><strong>平垫圈功能：</strong></p>
+<ol>
+<li>增大接触面积，分散压力</li>
+<li>保护被连接件表面</li>
+<li>补偿装配间隙</li>
+</ol>
+<p><strong>材料选择原则：</strong></p>
+<ul>
+<li>钢制垫圈：通用选择</li>
+<li>铜垫圈：导电、密封</li>
+<li>尼龙垫圈：绝缘、减振</li>
+<li>橡胶垫圈：密封、缓冲</li>
+</ul>
+<h3 id="_17">垫片组合使用</h3>
+<p>正确的安装顺序（从螺栓头部开始）：</p>
+<ol>
+<li>螺栓头</li>
+<li>平垫圈</li>
+<li>弹簧垫圈</li>
+<li>被连接件</li>
+<li>平垫圈</li>
+<li>螺母</li>
+</ol>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>弹垫不直接接触铝件（会压伤）</li>
+<li>大平垫用于软材料或开孔较大时</li>
+<li>密封场合使用密封垫圈或O型圈</li>
+</ul>
+<h2 id="_18">案例研究：高振动环境下的螺栓连接设计</h2>
+<h3 id="_19">背景</h3>
+<p>某无人机云台系统，工作频率20-2000Hz，加速度峰值10g，需要设计可靠的螺栓连接方案。</p>
+<h3 id="_20">设计方案</h3>
+<ol>
+<li>
+<p><strong>螺栓选择</strong>
+- 规格：M4×0.5细牙螺纹
+- 材料：12.9级高强度螺栓
+- 表面：达克罗处理（防腐蚀）</p>
+</li>
+<li>
+<p><strong>防松措施组合</strong></p>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>┌─────────────┐
+│  螺栓头      │
+├─────────────┤
+│  平垫圈      │
+├─────────────┤
+│ Nordlock垫圈 │
+├─────────────┤
+│  连接件1     │
+├─────────────┤
+│  连接件2     │
+├─────────────┤
+│ Nordlock垫圈 │
+├─────────────┤
+│  锁紧螺母    │
+└─────────────┘
+</code></pre></div>
+
+<ol start="3">
+<li>
+<p><strong>预紧力控制</strong>
+- 目标预紧力：3.5kN（屈服强度的65%）
+- 拧紧力矩：3.5N·m
+- 使用数显力矩扳手
+- 分三步拧紧：30%→70%→100%</p>
+</li>
+<li>
+<p><strong>附加措施</strong>
+- 涂抹Loctite 243中强度螺纹胶
+- 关键位置增加安全保险丝
+- 定期检查（每100飞行小时）</p>
+</li>
+</ol>
+<h3 id="_21">测试验证</h3>
+<p>振动测试结果：</p>
+<ul>
+<li>正弦扫频：20-2000Hz，10g加速度</li>
+<li>随机振动：PSD 0.04g²/Hz</li>
+<li>测试时长：每轴向4小时</li>
+<li>结果：无松动，预紧力保持率&gt;90%</li>
+</ul>
+<h2 id="_22">高级话题：螺栓组连接的载荷分配与失效分析</h2>
+<h3 id="_23">螺栓组载荷分配原理</h3>
+<p>对于承受倾覆力矩的螺栓组：</p>
+<div class="codehilite"><pre><span></span><code>     F↓（外载荷）
+     │
+  ┌──┼──┐
+  │  │  │
+  ●  ●  ●  ← 螺栓组
+  1  2  3
+</code></pre></div>
+
+<p>各螺栓承受的载荷：
+$$F_i = \frac{F}{n} + \frac{M \cdot y_i}{\sum y_i^2}$$
+其中：</p>
+<ul>
+<li>F：总外载荷</li>
+<li>n：螺栓数量</li>
+<li>M：倾覆力矩</li>
+<li>y_i：第i个螺栓到旋转中心的距离</li>
+</ul>
+<h3 id="_24">刚度匹配设计</h3>
+<p>螺栓连接的载荷分配取决于刚度比：
+$$\phi = \frac{K_b}{K_b + K_c}$$
+其中：</p>
+<ul>
+<li>K_b：螺栓刚度</li>
+<li>K_c：被连接件刚度</li>
+<li>φ：载荷系数（典型值0.2-0.3）</li>
+</ul>
+<p><strong>优化策略：</strong></p>
+<ol>
+<li>增大被连接件刚度（增厚法兰）</li>
+<li>减小螺栓刚度（使用长螺栓）</li>
+<li>使用弹性垫圈调节刚度</li>
+</ol>
+<h3 id="_25">失效模式分析</h3>
+<ol>
+<li>
+<p><strong>静强度失效</strong>
+- 原因：预紧力过大或外载荷超限
+- 表现：螺栓拉断或屈服
+- 预防：正确计算安全系数</p>
+</li>
+<li>
+<p><strong>疲劳失效</strong>
+- 原因：交变载荷作用
+- 表现：裂纹从应力集中处起始
+- 预防：
+  - 使用滚压螺纹（提高疲劳强度30%）
+  - 避免应力集中
+  - 控制预紧力范围</p>
+</li>
+<li>
+<p><strong>松动失效</strong>
+- 原因：振动、温度变化
+- 表现：预紧力下降
+- 预防：多重防松措施</p>
+</li>
+<li>
+<p><strong>腐蚀失效</strong>
+- 原因：电化学腐蚀、应力腐蚀
+- 表现：强度下降、卡死
+- 预防：
+  - 选择合适的表面处理
+  - 避免异种金属接触
+  - 使用防腐蚀涂层</p>
+</li>
+</ol>
+<h3 id="_26">有限元分析要点</h3>
+<p>进行螺栓连接FEA分析时的关键设置：</p>
+<ol>
+<li>
+<p><strong>接触设置</strong>
+   - 螺纹接触：绑定约束
+   - 承压面：摩擦接触（μ=0.15）
+   - 被连接件：摩擦或绑定</p>
+</li>
+<li>
+<p><strong>预紧力施加</strong>
+   - Bolt Pretension功能
+   - 或等效温度载荷法</p>
+</li>
+<li>
+<p><strong>网格划分</strong>
+   - 螺纹根部细化（应力集中）
+   - 接触面网格匹配
+   - 六面体单元优先</p>
+</li>
+<li>
+<p><strong>评估指标</strong>
+   - Von Mises应力 &lt; 0.9σ_y
+   - 接触压力分布均匀性
+   - 螺栓轴力变化范围</p>
+</li>
+</ol>
+<h2 id="_27">本章小结</h2>
+<h3 id="_28">核心概念回顾</h3>
+<ol>
+<li>
+<p><strong>螺纹选择三原则</strong>
+   - 标准优先：优先选用标准规格
+   - 粗牙为主：特殊需求才用细牙
+   - 强度匹配：螺栓强度≥被连接件</p>
+</li>
+<li>
+<p><strong>预紧力控制公式</strong>
+$$T = K \cdot F_0 \cdot d$$</p>
+</li>
+</ol>
+<ul>
+<li>记住K值范围：0.15-0.25</li>
+<li>预紧力：屈服强度的50%-70%</li>
+</ul>
+<ol start="3">
+<li>
+<p><strong>防松措施层级</strong>
+   - 基础：正确的预紧力
+   - 机械：弹垫、锁紧螺母
+   - 化学：螺纹胶
+   - 特殊：Nordlock、施必牢</p>
+</li>
+<li>
+<p><strong>失效预防要诀</strong>
+   - 静强度：留足安全系数
+   - 疲劳：避免应力集中
+   - 松动：组合防松措施
+   - 腐蚀：表面处理+材料匹配</p>
+</li>
+</ol>
+<h3 id="_29">实用速查公式</h3>
+<p>| 参数 | 公式 | 典型值 |</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>公式</th>
+<th>典型值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>螺纹小径</td>
+<td>d₁ = d - 1.23P</td>
+<td>-</td>
+</tr>
+<tr>
+<td>应力截面积</td>
+<td>A_s = π/4[(d₂+d₃)/2]²</td>
+<td>-</td>
+</tr>
+<tr>
+<td>拧紧力矩</td>
+<td>T = 0.2F₀d</td>
+<td>K=0.2时</td>
+</tr>
+<tr>
+<td>承载能力</td>
+<td>F_max = 0.7σ_yA_s</td>
+<td>安全系数1.4</td>
+</tr>
+<tr>
+<td>剪切强度</td>
+<td>τ_max = 0.6σ_y</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_30">练习题</h2>
+<h3 id="_31">基础题</h3>
+<p><strong>题目1：螺纹规格识别</strong>
+某设备说明书标注使用"1/4-20 UNC"螺栓，请问：
+a) 这是什么标准的螺纹？
+b) 螺栓直径是多少？
+c) 螺距是多少毫米？</p>
+<p><em>提示：UNC是美制粗牙螺纹，1英寸=25.4mm</em></p>
+<details>
+<summary>查看答案</summary>
+<p>a) 美制（英制）统一粗牙螺纹标准
+b) 直径：1/4英寸 = 6.35mm
+c) 螺距：25.4÷20 = 1.27mm</p>
+</details>
+<p><strong>题目2：拧紧力矩计算</strong>
+M10螺栓，8.8级，需要15kN预紧力，摩擦系数对应K=0.18，计算所需拧紧力矩。</p>
+<p><em>提示：使用公式T = K·F₀·d</em></p>
+<details>
+<summary>查看答案</summary>
+<p>T = K × F₀ × d
+T = 0.18 × 15000N × 0.01m
+T = 27 N·m</p>
+</details>
+<p><strong>题目3：防松方案选择</strong>
+以下场景应选择什么防松措施？
+a) 调试用临时固定螺钉
+b) 发动机缸盖螺栓
+c) 普通设备外壳螺钉</p>
+<p><em>提示：考虑拆卸频率和重要性</em></p>
+<details>
+<summary>查看答案</summary>
+<p>a) 低强度螺纹胶（紫色）或仅靠预紧力
+b) 高强度组合：Nordlock垫圈+中强度螺纹胶
+c) 弹簧垫圈+平垫圈</p>
+</details>
+<h3 id="_32">挑战题</h3>
+<p><strong>题目4：螺栓组设计</strong>
+设计一个承受5kN垂直载荷和200N·m倾覆力矩的法兰连接，法兰直径120mm，请确定：
+a) 最少需要几个螺栓？
+b) 螺栓如何布置？
+c) 选择什么规格？</p>
+<p><em>提示：考虑对称性和载荷分配</em></p>
+<details>
+<summary>查看答案</summary>
+<p>a) 最少4个螺栓（考虑对称性和冗余）
+b) 均匀分布在φ100mm圆周上（留边距）
+c) 计算最大螺栓力：</p>
+<ul>
+<li>静载：F_static = 5000/4 = 1250N</li>
+<li>倾覆产生的最大拉力：F_moment = M×r/Σr² = 200×0.05/(4×0.05²) = 1000N</li>
+<li>总计：F_max = 1250 + 1000 = 2250N</li>
+<li>考虑2倍安全系数和预紧力，选择M8螺栓（承载&gt;10kN）</li>
+</ul>
+</details>
+<p><strong>题目5：疲劳寿命估算</strong>
+M6螺栓连接承受0-1000N的脉动载荷，频率10Hz，螺栓刚度Kb=50kN/mm，连接件刚度Kc=150kN/mm，估算：
+a) 螺栓承受的交变应力幅值
+b) 若材料S-N曲线显示该应力下的疲劳寿命为10⁶次，工作寿命是多少小时？</p>
+<p><em>提示：使用载荷系数φ = Kb/(Kb+Kc)</em></p>
+<details>
+<summary>查看答案</summary>
+<p>a) 载荷系数：φ = 50/(50+150) = 0.25
+   螺栓承受的交变力：F_bolt = φ × 1000 = 250N
+   应力幅值：σ_a = F_bolt/A_s = 250/20 = 12.5 MPa（M6的As≈20mm²）</p>
+<p>b) 工作寿命：
+   总循环次数：10⁶次
+   时间 = 10⁶/(10Hz×3600s/h) = 27.8小时</p>
+</details>
+<p><strong>题目6：优化设计挑战</strong>
+某精密仪器底座使用4个M5螺栓固定，发现振动测试后有松动。在不改变孔位的前提下，提出三种不同的改进方案，并分析优缺点。</p>
+<p><em>提示：从预紧力、防松、刚度等角度思考</em></p>
+<details>
+<summary>查看答案</summary>
+<p>方案1：化学防松强化</p>
+<ul>
+<li>措施：使用Loctite 243中强度螺纹胶</li>
+<li>优点：简单、成本低、可拆卸</li>
+<li>缺点：需要清洁、固化时间</li>
+</ul>
+<p>方案2：机械防松升级</p>
+<ul>
+<li>措施：更换为带尼龙圈的锁紧螺母+Nordlock垫圈</li>
+<li>优点：可靠性高、可重复使用</li>
+<li>缺点：成本增加、安装空间需求</li>
+</ul>
+<p>方案3：预紧力优化</p>
+<ul>
+<li>措施：使用力矩扳手精确控制+改为M5×0.5细牙螺纹</li>
+<li>优点：提高防松性能、不增加额外零件</li>
+<li>缺点：需要重新攻丝、需要专业工具</li>
+</ul>
+<p>最佳方案：组合方案2+方案1的螺纹胶，实现双重保险</p>
+</details>
+<h2 id="gotchas">常见陷阱与错误（Gotchas）</h2>
+<h3 id="1">1. 过度拧紧陷阱</h3>
+<p><strong>错误</strong>：认为"越紧越好"
+<strong>后果</strong>：螺栓屈服、螺纹损坏、被连接件变形
+<strong>正解</strong>：严格按照推荐力矩，宁可略松不可过紧</p>
+<h3 id="2">2. 螺纹胶误用</h3>
+<p><strong>错误</strong>：在已有预紧力的螺栓上补涂螺纹胶
+<strong>后果</strong>：螺纹胶无法渗入，形同虚设
+<strong>正解</strong>：必须拆开重新涂抹</p>
+<h3 id="3">3. 混用公英制</h3>
+<p><strong>错误</strong>：M6螺栓配1/4"螺母
+<strong>后果</strong>：螺纹损坏，连接失效
+<strong>正解</strong>：虽然直径接近（6mm vs 6.35mm），但螺距不同</p>
+<h3 id="4_1">4. 忽视电偶腐蚀</h3>
+<p><strong>错误</strong>：不锈钢螺栓直接连接铝件
+<strong>后果</strong>：电偶腐蚀，铝件损坏
+<strong>正解</strong>：使用绝缘垫圈或选择铝螺栓</p>
+<h3 id="5">5. 弹垫的错误信任</h3>
+<p><strong>错误</strong>：认为有弹垫就不会松
+<strong>后果</strong>：高温或重载下弹垫失效
+<strong>正解</strong>：弹垫只是辅助，关键是正确的预紧力</p>
+<h3 id="6">6. 重复使用锁紧螺母</h3>
+<p><strong>错误</strong>：拆下的尼龙锁紧螺母再次使用
+<strong>后果</strong>：锁紧力矩下降50%以上
+<strong>正解</strong>：锁紧螺母为一次性使用</p>
+<h3 id="_33">调试技巧</h3>
+<p><strong>松动诊断三步法：</strong></p>
+<ol>
+<li>标记检查：螺母与螺栓画对准线</li>
+<li>扭矩检查：用力矩扳手验证残余扭矩</li>
+<li>间隙检查：塞尺检查连接面间隙</li>
+</ol>
+<p><strong>异响定位：</strong></p>
+<ul>
+<li>敲击法：逐个敲击螺栓听声音</li>
+<li>清脆声=正常预紧</li>
+<li>闷响=松动</li>
+</ul>
+<h2 id="_34">最佳实践检查清单</h2>
+<h3 id="_35">设计阶段</h3>
+<ul>
+<li>[ ] 螺栓强度等级≥8.8级</li>
+<li>[ ] 螺纹啮合长度≥1.0d（钢），≥1.5d（铝）</li>
+<li>[ ] 边距≥1.5d，间距≥3d</li>
+<li>[ ] 考虑装配空间和工具可达性</li>
+<li>[ ] 标准件优先，特殊件有替代方案</li>
+</ul>
+<h3 id="_36">材料选择</h3>
+<ul>
+<li>[ ] 螺栓材料强度≥被连接件</li>
+<li>[ ] 考虑工作温度（-40°C~150°C外需特殊材料）</li>
+<li>[ ] 防腐要求明确（镀锌/达克罗/不锈钢）</li>
+<li>[ ] 避免异种金属直接接触</li>
+</ul>
+<h3 id="_37">防松设计</h3>
+<ul>
+<li>[ ] 振动环境：双重防松措施</li>
+<li>[ ] 频繁拆装：避免螺纹胶，使用机械防松</li>
+<li>[ ] 高温环境：不用尼龙件，选金属锁紧</li>
+<li>[ ] 关键连接：增加保险（开口销/保险丝）</li>
+</ul>
+<h3 id="_38">装配工艺</h3>
+<ul>
+<li>[ ] 明确拧紧力矩值和公差（±10%）</li>
+<li>[ ] 规定拧紧顺序（对角/圆周）</li>
+<li>[ ] 分步拧紧（30%-70%-100%）</li>
+<li>[ ] 力矩扳手定期校准（每年）</li>
+</ul>
+<h3 id="_39">质量控制</h3>
+<ul>
+<li>[ ] 来料检验（螺纹通止规）</li>
+<li>[ ] 装配记录（力矩值、螺纹胶批次）</li>
+<li>[ ] 标记防松（漆线标记）</li>
+<li>[ ] 定期检查计划（首次24h，后续定期）</li>
+</ul>
+<h3 id="_40">文档要求</h3>
+<ul>
+<li>[ ] 螺栓清单（规格、数量、力矩）</li>
+<li>[ ] 防松方案说明</li>
+<li>[ ] 特殊工具清单</li>
+<li>[ ] 维护周期建议</li>
+</ul>
+<hr />
+<p><em>下一章：<a href="chapter5.html">第5章：轴承与关节系统</a></em></p>
+            </article>
+            
+            <nav class="page-nav"><a href="chapter3.html" class="nav-link prev">← 第3章：机械结构设计原理</a><a href="chapter5.html" class="nav-link next">第5章：轴承与关节系统 →</a></nav>
+        </main>
+    </div>
+</body>
+</html>

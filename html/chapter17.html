@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="./">
+    <title>第17章：机械故障诊断技术</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/highlight.css">
+    <script src="assets/script.js" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: false,
+                packages: {'[+]': ['noerrors', 'ams']}
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            loader: {
+                load: ['[tex]/noerrors', '[tex]/ams']
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>目录</h3>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" id="sidebar-search-input" placeholder="搜索..." autocomplete="off">
+            </div>
+            <div id="tree-container">
+                <nav class="tree-nav" role="tree">
+                    <div class="tree-item " >
+                        <a href="index.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">机械设计实践教程</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter1.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第1章：机械设计基础</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter2.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第2章：CAD软件基础操作</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter3.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第3章：机械结构设计原理</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter4.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第4章：螺纹连接与紧固件</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter5.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第5章：轴承与关节系统</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter6.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第6章：传动系统设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter7.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第7章：舵机原理与选型</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter8.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第8章：3D打印设计指南</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter9.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第9章：铝材加工与应用</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter10.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第10章：LEGO技术积木机械设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter11.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第11章：配重与动平衡</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter12.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第12章：CAN总线与控制系统</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter13.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第13章：润滑与维护保养</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter14.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第14章：簧片与弹性元件</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter15.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第15章：热管理与散热设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter16.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第16章：线束管理与电气集成</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item active" >
+                        <a href="chapter17.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第17章：机械故障诊断技术</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter18.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第18章：综合设计案例</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="CLAUDE.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">Untitled</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <article>
+                <h1 id="17">第17章：机械故障诊断技术</h1>
+<p>机械系统在运行过程中不可避免地会出现各种故障。及时准确地诊断故障不仅能避免设备损坏，还能大幅降低维护成本。本章将介绍实用的故障诊断技术，包括声音诊断、振动分析、温度监测等方法。作为AI科学家和程序员，你们可以将这些诊断技术与传感器数据采集、信号处理算法相结合，构建智能化的故障诊断系统。</p>
+<h2 id="_1">声音诊断法（异响识别与定位）</h2>
+<h3 id="_2">基本原理</h3>
+<p>机械部件在正常运行和故障状态下会产生不同的声音特征。声音是机械振动通过空气传播的结果，其本质是压力波的传递。通过分析声音的频率、幅值和时域特征，可以判断故障类型和位置。</p>
+<p>声音信号包含三个关键维度：</p>
+<ul>
+<li><strong>频率成分</strong>：反映振动源的特性，如转速、固有频率</li>
+<li><strong>幅值变化</strong>：反映故障的严重程度</li>
+<li><strong>时间特征</strong>：反映故障的发展趋势和周期性</li>
+</ul>
+<p>人耳可感知20 Hz至20 kHz的声音，但机械故障产生的声音往往集中在特定频段。经验丰富的工程师能够通过听觉识别许多故障，但定量分析需要借助仪器和算法。</p>
+<h3 id="_3">常见异响类型</h3>
+<p><strong>金属撞击声</strong>：通常表示间隙过大或紧固件松动</p>
+<ul>
+<li>特征：清脆、不连续、有节奏</li>
+<li>频率范围：1-5 kHz</li>
+<li>常见原因：轴承游隙过大、齿轮啮合不良、连接件松动</li>
+<li>声压级：通常超过85 dB，短时峰值可达100 dB</li>
+<li>诊断要点：计算撞击频率是否与转频或其倍频相关</li>
+</ul>
+<p><strong>摩擦声</strong>：表示润滑不良或异常接触</p>
+<ul>
+<li>特征：连续、刺耳、随转速变化</li>
+<li>频率范围：2-8 kHz  </li>
+<li>常见原因：缺油、密封件磨损、轴不对中</li>
+<li>声压级：70-90 dB，随摩擦程度增加而增大</li>
+<li>诊断要点：观察声音是否随温度升高而变化</li>
+</ul>
+<p><strong>啸叫声</strong>：高频振动引起</p>
+<ul>
+<li>特征：高频、连续、音调固定</li>
+<li>频率范围：&gt; 5 kHz</li>
+<li>常见原因：皮带打滑、气流激振、共振</li>
+<li>声压级：60-80 dB，但主观感受刺耳</li>
+<li>诊断要点：改变转速观察频率是否跟随变化</li>
+</ul>
+<p><strong>轰鸣声</strong>：低频振动或流体脉动</p>
+<ul>
+<li>特征：低沉、连续、有压迫感</li>
+<li>频率范围：20-500 Hz</li>
+<li>常见原因：不平衡、基础共振、流体脉动</li>
+<li>声压级：75-95 dB，能量集中在低频</li>
+<li>诊断要点：检查是否存在拍频现象</li>
+</ul>
+<p><strong>咔嗒声</strong>：间歇性机械冲击</p>
+<ul>
+<li>特征：短促、周期性、节奏明确</li>
+<li>频率范围：宽频激励</li>
+<li>常见原因：凸轮磨损、阀门故障、链条松动</li>
+<li>诊断要点：测量周期是否与机械运动周期一致</li>
+</ul>
+<h3 id="_4">声音采集与分析</h3>
+<p><strong>麦克风选择</strong></p>
+<ul>
+<li>频率响应：20 Hz - 20 kHz（覆盖可听范围）</li>
+<li>灵敏度：&gt; -40 dB（保证信号质量）</li>
+<li>指向性：根据需要选择全向或定向</li>
+<li>动态范围：&gt; 90 dB（避免削波失真）</li>
+<li>信噪比：&gt; 60 dB（确保弱信号检测）</li>
+</ul>
+<p>常用麦克风类型：</p>
+<ul>
+<li><strong>驻极体麦克风</strong>：成本低，适合批量部署，频响20 Hz-16 kHz</li>
+<li><strong>MEMS麦克风</strong>：体积小，数字输出，抗干扰强，适合嵌入式系统</li>
+<li><strong>测量麦克风</strong>：1/2"或1/4"标准尺寸，频响平坦，适合精确测量</li>
+<li><strong>压电式加速度计</strong>：可同时测量振动和声音，频响可达40 kHz</li>
+</ul>
+<p><strong>采样参数设置</strong></p>
+<div class="codehilite"><pre><span></span><code>采样率 = 2.56 × 最高分析频率
+典型值：44.1 kHz（音频标准）或 48 kHz
+量化位数：16 bit 或 24 bit
+</code></pre></div>
+
+<p>奈奎斯特定理要求采样率至少为信号最高频率的2倍，实践中使用2.56倍以提供抗混叠滤波器的过渡带。对于机械故障诊断，通常关注10 kHz以下的频率成分，因此44.1 kHz采样率足够。</p>
+<p>数据量估算：</p>
+<ul>
+<li>单通道16 bit @ 44.1 kHz = 86.1 KB/s</li>
+<li>4通道24 bit @ 48 kHz = 576 KB/s</li>
+<li>连续记录1小时约需2 GB存储空间</li>
+</ul>
+<p><strong>频谱分析方法</strong></p>
+<p>快速傅里叶变换（FFT）是最常用的频域分析工具：</p>
+<p>$$X(k) = \sum_{n=0}^{N-1} x(n) \cdot e^{-j2\pi kn/N}$$
+其中：</p>
+<ul>
+<li>$x(n)$ 是时域信号</li>
+<li>$X(k)$ 是频域信号  </li>
+<li>$N$ 是采样点数</li>
+</ul>
+<p>FFT参数选择：</p>
+<ul>
+<li>FFT长度：2的幂次（1024、2048、4096等）</li>
+<li>频率分辨率：$\Delta f = f_s / N$</li>
+<li>时间窗长度：$T = N / f_s$</li>
+</ul>
+<p>窗函数选择原则：</p>
+<ul>
+<li><strong>矩形窗</strong>：频率分辨率最高，但泄漏严重</li>
+<li><strong>汉宁窗</strong>：通用选择，泄漏小，适合大多数情况</li>
+<li><strong>汉明窗</strong>：旁瓣衰减快，适合检测弱信号</li>
+<li><strong>平顶窗</strong>：幅值精度高，适合校准测量</li>
+</ul>
+<p>功率谱密度（PSD）计算：
+$$PSD(f) = \frac{2|X(f)|^2}{f_s \cdot N \cdot W}$$
+其中$W$是窗函数的功率归一化系数。</p>
+<p><strong>声音定位技术</strong></p>
+<p>使用多个麦克风阵列可以定位声源：</p>
+<div class="codehilite"><pre><span></span><code>     Mic1 -------- d1 -------- 声源
+       |                        /
+       |                       /
+       d                      / r
+       |                     /
+       |                    /
+     Mic2 ------- d2 ------
+
+时间差：Δt = (d1 - d2) / c
+其中 c = 343 m/s（声速，20°C）
+</code></pre></div>
+
+<p>波束形成（Beamforming）技术：</p>
+<ul>
+<li>延时求和：对各通道信号进行时延补偿后叠加</li>
+<li>空间分辨率：$\theta = \lambda / D$（$D$为阵列孔径）</li>
+<li>典型配置：8-64个麦克风的圆形或球形阵列</li>
+</ul>
+<p>相位差定位法：
+$$\phi = 2\pi f \cdot \Delta t = 2\pi f \cdot \frac{d\sin\theta}{c}$$
+定位精度影响因素：</p>
+<ul>
+<li>麦克风间距：过小降低精度，过大产生空间混叠</li>
+<li>采样同步：各通道时钟偏差&lt; 10 μs</li>
+<li>环境反射：使用时间窗排除反射信号</li>
+</ul>
+<h3 id="_5">诊断流程</h3>
+<ol>
+<li>
+<p><strong>基准建立</strong>：记录设备正常运行时的声音特征
+   - 新设备验收：记录各工况（空载、25%、50%、75%、满载）声音
+   - 运行条件：稳定运行30分钟后采集，避免启动瞬态
+   - 数据格式：原始波形 + 频谱 + 1/3倍频程谱
+   - 更新周期：每季度更新一次基准，跟踪设备老化</p>
+</li>
+<li>
+<p><strong>实时监测</strong>：持续采集运行声音
+   - 采样策略：连续监测或定时采样（每小时10秒）
+   - 触发录音：设置阈值，超限自动录音30秒
+   - 数据压缩：使用FLAC无损压缩，压缩率约50%
+   - 缓存机制：循环缓存最近24小时数据</p>
+</li>
+<li>
+<p><strong>特征提取</strong>：计算频谱、包络、峭度等特征值
+   - 时域特征：RMS、峰值、波形因子、脉冲因子
+   - 频域特征：主频、谐波比、边带幅值
+   - 统计特征：峭度（&gt; 3表示冲击）、偏度、熵值
+   - 时频特征：小波包能量、希尔伯特谱</p>
+</li>
+<li>
+<p><strong>异常检测</strong>：与基准对比，识别异常
+   - 静态阈值：超过基准值的150%报警
+   - 动态阈值：3σ原则，超过均值±3倍标准差
+   - 趋势分析：连续3天上升趋势预警
+   - 模式识别：马氏距离 &gt; 3判定异常</p>
+</li>
+<li>
+<p><strong>故障定位</strong>：结合机理分析确定故障部位
+   - 频率匹配：将特征频率与理论故障频率对比
+   - 相关分析：多测点信号相关性分析
+   - 传递路径：从声源到测点的衰减规律
+   - 专家系统：基于规则的故障推理</p>
+</li>
+</ol>
+<h3 id="_6">实用诊断技巧</h3>
+<p><strong>听诊棒使用</strong></p>
+<p>传统的机械听诊棒仍然是快速诊断的有效工具：</p>
+<ul>
+<li>材质：硬木或金属杆，长度 200-400 mm</li>
+<li>使用方法：一端接触设备，另一端贴近耳朵</li>
+<li>优点：可放大和传导机械振动，隔离环境噪声</li>
+<li>适用场景：轴承、齿轮箱、阀门等部件的快速检查</li>
+</ul>
+<p>听诊要点：</p>
+<ul>
+<li><strong>接触位置</strong>：尽量靠近振源，避开柔性连接</li>
+<li><strong>接触压力</strong>：轻压即可，过度用力会改变振动特性</li>
+<li><strong>对比诊断</strong>：同类设备对比，相同部位不同时间对比</li>
+<li><strong>安全注意</strong>：高温部件使用延长杆，旋转部件保持安全距离</li>
+</ul>
+<p>电子听诊器升级方案：</p>
+<ul>
+<li>压电传感器 + 放大电路 + 耳机</li>
+<li>可调增益：0-60 dB</li>
+<li>带通滤波：100 Hz-10 kHz</li>
+<li>录音功能：配合手机APP记录和分析</li>
+</ul>
+<p><strong>声音特征与故障对应关系</strong></p>
+<div class="codehilite"><pre><span></span><code>声音特征          可能故障              检查重点
+─────────────────────────────────────────────
+周期性敲击        轴承滚动体损伤        计算特征频率
+连续嘶嘶声        密封泄漏              压力测试
+金属刮擦声        转子碰磨              间隙检查
+低频轰鸣          不平衡或共振          转速调整
+间歇性咔嗒声      齿轮断齿              开箱检查
+高频啸叫          皮带打滑              张力调整
+</code></pre></div>
+
+<p><strong>环境噪声消除</strong></p>
+<p>在嘈杂环境中进行声音诊断的策略：</p>
+<ol>
+<li><strong>时间选择</strong>：选择环境安静时段（如夜班）</li>
+<li><strong>空间隔离</strong>：使用隔音罩或在设备停机时对比</li>
+<li><strong>频率分离</strong>：关注故障特征频率，使用带通滤波</li>
+<li><strong>相干分析</strong>：利用转速信号进行同步平均
+$$SNR_{改善} = 10\log_{10}(\sqrt{N})$$
+其中 $N$ 为同步平均次数，100次平均可提高信噪比20dB。</li>
+</ol>
+<h3 id="_7">智能声音诊断系统构建</h3>
+<p><strong>硬件架构</strong></p>
+<div class="codehilite"><pre><span></span><code>麦克风阵列 → 信号调理 → ADC采集 → 边缘计算 → 云端分析
+    ↓            ↓          ↓           ↓          ↓
+  MEMS×4      增益控制    24bit     树莓派      深度学习
+             抗混叠滤波   48kHz      FFT处理    故障分类
+</code></pre></div>
+
+<p>硬件选型建议：</p>
+<ul>
+<li><strong>麦克风</strong>：ICS-43434（MEMS）或 MPA201（驻极体）</li>
+<li><strong>ADC芯片</strong>：ADS1256（24位8通道）或 CS5381（24位114dB动态范围）</li>
+<li><strong>边缘处理器</strong>：树莓派4B（4GB RAM）或 Jetson Nano（GPU加速）</li>
+<li><strong>信号调理</strong>：INA128仪表放大器 + MAX7404八阶滤波器</li>
+<li><strong>电源管理</strong>：低噪声LDO，纹波&lt; 50 μV</li>
+</ul>
+<p>系统性能指标：</p>
+<ul>
+<li>同步精度：&lt; 1 μs（使用硬件触发）</li>
+<li>延迟：&lt; 100 ms（边缘推理）</li>
+<li>功耗：&lt; 10 W（含传感器）</li>
+<li>工作温度：-20°C至+70°C</li>
+</ul>
+<p><strong>特征工程要点</strong></p>
+<p>时域特征：</p>
+<ul>
+<li>RMS值：$RMS = \sqrt{\frac{1}{N}\sum_{i=1}^{N}x_i^2}$</li>
+<li>峰值因子：$CF = \frac{x_{peak}}{RMS}$（正常值2-3，冲击故障&gt;4）</li>
+<li>峭度：$K = \frac{\frac{1}{N}\sum_{i=1}^{N}(x_i-\bar{x})^4}{\sigma^4}$（正常值≈3）</li>
+<li>波形因子：$SF = \frac{RMS}{|x|_{avg}}$（正常值1.11）</li>
+<li>脉冲因子：$IF = \frac{x_{peak}}{|x|_{avg}}$（监测冲击）</li>
+<li>裕度因子：$MF = \frac{x_{peak}}{(\frac{1}{N}\sum_{i=1}^{N}\sqrt{|x_i|})^2}$</li>
+</ul>
+<p>频域特征：</p>
+<ul>
+<li>功率谱密度（PSD）：能量分布</li>
+<li>频谱重心：$f_c = \frac{\sum f \cdot P(f)}{\sum P(f)}$</li>
+<li>谱熵：$H = -\sum p(f)\log p(f)$（复杂度度量）</li>
+<li>梅尔频率倒谱系数（MFCC）：13维特征向量</li>
+<li>谱峭度：检测瞬态成分</li>
+<li>谱流量：相邻帧频谱变化率</li>
+</ul>
+<p>高级特征：</p>
+<ul>
+<li><strong>循环谱密度</strong>：检测周期性调制</li>
+<li><strong>双谱分析</strong>：非线性耦合检测</li>
+<li><strong>EMD分解</strong>：自适应信号分解</li>
+<li><strong>小波包能量</strong>：多尺度特征</li>
+</ul>
+<p>特征选择策略：</p>
+<ol>
+<li>相关性分析：去除冗余特征（相关系数&gt;0.9）</li>
+<li>主成分分析（PCA）：降维至累计贡献率95%</li>
+<li>互信息：选择与故障标签互信息最大的特征</li>
+<li>递归特征消除（RFE）：基于模型重要性排序</li>
+</ol>
+<p><strong>数据标注策略</strong></p>
+<p>建立故障声音数据库的要点：</p>
+<ol>
+<li>
+<p><strong>正常样本</strong>：不同工况下的正常运行声音
+   - 采集时长：每工况至少30分钟
+   - 工况覆盖：空载、25%、50%、75%、100%负载
+   - 环境变化：不同温度、湿度条件
+   - 样本均衡：各类别样本数量相近</p>
+</li>
+<li>
+<p><strong>故障样本</strong>：人为引入已知故障，记录声音变化
+   - 轴承故障：外圈、内圈、滚动体、保持架损伤
+   - 齿轮故障：断齿、点蚀、偏心、齿面磨损
+   - 不平衡：配重块模拟1g、2g、5g不平衡
+   - 不对中：垫片调整产生0.1、0.2、0.5 mm偏差</p>
+</li>
+<li>
+<p><strong>渐变过程</strong>：记录从正常到故障的完整退化过程
+   - 加速寿命试验：提高载荷加速故障发展
+   - 连续监测：每小时记录一次，直至失效
+   - 阶段标注：健康、轻微退化、中度退化、严重退化、失效
+   - 特征演化：绘制特征随时间变化曲线</p>
+</li>
+<li>
+<p><strong>元数据记录</strong>：转速、负载、温度、故障类型等
+   - 时间戳：精确到毫秒
+   - 设备信息：型号、功率、使用年限
+   - 运行参数：转速(RPM)、负载(%)、温度(°C)
+   - 故障描述：类型、位置、严重程度、根因</p>
+</li>
+</ol>
+<p><strong>深度学习模型设计</strong></p>
+<p>网络架构选择：</p>
+<ul>
+<li><strong>1D-CNN</strong>：直接处理原始波形，自动学习特征</li>
+<li><strong>LSTM</strong>：捕获时序依赖关系</li>
+<li><strong>CNN-LSTM</strong>：结合空间和时间特征</li>
+<li><strong>Transformer</strong>：自注意力机制，长程依赖</li>
+</ul>
+<p>模型规模：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">输入层</span><span class="err">：</span><span class="mi">8000</span><span class="n">采样点</span><span class="err">（</span><span class="mf">0.18</span><span class="n">秒</span><span class="o">@</span><span class="mf">44.1</span><span class="n">kHz</span><span class="err">）</span>
+<span class="n">Conv1D</span><span class="err">：</span><span class="mi">64</span> <span class="n">filters</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">MaxPool</span><span class="err">：</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span>
+<span class="n">Conv1D</span><span class="err">：</span><span class="mi">128</span> <span class="n">filters</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">GlobalAvgPool</span>
+<span class="n">Dense</span><span class="err">：</span><span class="mi">256</span> <span class="n">neurons</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mf">0.3</span>
+<span class="n">Output</span><span class="err">：</span><span class="n">N_classes</span><span class="err">（</span><span class="n">软标签输出</span><span class="err">）</span>
+</code></pre></div>
+
+<p>训练策略：</p>
+<ul>
+<li>数据增强：加噪声、时间拉伸、音调变换</li>
+<li>迁移学习：使用预训练模型微调</li>
+<li>标签平滑：减少过拟合</li>
+<li>混合精度训练：FP16加速训练</li>
+</ul>
+<h2 id="_8">振动分析与频谱分析</h2>
+<h3 id="_9">振动测量基础</h3>
+<p>机械振动包含丰富的设备状态信息。通过分析振动的幅值、频率和相位，可以诊断大多数旋转机械故障。</p>
+<h3 id="_10">振动参数</h3>
+<p><strong>位移、速度和加速度的关系</strong>
+$$x(t) = A \sin(\omega t + \phi)$$
+$$v(t) = \dot{x}(t) = A\omega \cos(\omega t + \phi)$$
+$$a(t) = \ddot{x}(t) = -A\omega^2 \sin(\omega t + \phi)$$
+其中：</p>
+<ul>
+<li>$x$ - 位移 (mm)</li>
+<li>$v$ - 速度 (mm/s)</li>
+<li>$a$ - 加速度 (m/s²)</li>
+<li>$\omega = 2\pi f$ - 角频率</li>
+</ul>
+<p><strong>参数选择原则</strong></p>
+<ul>
+<li>低频振动（&lt; 10 Hz）：测量位移</li>
+<li>中频振动（10-1000 Hz）：测量速度</li>
+<li>高频振动（&gt; 1000 Hz）：测量加速度</li>
+</ul>
+<h3 id="_11">传感器选择</h3>
+<p><strong>加速度传感器（最常用）</strong></p>
+<ul>
+<li>压电式：频响宽（0.5 Hz - 20 kHz）、精度高</li>
+<li>MEMS：成本低、体积小、适合批量部署</li>
+<li>灵敏度：100 mV/g（通用型）</li>
+</ul>
+<p><strong>安装方式影响</strong></p>
+<div class="codehilite"><pre><span></span><code>安装方式        可用频率范围    相对灵敏度
+螺栓固定        10 kHz         100%
+磁座吸附        2 kHz          95%
+胶粘            5 kHz          98%
+手持探针        1 kHz          70%
+</code></pre></div>
+
+<h3 id="_12">频谱分析技术</h3>
+<p><strong>特征频率计算</strong></p>
+<p>不平衡频率：$f_u = \frac{n}{60}$ （转频）</p>
+<p>不对中频率：$f_m = 2 \times \frac{n}{60}$ （2倍转频）</p>
+<p>滚动轴承故障频率：</p>
+<ul>
+<li>外圈：$f_{BPFO} = \frac{n \cdot Z}{120}(1 - \frac{d}{D}\cos\alpha)$</li>
+<li>内圈：$f_{BPFI} = \frac{n \cdot Z}{120}(1 + \frac{d}{D}\cos\alpha)$</li>
+<li>滚动体：$f_{BSF} = \frac{n \cdot D}{120d}[1 - (\frac{d}{D}\cos\alpha)^2]$</li>
+</ul>
+<p>其中：</p>
+<ul>
+<li>$n$ - 转速 (rpm)</li>
+<li>$Z$ - 滚动体数量</li>
+<li>$d$ - 滚动体直径</li>
+<li>$D$ - 节圆直径</li>
+<li>$\alpha$ - 接触角</li>
+</ul>
+<h3 id="_13">振动诊断标准</h3>
+<p><strong>ISO 10816 振动烈度评价</strong>
+$$V_{RMS} = \sqrt{\frac{1}{T}\int_0^T v^2(t)dt}$$
+评价等级（10-1000 Hz速度有效值）：</p>
+<div class="codehilite"><pre><span></span><code>机器类别    良好(A)    满意(B)    可用(C)    警告(D)
+小型机      &lt; 1.8      &lt; 4.5      &lt; 11.2     &gt; 11.2
+中型机      &lt; 2.8      &lt; 7.1      &lt; 18.0     &gt; 18.0
+大型机      &lt; 4.5      &lt; 11.2     &lt; 28.0     &gt; 28.0
+单位：mm/s RMS
+</code></pre></div>
+
+<h3 id="_14">包络解调技术</h3>
+<p>用于检测早期轴承故障，原理是提取高频共振信号的调制包络：</p>
+<ol>
+<li>带通滤波（选择共振频带，通常 5-40 kHz）</li>
+<li>希尔伯特变换获取包络</li>
+<li>包络谱分析识别故障特征频率
+$$x_{env}(t) = |x(t) + j\mathcal{H}[x(t)]|$$
+其中 $\mathcal{H}$ 表示希尔伯特变换。</li>
+</ol>
+<h3 id="_15">实际振动测量案例</h3>
+<p><strong>电机振动诊断实例</strong></p>
+<p>某3kW异步电机，转速1450 rpm，振动超标排查：</p>
+<div class="codehilite"><pre><span></span><code>测点位置        水平(H)  垂直(V)  轴向(A)  单位：mm/s
+─────────────────────────────────────────────
+驱动端轴承      8.2      4.5      2.1      
+非驱动端        3.1      2.8      1.5
+电机底座        1.2      0.8      0.5
+
+诊断：驱动端水平振动明显偏大
+频谱分析：1倍频成分占主导(24.2 Hz)
+结论：转子不平衡，需动平衡校正
+</code></pre></div>
+
+<p><strong>齿轮箱故障诊断流程</strong></p>
+<ol>
+<li>
+<p><strong>测点布置</strong>
+   - 输入轴轴承座：监测输入端状态
+   - 输出轴轴承座：监测输出端状态
+   - 箱体顶部：监测齿轮啮合
+   - 箱体侧面：辅助测点</p>
+</li>
+<li>
+<p><strong>特征频率计算</strong></p>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>输入轴转速：n1 = 1450 rpm
+齿数：Z1 = 17, Z2 = 68
+传动比：i = Z2/Z1 = 4
+
+啮合频率：fm = n1 × Z1 / 60 = 411.7 Hz
+输出轴频率：f2 = n1 / (60 × i) = 6.04 Hz
+</code></pre></div>
+
+<ol start="3">
+<li><strong>故障判断准则</strong>
+   - 1倍啮合频率增大：齿面磨损
+   - 边频带出现：齿轮偏心或轴不对中
+   - 低频调制：轴承故障
+   - 冲击脉冲：断齿或严重点蚀</li>
+</ol>
+<h3 id="_16">旋转机械故障特征总结</h3>
+<p><strong>故障类型与振动特征对照表</strong></p>
+<div class="codehilite"><pre><span></span><code>故障类型        主要频率成分    振动方向    相位特征
+─────────────────────────────────────────────
+不平衡          1×RPM          径向        稳定
+不对中          2×RPM          径向/轴向    180°
+松动            0.5×,1×,2×     径向        不稳定
+轴承内圈        BPFI±RPM       径向        调制
+轴承外圈        BPFO           径向        稳定
+齿轮故障        GMF±RPM        径向        调制
+共振            固有频率        全向        放大
+</code></pre></div>
+
+<p><strong>振动烈度快速评估</strong></p>
+<p>根据ISO 10816-3标准的简化判断：</p>
+<ul>
+<li>良好：&lt; 2.8 mm/s RMS</li>
+<li>可接受：2.8-7.1 mm/s RMS  </li>
+<li>需关注：7.1-11 mm/s RMS</li>
+<li>危险：&gt; 11 mm/s RMS</li>
+</ul>
+<h3 id="_17">高级振动分析技术</h3>
+<p><strong>阶次分析</strong></p>
+<p>适用于变速设备的振动分析：
+$$Order = \frac{f_{vibration}}{f_{rotation}}$$
+优点：</p>
+<ul>
+<li>消除转速变化影响</li>
+<li>突出与转速相关的故障</li>
+<li>便于趋势分析</li>
+</ul>
+<p>实施步骤：</p>
+<ol>
+<li>同步采集振动和转速信号</li>
+<li>重采样到角度域</li>
+<li>进行阶次谱分析</li>
+<li>识别故障阶次</li>
+</ol>
+<p><strong>时频分析方法</strong></p>
+<p>短时傅里叶变换（STFT）：
+$$STFT(t,f) = \int_{-\infty}^{\infty} x(\tau)w(\tau-t)e^{-j2\pi f\tau}d\tau$$
+应用场景：</p>
+<ul>
+<li>启停过程分析</li>
+<li>瞬态故障捕获</li>
+<li>非平稳信号处理</li>
+</ul>
+<p><strong>倒频谱分析</strong></p>
+<p>用于检测周期性调制：
+$$C(q) = FFT^{-1}[\log|FFT(x(t))|]$$
+典型应用：</p>
+<ul>
+<li>齿轮箱故障诊断</li>
+<li>回声检测</li>
+<li>边频带分析</li>
+</ul>
+<h2 id="_18">温度监测与热成像</h2>
+<h3 id="_19">温度异常的意义</h3>
+<p>温度是反映设备运行状态的重要参数。异常温升通常意味着：</p>
+<ul>
+<li>摩擦增大（润滑不良、过载）</li>
+<li>电气故障（接触不良、过流）</li>
+<li>冷却失效（散热片堵塞、风扇故障）</li>
+</ul>
+<h3 id="_20">测温方法对比</h3>
+<p><strong>接触式测温</strong></p>
+<ul>
+<li>热电偶：响应快、精度高（±0.5°C）、价格低</li>
+<li>PT100/PT1000：精度极高（±0.1°C）、线性好、稳定性佳</li>
+<li>适用场景：固定监测点、需要高精度的场合</li>
+</ul>
+<p><strong>非接触式测温</strong></p>
+<ul>
+<li>红外测温枪：便携、快速、安全</li>
+<li>热成像仪：面扫描、直观、可发现热点</li>
+<li>发射率影响：$T_{real} = T_{measured} / \sqrt[4]{\varepsilon}$</li>
+</ul>
+<h3 id="_21">热成像技术应用</h3>
+<p><strong>基本原理</strong></p>
+<p>斯特藩-玻尔兹曼定律：
+$$P = \varepsilon \sigma A T^4$$
+其中：</p>
+<ul>
+<li>$P$ - 辐射功率 (W)</li>
+<li>$\varepsilon$ - 发射率 (0-1)</li>
+<li>$\sigma = 5.67 \times 10^{-8}$ W/(m²·K⁴)</li>
+<li>$A$ - 表面积</li>
+<li>$T$ - 绝对温度 (K)</li>
+</ul>
+<p><strong>典型发射率值</strong></p>
+<div class="codehilite"><pre><span></span><code>材料            发射率
+氧化铝          0.70-0.80
+抛光钢          0.07-0.10
+氧化钢          0.70-0.80
+塑料            0.85-0.95
+橡胶            0.90-0.95
+PCB板           0.80-0.90
+</code></pre></div>
+
+<h3 id="_22">温度监测策略</h3>
+<p><strong>基准温度建立</strong></p>
+<ol>
+<li>新设备调试期：记录各部位正常温度</li>
+<li>考虑环境温度影响：$\Delta T = T_{部件} - T_{环境}$</li>
+<li>建立温度-负载关系曲线</li>
+</ol>
+<p><strong>报警阈值设置</strong></p>
+<p>经验法则：</p>
+<ul>
+<li>轴承：外圈温度 &lt; 70°C，温升 &lt; 40°C</li>
+<li>电机：表面温度 &lt; 80°C（B级绝缘）</li>
+<li>齿轮箱：油温 &lt; 60°C，箱体 &lt; 70°C</li>
+</ul>
+<p><strong>趋势分析</strong></p>
+<p>温升速率判据：
+$$\frac{dT}{dt} &gt; 5°C/h$$ 需要立即检查</p>
+<p>温度梯度分析：</p>
+<div class="codehilite"><pre><span></span><code>     正常              异常
+  T1 ------ 5°C        T1 ------ 20°C
+            ↓                    ↓
+  T2 ------ 3°C        T2 ------ 15°C
+            ↓                    ↓
+  T3                   T3
+
+温度梯度过大表示局部发热
+</code></pre></div>
+
+<h3 id="_23">热成像诊断实例</h3>
+<p><strong>轴承故障识别</strong></p>
+<ul>
+<li>正常：温度均匀分布</li>
+<li>内圈故障：靠近轴心高温</li>
+<li>外圈故障：轴承座局部高温</li>
+<li>润滑不良：整体温度偏高</li>
+</ul>
+<p><strong>电气连接故障</strong></p>
+<ul>
+<li>接触不良：连接点局部高温（可达200°C）</li>
+<li>三相不平衡：某相温度明显偏高</li>
+<li>过载：整体均匀发热</li>
+</ul>
+<h3 id="_24">智能温度监测系统设计</h3>
+<p><strong>多点温度监测网络</strong></p>
+<div class="codehilite"><pre><span></span><code>传感器布局示例（电机）：
+         前轴承 T1 ──┐
+                      ├── RS485 ── 数据采集器
+         后轴承 T2 ──┤              │
+                      │              ↓
+         绕组   T3 ──┤           PLC/SCADA
+                      │              │
+         机壳   T4 ──┤              ↓
+                      │          历史数据库
+         环境   T5 ──┘              │
+                                    ↓
+                              趋势分析/报警
+</code></pre></div>
+
+<p><strong>温度补偿算法</strong></p>
+<p>考虑环境温度影响的补偿：
+$$T_{corrected} = T_{measured} - k(T_{ambient} - T_{ref})$$
+其中：</p>
+<ul>
+<li>$k$ = 0.6-0.8（经验系数）</li>
+<li>$T_{ref}$ = 20°C（参考温度）</li>
+</ul>
+<p><strong>预测性维护模型</strong></p>
+<p>基于温度趋势的寿命预测：</p>
+<p>阿伦尼乌斯方程（Arrhenius equation）：
+$$L = A \cdot e^{E_a/(RT)}$$
+温度每升高10°C，寿命减半的经验法则：
+$$L_{T2} = L_{T1} \cdot 2^{-(T_2-T_1)/10}$$</p>
+<h3 id="_25">热故障案例分析</h3>
+<p><strong>案例1：轴承过热分析</strong></p>
+<div class="codehilite"><pre><span></span><code>故障现象：轴承温度持续上升至85°C
+测量数据：
+时间(h)   温度(°C)   振动(mm/s)   电流(A)
+0         45         2.1          15.2
+2         52         2.8          15.5
+4         68         4.2          16.1
+6         85         7.5          17.8
+
+根因分析：
+
+1. 振动与温度同步上升 → 机械故障
+2. 电流逐渐增大 → 负载增加
+3. 拆检发现：润滑脂劣化，轴承游隙过小
+
+解决方案：
+
+- 更换润滑脂（从锂基脂改为高温复合脂）
+- 调整轴承游隙至C3组
+- 增加润滑周期（3个月→1个月）
+</code></pre></div>
+
+<p><strong>案例2：电气接点发热</strong></p>
+<p>热成像发现配电柜内某断路器接线端子温度异常：</p>
+<ul>
+<li>正常相：35°C</li>
+<li>异常相：95°C</li>
+<li>温差：60°C（超过报警值40°C）</li>
+</ul>
+<p>处理流程：</p>
+<ol>
+<li>停电检查</li>
+<li>发现螺栓松动，接触电阻增大</li>
+<li>重新紧固，力矩25 N·m</li>
+<li>复测温度恢复正常</li>
+</ol>
+<h2 id="_26">间隙与磨损检测</h2>
+<h3 id="_27">间隙测量方法</h3>
+<p>机械间隙直接影响设备精度和寿命。过大的间隙会导致冲击、振动和精度损失。</p>
+<p><strong>塞尺测量法</strong></p>
+<ul>
+<li>适用范围：0.02-1.0 mm</li>
+<li>精度：±0.01 mm</li>
+<li>操作要点：选择合适厚度，轻微阻力为准</li>
+</ul>
+<p><strong>百分表/千分表测量</strong></p>
+<ul>
+<li>测量精度：0.01 mm / 0.001 mm</li>
+<li>适用：轴向/径向跳动、端面跳动</li>
+<li>安装要求：磁力表座固定，探头垂直于被测面</li>
+</ul>
+<p><strong>激光位移传感器</strong></p>
+<ul>
+<li>非接触测量，精度可达 0.1 μm</li>
+<li>实时监测，可集成到控制系统</li>
+<li>价格较高，适合关键设备</li>
+</ul>
+<h3 id="_28">磨损检测技术</h3>
+<p><strong>直接测量法</strong></p>
+<p>游标卡尺/千分尺测量：</p>
+<ul>
+<li>测量磨损前后尺寸变化</li>
+<li>精度：0.01-0.001 mm</li>
+<li>局限：需要拆卸，中断运行</li>
+</ul>
+<p><strong>油液分析法</strong></p>
+<p>铁谱分析原理：</p>
+<div class="codehilite"><pre><span></span><code>磨粒浓度 → 磨损速率
+磨粒尺寸 → 磨损严重程度
+磨粒形态 → 磨损类型
+
+正常磨损：&lt; 15 μm，片状
+异常磨损：&gt; 50 μm，块状或螺旋状
+严重磨损：&gt; 100 μm，大块剥落
+</code></pre></div>
+
+<p><strong>超声波测厚</strong></p>
+<p>适用于管道、容器壁厚监测：
+$$t = \frac{v \cdot \Delta t}{2}$$
+其中：</p>
+<ul>
+<li>$t$ - 壁厚</li>
+<li>$v$ - 声速（钢中约 5900 m/s）</li>
+<li>$\Delta t$ - 往返时间</li>
+</ul>
+<h3 id="_29">典型部件的间隙标准</h3>
+<p><strong>滚动轴承游隙</strong></p>
+<div class="codehilite"><pre><span></span><code>轴承内径(mm)    径向游隙C3组(μm)
+10-18           11-25
+18-24           13-28
+24-30           13-28
+30-40           15-33
+</code></pre></div>
+
+<p><strong>齿轮啮合间隙</strong></p>
+<p>侧隙计算：
+$$j_n = j_t \cos\alpha$$</p>
+<p>其中：</p>
+<ul>
+<li>$j_n$ - 法向侧隙</li>
+<li>$j_t$ - 周向侧隙</li>
+<li>$\alpha$ - 压力角（通常20°）</li>
+</ul>
+<p>推荐值：</p>
+<ul>
+<li>精密传动：0.03-0.06 mm</li>
+<li>一般传动：0.10-0.20 mm</li>
+<li>重载传动：0.20-0.40 mm</li>
+</ul>
+<p><strong>导轨间隙</strong></p>
+<ul>
+<li>滑动导轨：0.01-0.03 mm</li>
+<li>直线导轨：预紧状态（负间隙）</li>
+<li>调整方法：镶条、压板调整</li>
+</ul>
+<h3 id="_30">磨损趋势分析</h3>
+<p><strong>浴盆曲线</strong></p>
+<div class="codehilite"><pre><span></span><code>故障率
+  ↑
+  │     早期故障期
+  │    ╱╲           磨损故障期
+  │   ╱  ╲         ╱
+  │  ╱    ╲_______╱
+  │ ╱     偶发故障期
+  └─────────────────→ 时间
+</code></pre></div>
+
+<p><strong>P-F曲线（潜在故障-功能故障）</strong></p>
+<div class="codehilite"><pre><span></span><code>性能
+  ↑
+  │ P点（可检测）
+  │  ╲
+  │   ╲ P-F间隔
+  │    ╲
+  │     ╲ F点（功能故障）
+  │      ╲
+  └────────→ 时间
+</code></pre></div>
+
+<p>关键是在P-F间隔内采取措施。</p>
+            </article>
+            
+            <nav class="page-nav"><a href="chapter16.html" class="nav-link prev">← 第16章：线束管理与电气集成</a><a href="chapter18.html" class="nav-link next">第18章：综合设计案例 →</a></nav>
+        </main>
+    </div>
+</body>
+</html>

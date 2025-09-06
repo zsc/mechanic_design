@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="./">
+    <title>第10章：LEGO技术积木机械设计</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/highlight.css">
+    <script src="assets/script.js" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: false,
+                packages: {'[+]': ['noerrors', 'ams']}
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            loader: {
+                load: ['[tex]/noerrors', '[tex]/ams']
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>目录</h3>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" id="sidebar-search-input" placeholder="搜索..." autocomplete="off">
+            </div>
+            <div id="tree-container">
+                <nav class="tree-nav" role="tree">
+                    <div class="tree-item " >
+                        <a href="index.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">机械设计实践教程</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter1.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第1章：机械设计基础</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter2.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第2章：CAD软件基础操作</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter3.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第3章：机械结构设计原理</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter4.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第4章：螺纹连接与紧固件</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter5.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第5章：轴承与关节系统</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter6.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第6章：传动系统设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter7.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第7章：舵机原理与选型</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter8.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第8章：3D打印设计指南</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter9.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第9章：铝材加工与应用</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item active" >
+                        <a href="chapter10.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第10章：LEGO技术积木机械设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter11.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第11章：配重与动平衡</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter12.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第12章：CAN总线与控制系统</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter13.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第13章：润滑与维护保养</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter14.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第14章：簧片与弹性元件</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter15.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第15章：热管理与散热设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter16.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第16章：线束管理与电气集成</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter17.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第17章：机械故障诊断技术</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter18.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第18章：综合设计案例</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="CLAUDE.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">Untitled</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <article>
+                <h1 id="10lego">第10章：LEGO技术积木机械设计</h1>
+<h2 id="_1">本章导读</h2>
+<p>LEGO Technic系统不仅是玩具，更是一个功能完备的快速原型验证平台。对于程序员和AI科学家而言，它提供了一种低成本、高效率的机械概念验证方案。本章将深入探讨LEGO Technic的工程应用，包括精确的传动比计算、结构优化技术，以及与现代控制系统的集成方法。通过学习本章，你将掌握使用LEGO快速搭建和验证机械原型的能力。</p>
+<h2 id="101-lego-technic">10.1 LEGO Technic基本元件体系</h2>
+<h3 id="1011-beam">10.1.1 结构梁（Beam）系统</h3>
+<p>LEGO Technic的核心是模块化的梁系统，所有尺寸都基于基本单位（1 stud = 8mm）。这个标准化的网格系统使得所有组件能够精确配合，实现可预测的机械性能。</p>
+<div class="codehilite"><pre><span></span><code>标准梁截面<span class="o">:</span>
+<span class="w">    </span>┌─┬─┬─┬─┬─┬─┬─┬─┐
+<span class="w">    </span>│○│○│○│○│○│○│○│○│<span class="w">  </span><span class="o">&lt;-</span><span class="w"> </span>圆孔直径<span class="o">:</span><span class="w"> </span><span class="m">4.8</span><span class="n">mm</span>
+<span class="w">    </span>└─┴─┴─┴─┴─┴─┴─┴─┘
+<span class="w">    </span><span class="o">|&lt;----</span><span class="w"> </span><span class="m">8</span><span class="n">mm</span><span class="w"> </span><span class="o">----&gt;|</span>
+
+梁厚度<span class="o">:</span><span class="w"> </span><span class="m">7.8</span><span class="n">mm</span>（留<span class="m">0.2</span><span class="n">mm间隙</span>）
+孔间距<span class="o">:</span><span class="w"> </span><span class="m">8.0</span><span class="n">mm</span><span class="w"> </span>±<span class="m">0.02</span><span class="n">mm</span>
+材料<span class="o">:</span><span class="w"> </span><span class="n">ABS塑料</span>，弹性模量约<span class="m">2.3</span><span class="w"> </span><span class="n">GPa</span>
+</code></pre></div>
+
+<p><strong>材料特性深度分析：</strong></p>
+<p>LEGO使用的ABS（丙烯腈-丁二烯-苯乙烯）共聚物具有独特的工程特性：</p>
+<ul>
+<li><strong>拉伸强度</strong>：40-45 MPa（断裂应力）</li>
+<li><strong>屈服强度</strong>：35-40 MPa（开始塑性变形）</li>
+<li><strong>弹性模量</strong>：2.0-2.4 GPa（刚度指标）</li>
+<li><strong>泊松比</strong>：0.35-0.38（横向应变比）</li>
+<li><strong>冲击强度</strong>：20-40 kJ/m²（抗冲击能力）</li>
+<li><strong>玻璃化温度</strong>：105°C（开始软化）</li>
+<li><strong>热膨胀系数</strong>：70-100 × 10⁻⁶/°C</li>
+</ul>
+<p>这些特性决定了LEGO梁的承载极限。在室温下，一根15L标准梁的极限弯曲载荷约为20N（2kg），超过此值会产生永久变形。温度升高到40°C时，承载能力降低约20%。</p>
+<p><strong>尺寸公差与配合精度：</strong></p>
+<p>LEGO的制造公差控制极其严格，这是其"咔嗒"配合感的基础：</p>
+<ul>
+<li><strong>孔径公差</strong>：4.8mm +0.01/-0.02mm</li>
+<li><strong>轴径公差</strong>：4.75mm -0.02/-0.05mm</li>
+<li><strong>孔间距公差</strong>：±0.02mm累积误差不超过0.1mm/10孔</li>
+<li><strong>梁长度公差</strong>：±0.05mm（无论长度）</li>
+<li><strong>垂直度公差</strong>：0.05mm/10mm高度</li>
+</ul>
+<p>这种精度确保了即使经过成千上万次拼装，零件仍能保持良好配合。</p>
+<p><strong>主要梁类型与特性：</strong></p>
+<ul>
+<li><strong>直梁（Straight Beam）</strong>：</li>
+<li>长度规格：3L、5L、7L、9L、11L、13L、15L（L=长度单位，1L=8mm）</li>
+<li>承载能力：15L梁中心加载1kg时挠度约2mm</li>
+<li>应用：主要承重结构、框架基础</li>
+<li>
+<p>颜色编码：黑色（结构件）、灰色（通用）、红色（装饰）</p>
+</li>
+<li>
+<p><strong>角梁（Angle Beam）</strong>：</p>
+</li>
+<li>标准角度：90°（直角）、53.13°（3-4-5三角形锐角）、143.13°（3-4-5三角形钝角）</li>
+<li>特殊角度：22.5°、157.5°（用于八边形结构）</li>
+<li>连接强度：角梁连接处强度约为直梁的85%</li>
+<li>
+<p>应用：转向结构、三角支撑、空间框架</p>
+</li>
+<li>
+<p><strong>框架梁（Frame Beam）</strong>：</p>
+</li>
+<li>开放式结构：中空设计减重30-40%</li>
+<li>连接点密度：提供更多横向连接选项</li>
+<li>刚度特性：抗弯刚度约为实心梁的60%</li>
+<li>
+<p>应用：大型轻量化结构、需要内部走线的场合</p>
+</li>
+<li>
+<p><strong>薄梁（Thin Beam）</strong>：</p>
+</li>
+<li>厚度：3.8mm（标准梁的一半）</li>
+<li>特殊用途：实现半格偏移（4mm偏移）</li>
+<li>柔性应用：可作为板簧使用</li>
+<li>堆叠特性：两个薄梁叠加略小于标准梁厚度</li>
+</ul>
+<p><strong>梁的力学特性：</strong></p>
+<p>根据材料力学原理，梁的挠度计算公式：
+$$\delta = \frac{FL^3}{48EI}$$
+其中：</p>
+<ul>
+<li>$F$ = 集中载荷</li>
+<li>$L$ = 梁长度</li>
+<li>$E$ = 弹性模量（ABS约2.3 GPa）</li>
+<li>$I$ = 截面惯性矩</li>
+</ul>
+<p>对于LEGO标准梁：
+$$I = \frac{bh^3}{12} - \sum I_{holes}$$
+考虑孔洞削弱后，有效惯性矩约为实心梁的70%。</p>
+<p><strong>实际承载能力计算示例：</strong></p>
+<p>以15L梁为例（长度120mm，宽度7.8mm，高度7.8mm）：</p>
+<ul>
+<li>截面积：$A = 7.8 \times 7.8 - n \times \pi r^2 = 60.84 - 15 \times 18.1 = -210.66$ mm²（负值说明需考虑实际剩余材料）</li>
+<li>实际截面积（考虑肋板）：约30 mm²</li>
+<li>惯性矩：$I_{eff} = 0.7 \times \frac{7.8 \times 7.8^3}{12} = 215$ mm⁴</li>
+<li>中心加载1N时的挠度：$\delta = \frac{1 \times 120^3}{48 \times 2300 \times 215} = 0.71$ mm</li>
+</ul>
+<p>这个理论值与实测值（约0.8-0.9mm）相当接近，验证了计算模型的准确性。</p>
+<p><strong>梁的组合使用策略：</strong></p>
+<ol>
+<li>
+<p><strong>并联组合</strong>：两根梁并排连接
+   - 刚度提升：2倍
+   - 强度提升：2倍
+   - 重量增加：2倍
+   - 应用：主承重梁、大跨度结构</p>
+</li>
+<li>
+<p><strong>叠加组合</strong>：两根梁上下叠加
+   - 刚度提升：8倍（高度加倍）
+   - 强度提升：4倍
+   - 重量增加：2倍
+   - 应用：高弯矩区域、悬臂结构</p>
+</li>
+<li>
+<p><strong>框架组合</strong>：形成箱型或工字型截面
+   - 刚度提升：10-15倍
+   - 强度提升：5-8倍
+   - 重量增加：3-4倍
+   - 应用：桥梁主梁、起重臂</p>
+</li>
+</ol>
+<p><strong>梁的疲劳特性：</strong></p>
+<p>LEGO梁的疲劳寿命遵循S-N曲线（应力-循环次数）：</p>
+<ul>
+<li>在30%极限载荷下：&gt;100万次循环</li>
+<li>在50%极限载荷下：约10万次循环</li>
+<li>在70%极限载荷下：约1万次循环</li>
+<li>在90%极限载荷下：&lt;1000次循环</li>
+</ul>
+<p>设计时建议将工作应力控制在极限强度的30%以内，确保长期使用的可靠性。</p>
+<h3 id="1012">10.1.2 连接件系统</h3>
+<p>连接件是LEGO Technic系统的关键，决定了结构的强度、灵活性和运动特性。正确选择和使用连接件是设计成功的关键。</p>
+<p><strong>轴（Axle）系统详解：</strong></p>
+<p>标准轴规格与特性：</p>
+<ul>
+<li><strong>直径规格</strong>：4.8mm名义直径（实际4.75mm，负公差-0.05mm）</li>
+<li><strong>材料</strong>：PC（聚碳酸酯），抗扭强度优于ABS</li>
+<li><strong>长度编码</strong>：</li>
+<li>偶数长度（2L、4L、6L、8L、10L、12L）：浅灰色</li>
+<li>奇数长度（3L、5L、7L、9L、11L）：黑色</li>
+<li>超长轴（16L、32L）：用于大跨度传动</li>
+</ul>
+<p>特殊轴类型：</p>
+<ul>
+<li><strong>带止动轴</strong>：端部有凸缘，防止轴向移动</li>
+<li><strong>柔性轴</strong>：可弯曲传动，最小弯曲半径50mm</li>
+<li><strong>带连接器轴</strong>：集成连接销，简化装配</li>
+<li><strong>金属加强轴</strong>：用于高负载位置，强度提升3倍</li>
+</ul>
+<p>轴的承载能力：
+$$T_{max} = \frac{\pi d^3 \tau_{allow}}{16}$$
+其中$\tau_{allow}$约为30 MPa（PC材料），4.8mm轴最大扭矩约0.4 N·m。</p>
+<p><strong>销（Pin）系统深度分析：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="err">摩擦销结构</span><span class="o">:</span><span class="w">        </span><span class="err">无摩擦销结构</span><span class="o">:</span><span class="w">      </span><span class="err">轴销（</span><span class="n">Axle</span><span class="w"> </span><span class="n">Pin</span><span class="err">）</span><span class="o">:</span>
+<span class="w">    </span><span class="err">╱╲</span><span class="w">                </span><span class="err">│││</span><span class="w">              </span><span class="err">┌─┐</span>
+<span class="w">   </span><span class="err">╱</span><span class="w">  </span><span class="err">╲</span><span class="w">               </span><span class="err">│││</span><span class="w">              </span><span class="err">│</span><span class="o">+</span><span class="err">│</span>
+<span class="w">  </span><span class="err">├────┤</span><span class="w">             </span><span class="err">├───┤</span><span class="w">             </span><span class="err">└─┘</span>
+<span class="w">   </span><span class="err">╲</span><span class="w">  </span><span class="err">╱</span><span class="w">               </span><span class="err">│││</span><span class="w">               </span><span class="o">+</span>
+<span class="w">    </span><span class="err">╲╱</span><span class="w">                </span><span class="err">│││</span>
+
+<span class="err">摩擦力</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="n">N</span><span class="w">      </span><span class="err">摩擦力</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="mf">0.5</span><span class="n">N</span><span class="w">     </span><span class="err">可传递扭矩</span>
+</code></pre></div>
+
+<p>销的类型与应用：</p>
+<ul>
+<li><strong>摩擦销（Friction Pin）</strong>：</li>
+<li>摩擦力：2-3N（新品），使用后降至1-2N</li>
+<li>应用：结构固定、限位装置</li>
+<li>
+<p>寿命：约1000次插拔后性能下降50%</p>
+</li>
+<li>
+<p><strong>无摩擦销（Frictionless Pin）</strong>：</p>
+</li>
+<li>旋转扭矩：&lt;0.01 N·m</li>
+<li>应用：铰链、自由关节</li>
+<li>
+<p>特点：适合高频运动</p>
+</li>
+<li>
+<p><strong>长销变体</strong>：</p>
+</li>
+<li>2L摩擦销：深层连接，提高结构稳定性</li>
+<li>3L摩擦销：穿越多层结构</li>
+<li>轴销组合：一端是轴，一端是销</li>
+</ul>
+<p><strong>连接器（Connector）系列：</strong></p>
+<ul>
+<li><strong>轴连接器</strong>：延长轴、改变轴向</li>
+<li><strong>角度连接器</strong>：0°、90°、180°、可调角度</li>
+<li><strong>万向节</strong>：允许±45°偏转，传递扭矩</li>
+<li><strong>离合器</strong>：扭矩限制器，保护传动系统</li>
+</ul>
+<h3 id="1013">10.1.3 关键尺寸关系与几何约束</h3>
+<p><strong>勾股定理的工程应用：</strong></p>
+<div class="codehilite"><pre><span></span><code>标准3-4-5三角形:
+      C(5L)
+    ╱│
+  ╱  │B(4L)
+╱    │
+─────┘
+A(3L)
+
+精确尺寸：
+A = 24.0mm (3×8)
+B = 32.0mm (4×8)  
+C = 40.0mm (5×8)
+误差 &lt; 0.1mm
+</code></pre></div>
+
+<p><strong>其他重要几何关系：</strong></p>
+<ol>
+<li>
+<p><strong>5-12-13三角形</strong>：
+   - 用于大跨度斜支撑
+   - 提供约22.6°和67.4°角度</p>
+</li>
+<li>
+<p><strong>8-15-17三角形</strong>：
+   - 最大的实用LEGO三角形
+   - 用于超大结构</p>
+</li>
+<li>
+<p><strong>√2关系（1.414）</strong>：
+   - 45°斜支撑
+   - 7L对角≈5L×√2（误差1%）</p>
+</li>
+</ol>
+<p><strong>完整的LEGO几何关系表：</strong></p>
+<p>| 三角形类型 | 边长比 | LEGO单位 | 角度A | 角度B | 角度C | 应用场景 |</p>
+<table>
+<thead>
+<tr>
+<th>三角形类型</th>
+<th>边长比</th>
+<th>LEGO单位</th>
+<th>角度A</th>
+<th>角度B</th>
+<th>角度C</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>等腰直角</td>
+<td>1:1:√2</td>
+<td>5:5:7</td>
+<td>45°</td>
+<td>45°</td>
+<td>90°</td>
+<td>正方形对角支撑</td>
+</tr>
+<tr>
+<td>黄金三角</td>
+<td>3:4:5</td>
+<td>3L:4L:5L</td>
+<td>36.87°</td>
+<td>53.13°</td>
+<td>90°</td>
+<td>最常用支撑</td>
+</tr>
+<tr>
+<td>长三角</td>
+<td>5:12:13</td>
+<td>5L:12L:13L</td>
+<td>22.62°</td>
+<td>67.38°</td>
+<td>90°</td>
+<td>大跨度支撑</td>
+</tr>
+<tr>
+<td>特大三角</td>
+<td>8:15:17</td>
+<td>8L:15L:17L</td>
+<td>28.07°</td>
+<td>61.93°</td>
+<td>90°</td>
+<td>超大结构</td>
+</tr>
+<tr>
+<td>等边三角</td>
+<td>1:1:1</td>
+<td>近似7:7:7</td>
+<td>60°</td>
+<td>60°</td>
+<td>60°</td>
+<td>六边形结构</td>
+</tr>
+</tbody>
+</table>
+<p><strong>角度构建技巧：</strong></p>
+<p>LEGO系统中精确角度的实现方法：</p>
+<ol>
+<li><strong>15°增量系统</strong>：</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>使用12齿和16齿锥齿轮组合：
+12齿锥齿轮有24个定位点 → 每步15°
+16齿锥齿轮有32个定位点 → 每步11.25°
+组合使用可得3.75°精度
+</code></pre></div>
+
+<ol start="2">
+<li><strong>22.5°系统</strong>：</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>使用Turntable（转盘）元件：
+大转盘：60齿，每齿6°
+小转盘：28齿，每齿12.86°
+通过组合实现22.5°的倍数
+</code></pre></div>
+
+<ol start="3">
+<li><strong>任意角度近似</strong>：</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>利用连杆机构的几何约束
+四连杆机构可实现0-180°范围内任意角度
+精度取决于连杆长度选择
+</code></pre></div>
+
+<p><strong>半格偏移技术：</strong></p>
+<p>使用薄梁或特殊连接件实现4mm（0.5L）偏移：</p>
+<div class="codehilite"><pre><span></span><code>标准网格:  ○───○───○───○
+           8   8   8  (mm)
+
+半格偏移:  ○──○──○──○──○
+           4  8  4  8  (mm)
+</code></pre></div>
+
+<p><strong>高级偏移技术：</strong></p>
+<ol>
+<li>
+<p><strong>1/3格偏移（2.67mm）</strong>：
+   - 使用Technic砖块的螺柱
+   - 垂直方向3个板高 = 9.6mm ≈ 1.2L</p>
+</li>
+<li>
+<p><strong>1/4格偏移（2mm）</strong>：
+   - 利用薄板厚度（3.2mm）
+   - 组合不同厚度元件</p>
+</li>
+<li>
+<p><strong>√2/2格偏移（5.66mm）</strong>：
+   - 45°角梁的自然偏移
+   - 用于创建八边形结构</p>
+</li>
+</ol>
+<p><strong>坐标系统与定位：</strong></p>
+<p>LEGO的三维坐标系统：</p>
+<ul>
+<li>X轴：水平方向，8mm为单位</li>
+<li>Y轴：深度方向，8mm为单位</li>
+<li>Z轴：垂直方向，9.6mm为单位（3板高）</li>
+</ul>
+<p>坐标转换关系：
+$$\begin{bmatrix} x' \\ y' \\ z' \end{bmatrix} = \begin{bmatrix} 8 &amp; 0 &amp; 0 \\ 0 &amp; 8 &amp; 0 \\ 0 &amp; 0 &amp; 9.6 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \end{bmatrix}$$
+这种非均匀坐标系统需要特别注意垂直方向的比例关系。</p>
+<p>应用场景：</p>
+<ul>
+<li>齿轮微调中心距</li>
+<li>实现奇数比例缩放</li>
+<li>创建复杂几何形状</li>
+<li>精确定位机构设计</li>
+</ul>
+<h2 id="102">10.2 齿轮系统与传动比设计</h2>
+<h3 id="1021">10.2.1 标准齿轮规格</h3>
+<p>LEGO齿轮系统基于标准化的模数设计，确保所有齿轮完美啮合。理解齿轮参数对于设计高效传动系统至关重要。</p>
+<p><strong>齿轮基本参数：</strong></p>
+<ul>
+<li><strong>模数（Module）</strong>：m = 1mm（国际标准）</li>
+<li><strong>压力角（Pressure Angle）</strong>：20°（渐开线齿形）</li>
+<li><strong>齿顶高系数</strong>：1.0</li>
+<li><strong>齿根高系数</strong>：1.25</li>
+<li><strong>材料</strong>：POM（聚甲醛）或ABS，摩擦系数0.2-0.3</li>
+</ul>
+<p><strong>完整齿轮规格表：</strong></p>
+<p>| 齿轮类型 | 齿数 | 分度圆直径(mm) | 外径(mm) | 厚度(mm) | 最大传递扭矩(N·cm) | 应用场景 |</p>
+<table>
+<thead>
+<tr>
+<th>齿轮类型</th>
+<th>齿数</th>
+<th>分度圆直径(mm)</th>
+<th>外径(mm)</th>
+<th>厚度(mm)</th>
+<th>最大传递扭矩(N·cm)</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>微型齿轮</td>
+<td>8</td>
+<td>8</td>
+<td>10</td>
+<td>6</td>
+<td>2</td>
+<td>高速/仪表</td>
+</tr>
+<tr>
+<td>小齿轮</td>
+<td>12</td>
+<td>12</td>
+<td>14</td>
+<td>6</td>
+<td>5</td>
+<td>中速传动</td>
+</tr>
+<tr>
+<td>标准齿轮</td>
+<td>16</td>
+<td>16</td>
+<td>18</td>
+<td>6</td>
+<td>8</td>
+<td>通用传动</td>
+</tr>
+<tr>
+<td>双层齿轮</td>
+<td>16/24</td>
+<td>16/24</td>
+<td>18/26</td>
+<td>12</td>
+<td>10</td>
+<td>复合传动</td>
+</tr>
+<tr>
+<td>标准齿轮</td>
+<td>20</td>
+<td>20</td>
+<td>22</td>
+<td>6</td>
+<td>12</td>
+<td>通用传动</td>
+</tr>
+<tr>
+<td>标准齿轮</td>
+<td>24</td>
+<td>24</td>
+<td>26</td>
+<td>6</td>
+<td>15</td>
+<td>通用传动</td>
+</tr>
+<tr>
+<td>双层齿轮</td>
+<td>12/20</td>
+<td>12/20</td>
+<td>14/22</td>
+<td>12</td>
+<td>8</td>
+<td>变速箱</td>
+</tr>
+<tr>
+<td>大齿轮</td>
+<td>36</td>
+<td>36</td>
+<td>38</td>
+<td>6</td>
+<td>25</td>
+<td>低速高扭</td>
+</tr>
+<tr>
+<td>大齿轮</td>
+<td>40</td>
+<td>40</td>
+<td>42</td>
+<td>6</td>
+<td>30</td>
+<td>最终传动</td>
+</tr>
+<tr>
+<td>内齿圈</td>
+<td>24</td>
+<td>24（内径）</td>
+<td>30</td>
+<td>8</td>
+<td>20</td>
+<td>行星齿轮</td>
+</tr>
+</tbody>
+</table>
+<p><strong>特殊齿轮类型：</strong></p>
+<ol>
+<li>
+<p><strong>锥齿轮（Bevel Gear）</strong>：
+   - 12齿锥齿轮：用于90°传动
+   - 20齿锥齿轮：平衡速度与扭矩
+   - 传动效率：约85%（vs直齿轮95%）</p>
+</li>
+<li>
+<p><strong>涡轮蜗杆（Worm Gear）</strong>：
+   - 蜗杆：单头螺纹，导程8mm
+   - 涡轮：24齿，减速比24:1
+   - 自锁特性：反向不可驱动
+   - 效率：40-60%（存在滑动摩擦）</p>
+</li>
+<li>
+<p><strong>齿条（Rack）</strong>：
+   - 模数：1mm
+   - 每格移动：π mm（约3.14mm）
+   - 应用：直线运动转换</p>
+</li>
+<li>
+<p><strong>离合齿轮（Clutch Gear）</strong>：
+   - 滑动扭矩：2-3 N·cm
+   - 保护功能：防止过载
+   - 白色24齿最常见</p>
+</li>
+</ol>
+<h3 id="1022">10.2.2 传动比计算与优化</h3>
+<p><strong>基本传动比公式：</strong>
+$$i = \frac{n_{input}}{n_{output}} = \frac{Z_{output}}{Z_{input}} = \frac{T_{output}}{T_{input}}$$
+其中：</p>
+<ul>
+<li>$i$ = 传动比</li>
+<li>$n$ = 转速(RPM)</li>
+<li>$Z$ = 齿数</li>
+<li>$T$ = 扭矩(N·m)</li>
+</ul>
+<p><strong>多级传动计算：</strong></p>
+<div class="codehilite"><pre><span></span><code>输入 ──[8T]──[24T]──轴──[16T]──[40T]── 输出
+        第一级:3:1       第二级:2.5:1
+
+总传动比: i_total = i₁ × i₂ = 3 × 2.5 = 7.5:1
+传动效率: η_total = η₁ × η₂ = 0.95 × 0.95 = 0.90
+</code></pre></div>
+
+<p><strong>传动比优化策略：</strong></p>
+<ol>
+<li>
+<p><strong>等比分配原则</strong>：
+   多级传动时，各级传动比接近时效率最高
+$$i_{optimal} = \sqrt[n]{i_{total}}$$</p>
+</li>
+<li>
+<p><strong>齿数互质原则</strong>：
+   选择互质齿数减少周期性误差
+   示例：8:25 优于 8:24</p>
+</li>
+<li>
+<p><strong>最小齿数限制</strong>：
+   避免根切，主动轮≥8齿</p>
+</li>
+</ol>
+<p><strong>常用传动比速查表：</strong></p>
+<p>| 目标传动比 | 齿轮组合 | 实际传动比 | 误差(%) |</p>
+<table>
+<thead>
+<tr>
+<th>目标传动比</th>
+<th>齿轮组合</th>
+<th>实际传动比</th>
+<th>误差(%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2:1</td>
+<td>20:40</td>
+<td>2.000</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3:1</td>
+<td>8:24</td>
+<td>3.000</td>
+<td>0</td>
+</tr>
+<tr>
+<td>5:1</td>
+<td>8:40</td>
+<td>5.000</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1.5:1</td>
+<td>16:24</td>
+<td>1.500</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2.5:1</td>
+<td>16:40</td>
+<td>2.500</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3.33:1</td>
+<td>12:40</td>
+<td>3.333</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1.67:1</td>
+<td>24:40</td>
+<td>1.667</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>中心距计算与调整：</strong></p>
+<p>标准中心距公式：
+$$a = \frac{m(Z_1 + Z_2)}{2}$$
+LEGO约束：中心距必须满足
+$$a = n × 8mm \quad \text{或} \quad a = \sqrt{(n×8)^2 + (m×8)^2}$$
+实用中心距表：</p>
+<div class="codehilite"><pre><span></span><code><span class="mf">8</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">24</span><span class="n">T</span><span class="p">:</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">16</span><span class="n">mm</span><span class="w"> </span><span class="p">(</span><span class="mf">2</span><span class="n">L</span><span class="p">)</span>
+<span class="mf">12</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">20</span><span class="n">T</span><span class="p">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">16</span><span class="n">mm</span><span class="w"> </span><span class="p">(</span><span class="mf">2</span><span class="n">L</span><span class="p">)</span>
+<span class="mf">12</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">36</span><span class="n">T</span><span class="p">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">24</span><span class="n">mm</span><span class="w"> </span><span class="p">(</span><span class="mf">3</span><span class="n">L</span><span class="p">)</span>
+<span class="mf">16</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">16</span><span class="n">T</span><span class="p">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">16</span><span class="n">mm</span><span class="w"> </span><span class="p">(</span><span class="mf">2</span><span class="n">L</span><span class="p">)</span>
+<span class="mf">16</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">24</span><span class="n">T</span><span class="p">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">20</span><span class="n">mm</span><span class="w"> </span><span class="p">(</span><span class="mf">2.5</span><span class="n">L</span><span class="err">，</span><span class="n">需半格偏移</span><span class="p">)</span>
+<span class="mf">20</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">20</span><span class="n">T</span><span class="p">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">20</span><span class="n">mm</span><span class="w"> </span><span class="p">(</span><span class="mf">2.5</span><span class="n">L</span><span class="err">，</span><span class="n">需半格偏移</span><span class="p">)</span>
+<span class="mf">24</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">40</span><span class="n">T</span><span class="p">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">32</span><span class="n">mm</span><span class="w"> </span><span class="p">(</span><span class="mf">4</span><span class="n">L</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="1023">10.2.3 齿轮箱设计原则</h3>
+<p><strong>紧凑型两级减速器：</strong></p>
+<div class="codehilite"><pre><span></span><code>顶视图:
+┌──────────────┐
+│ [8]──[24]    │  第一级
+│  │           │
+│  └──[16][40]│  第二级
+└──────────────┘
+空间: 5L × 7L
+减速比: (24/8) × (40/16) = 7.5:1
+</code></pre></div>
+
+<p><strong>关键设计要点：</strong></p>
+<ol>
+<li><strong>中心距计算</strong>：$a = \frac{m(Z_1 + Z_2)}{2}$</li>
+<li><strong>LEGO标准中心距</strong>：必须是8mm的整数倍</li>
+<li><strong>半格偏移技术</strong>：使用薄梁实现4mm偏移</li>
+</ol>
+<h3 id="1024">10.2.4 特殊传动机构</h3>
+<p><strong>差速器原理：</strong></p>
+<div class="codehilite"><pre><span></span><code>        输入
+         │
+    ┌────┴────┐
+    │ 差速器  │
+    └─┬────┬─┘
+      │    │
+   左轮   右轮
+
+关系: ω_input = (ω_left + ω_right) / 2
+</code></pre></div>
+
+<p><strong>行星齿轮系统：</strong></p>
+<ul>
+<li>太阳轮：中心齿轮</li>
+<li>行星轮：围绕太阳轮公转</li>
+<li>齿圈：外围内齿轮</li>
+<li>传动比计算：$i = 1 + \frac{Z_{ring}}{Z_{sun}}$（行星架固定）</li>
+</ul>
+<h2 id="103">10.3 结构强度优化技术</h2>
+<h3 id="1031">10.3.1 梁的弯曲强度</h3>
+<p><strong>单梁 vs 双梁配置：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="err">单梁</span><span class="o">:</span><span class="w">           </span><span class="err">双梁并联</span><span class="o">:</span><span class="w">        </span><span class="err">箱型梁</span><span class="o">:</span>
+<span class="err">━━━━━</span><span class="w">           </span><span class="err">━━━━━</span><span class="w">           </span><span class="err">┌─────┐</span>
+<span class="err">载荷↓</span><span class="w">           </span><span class="err">━━━━━</span><span class="w">           </span><span class="err">│</span><span class="w">     </span><span class="err">│</span>
+<span class="w">                </span><span class="err">载荷↓</span><span class="w">           </span><span class="err">└─────┘</span>
+<span class="w">                                </span><span class="err">载荷↓</span>
+
+<span class="err">强度比</span><span class="o">:</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="o">:</span><span class="w">    </span><span class="mi">2</span><span class="w">    </span><span class="o">:</span><span class="w">    </span><span class="mi">4</span><span class="o">-</span><span class="mi">6</span>
+</code></pre></div>
+
+<p><strong>关键原则：</strong></p>
+<ul>
+<li>惯性矩$I$与高度的立方成正比</li>
+<li>箱型结构提供最佳强度重量比</li>
+<li>使用三角支撑消除弯矩</li>
+</ul>
+<h3 id="1032">10.3.2 连接强化技术</h3>
+<p><strong>多点固定原则：</strong></p>
+<div class="codehilite"><pre><span></span><code>弱连接(2点):        强连接(4点):
+    ○───○              ○───○
+                       │ × │
+                       ○───○
+</code></pre></div>
+
+<p><strong>应力分散设计：</strong></p>
+<ol>
+<li>避免单点承载</li>
+<li>使用摩擦销+轴的组合连接</li>
+<li>在高应力区域使用金属加强轴</li>
+</ol>
+<h3 id="1033">10.3.3 框架刚度提升</h3>
+<p><strong>三角化原则：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="err">不稳定矩形</span><span class="o">:</span><span class="w">        </span><span class="err">稳定三角形</span><span class="o">:</span>
+<span class="err">┌─────────┐</span><span class="w">        </span><span class="err">┌─────────┐</span>
+<span class="err">│</span><span class="w">         </span><span class="err">│</span><span class="w">        </span><span class="err">│</span><span class="w">        </span><span class="err">╱│</span>
+<span class="err">│</span><span class="w">         </span><span class="err">│</span><span class="w">   </span><span class="err">→</span><span class="w">    </span><span class="err">│</span><span class="w">      </span><span class="err">╱</span><span class="w">  </span><span class="err">│</span>
+<span class="err">│</span><span class="w">         </span><span class="err">│</span><span class="w">        </span><span class="err">│</span><span class="w">    </span><span class="err">╱</span><span class="w">    </span><span class="err">│</span>
+<span class="err">└─────────┘</span><span class="w">        </span><span class="err">└─────────┘</span>
+</code></pre></div>
+
+<p><strong>空间框架设计：</strong></p>
+<ul>
+<li>X形交叉支撑</li>
+<li>K形支撑（中间有节点）</li>
+<li>空间三角锥结构</li>
+</ul>
+<h2 id="104">10.4 动力系统集成</h2>
+<h3 id="1041-lego">10.4.1 LEGO动力元件</h3>
+<p><strong>电机规格对比：</strong></p>
+<p>| 电机类型 | 空载转速(RPM) | 堵转扭矩(N·cm) | 功率(W) | 应用场景 |</p>
+<table>
+<thead>
+<tr>
+<th>电机类型</th>
+<th>空载转速(RPM)</th>
+<th>堵转扭矩(N·cm)</th>
+<th>功率(W)</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M电机</td>
+<td>380</td>
+<td>8</td>
+<td>1.0</td>
+<td>轻载高速</td>
+</tr>
+<tr>
+<td>L电机</td>
+<td>220</td>
+<td>40</td>
+<td>2.0</td>
+<td>通用动力</td>
+</tr>
+<tr>
+<td>XL电机</td>
+<td>220</td>
+<td>40</td>
+<td>2.0</td>
+<td>大扭矩</td>
+</tr>
+<tr>
+<td>Servo</td>
+<td>180</td>
+<td>25</td>
+<td>1.5</td>
+<td>精确控制</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1042">10.4.2 电机选型计算</h3>
+<p><strong>负载扭矩估算：</strong>
+$$T_{required} = F \times r \times \frac{1}{\eta}$$
+其中：</p>
+<ul>
+<li>$F$ = 负载力(N)</li>
+<li>$r$ = 力臂(m)</li>
+<li>$\eta$ = 传动效率(LEGO齿轮约0.9)</li>
+</ul>
+<p><strong>功率匹配：</strong>
+$$P = \frac{T \times \omega}{9.55}$$</p>
+<ul>
+<li>$P$ = 功率(W)</li>
+<li>$T$ = 扭矩(N·m)</li>
+<li>$\omega$ = 转速(RPM)</li>
+</ul>
+<h3 id="1043">10.4.3 控制系统集成</h3>
+<p><strong>Powered Up系统架构：</strong></p>
+<div class="codehilite"><pre><span></span><code>手机App ←蓝牙→ Hub ←→ 电机/传感器
+                ↓
+              电池盒
+</code></pre></div>
+
+<p><strong>Python控制示例框架：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="gh">#</span> 伪代码结构
+hub.connect()
+motor_A = Motor(Port.A)
+motor_A.run_angle(speed=500, angle=360)
+</code></pre></div>
+
+<h3 id="1044">10.4.4 混合动力方案</h3>
+<p><strong>电机+气动组合：</strong></p>
+<ul>
+<li>电机：精确位置控制</li>
+<li>气动：大力量输出</li>
+<li>应用：夹持器、冲压机构</li>
+</ul>
+<h2 id="105">10.5 创意机构设计</h2>
+<h3 id="1051">10.5.1 连杆机构</h3>
+<p><strong>四连杆机构基础：</strong></p>
+<div class="codehilite"><pre><span></span><code>     B ← 连杆
+    ╱ ╲
+   ╱   ╲
+  A     C ← 摇杆
+  ↑     ↓
+ 曲柄  机架
+</code></pre></div>
+
+<p><strong>Grashof条件：</strong>
+最短杆 + 最长杆 ≤ 其余两杆之和 → 可实现完整旋转</p>
+<h3 id="1052">10.5.2 凸轮机构</h3>
+<p><strong>LEGO凸轮设计：</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="err">偏心轮</span><span class="o">:</span><span class="w">          </span><span class="err">心形凸轮</span><span class="o">:</span>
+<span class="w">   </span><span class="err">○</span><span class="w">              </span><span class="err">♥</span>
+<span class="w">  </span><span class="err">╱</span><span class="w"> </span><span class="err">╲</span><span class="w">            </span><span class="err">╱</span><span class="w"> </span><span class="err">╲</span>
+<span class="w"> </span><span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">          </span><span class="err">│</span><span class="w">   </span><span class="err">│</span>
+<span class="w">  </span><span class="err">╲</span><span class="w"> </span><span class="err">╱</span><span class="w">            </span><span class="err">╲</span><span class="w"> </span><span class="err">╱</span>
+</code></pre></div>
+
+<p><strong>升程计算：</strong></p>
+<ul>
+<li>偏心轮：升程 = 2 × 偏心距</li>
+<li>心形凸轮：可实现变速运动</li>
+</ul>
+<h3 id="1053">10.5.3 间歇运动机构</h3>
+<p><strong>日内瓦轮（马尔他十字）：</strong></p>
+<div class="codehilite"><pre><span></span><code>驱动轮     从动轮
+  ○  →    ✚
+连续旋转  间歇旋转
+</code></pre></div>
+
+<p><strong>棘轮机构：</strong></p>
+<ul>
+<li>单向传动</li>
+<li>防逆转</li>
+<li>步进送料</li>
+</ul>
+<h3 id="1054">10.5.4 柔性机构</h3>
+<p><strong>利用梁的弹性：</strong></p>
+<div class="codehilite"><pre><span></span><code>薄梁弹簧:
+━━━╱╲━━━  受力变形
+━━━━━━━━  恢复原状
+</code></pre></div>
+
+<p>应用：</p>
+<ul>
+<li>减震器</li>
+<li>夹持器</li>
+<li>触发机构</li>
+</ul>
+<h2 id="106-lego">10.6 案例研究：LEGO差速器与变速箱设计</h2>
+<h3 id="1061">10.6.1 差速器详细设计</h3>
+<p><strong>组件清单：</strong></p>
+<ul>
+<li>1× 差速器外壳（#62821）</li>
+<li>2× 12齿锥齿轮（#6589）</li>
+<li>2× 4齿锥齿轮（#35185）</li>
+<li>相关轴和连接件</li>
+</ul>
+<p><strong>装配要点：</strong></p>
+<ol>
+<li>行星齿轮必须对称安装</li>
+<li>确保所有齿轮啮合正确</li>
+<li>测试两侧车轮独立旋转</li>
+</ol>
+<h3 id="1062">10.6.2 三速变速箱设计</h3>
+<p><strong>传动比配置：</strong></p>
+<ul>
+<li>1档：5:1（爬坡）</li>
+<li>2档：2:1（正常）</li>
+<li>3档：1:1（高速）</li>
+</ul>
+<p><strong>换档机构：</strong></p>
+<div class="codehilite"><pre><span></span><code>滑动齿轮式:
+━━[齿轮]━━  可沿轴滑动
+   ↑↓
+ 换档叉
+</code></pre></div>
+
+<p><strong>同步器替代方案：</strong>
+使用摩擦离合器实现平滑换档</p>
+<h3 id="1063">10.6.3 性能测试</h3>
+<p><strong>测试项目：</strong></p>
+<ol>
+<li>空载转速测试</li>
+<li>负载扭矩测试</li>
+<li>传动效率测定</li>
+<li>噪音振动评估</li>
+</ol>
+<p><strong>优化迭代：</strong></p>
+<ul>
+<li>减少齿隙：使用预紧弹簧</li>
+<li>降低噪音：添加润滑脂</li>
+<li>提高刚度：加强支撑结构</li>
+</ul>
+<h2 id="_2">本章小结</h2>
+<p>本章系统介绍了LEGO Technic在机械设计中的工程应用。关键要点包括：</p>
+<ol>
+<li><strong>模块化设计</strong>：基于8mm网格的标准化系统</li>
+<li><strong>传动系统</strong>：精确的传动比计算和齿轮箱设计</li>
+<li><strong>结构优化</strong>：三角化和箱型梁提升强度</li>
+<li><strong>动力集成</strong>：电机选型和控制系统配置</li>
+<li><strong>创新机构</strong>：连杆、凸轮、间歇运动的实现</li>
+</ol>
+<p>LEGO Technic不仅是教学工具，更是快速原型验证的理想平台，特别适合在正式加工前验证机械概念。</p>
+<h2 id="_3">练习题</h2>
+<h3 id="_4">基础题</h3>
+<p><strong>题目10.1</strong>：计算题
+一个LEGO齿轮箱使用8齿输入齿轮，经过24齿中间齿轮，最终驱动40齿输出齿轮。如果输入转速为300 RPM，求输出转速和总传动比。</p>
+<p><em>提示：注意中间齿轮的作用</em></p>
+<details>
+<summary>答案</summary>
+<p>总传动比 = 40/8 = 5:1
+输出转速 = 300/5 = 60 RPM
+注：中间齿轮不影响传动比，只改变旋转方向</p>
+</details>
+<p><strong>题目10.2</strong>：设计题
+使用LEGO标准梁设计一个长度为10L、高度为3L的桥梁结构，要求能承载500g重物而挠度小于5mm。画出结构示意图。</p>
+<p><em>提示：考虑三角支撑和箱型梁结构</em></p>
+<details>
+<summary>答案</summary>
+<p>最优设计：</p>
+<ul>
+<li>上下各用15L梁作为主梁</li>
+<li>每隔2L添加垂直支撑</li>
+<li>添加X形斜支撑形成桁架</li>
+<li>关键位置使用双层梁
+预期承载能力&gt;500g，挠度&lt;3mm</li>
+</ul>
+</details>
+<p><strong>题目10.3</strong>：连接强度
+比较以下三种梁连接方式的强度：(a) 2个摩擦销连接 (b) 1根轴穿过连接 (c) 2个摩擦销+1根轴组合连接。按强度排序并说明原因。</p>
+<p><em>提示：考虑剪切力和弯矩的分布</em></p>
+<details>
+<summary>答案</summary>
+<p>强度排序：(c) &gt; (b) &gt; (a)
+原因：</p>
+<ul>
+<li>(a) 仅靠摩擦，易松动</li>
+<li>(b) 轴提供剪切强度</li>
+<li>(c) 组合连接，力分散，冗余设计</li>
+</ul>
+</details>
+<h3 id="_5">挑战题</h3>
+<p><strong>题目10.4</strong>：优化设计
+设计一个LEGO变速箱，要求：</p>
+<ul>
+<li>至少3个前进档位</li>
+<li>传动比范围3:1到1:2</li>
+<li>总体积不超过8L×8L×5L</li>
+<li>画出齿轮布局图</li>
+</ul>
+<p><em>提示：考虑使用滑动齿轮或行星齿轮系统</em></p>
+<details>
+<summary>答案</summary>
+<p>方案：滑动齿轮式</p>
+<ul>
+<li>输入轴：8T、16T、24T可滑动齿轮</li>
+<li>中间轴：24T、16T、12T固定齿轮</li>
+<li>输出轴：与中间轴固连
+档位：
+1档 8:24 = 1:3
+2档 16:16 = 1:1
+3档 24:12 = 2:1
+体积：7L×6L×4L</li>
+</ul>
+</details>
+<p><strong>题目10.5</strong>：机构创新
+使用LEGO设计一个将连续旋转转换为间歇直线运动的机构，每旋转90°前进1L距离。列出所需零件清单。</p>
+<p><em>提示：可以组合使用凸轮、连杆或日内瓦轮</em></p>
+<details>
+<summary>答案</summary>
+<p>方案：凸轮+推杆机构
+零件清单：</p>
+<ul>
+<li>1× 心形凸轮（自制）</li>
+<li>1× 5L推杆梁</li>
+<li>2× 线性导轨</li>
+<li>1× 复位弹簧</li>
+<li>相关支架和轴
+工作原理：凸轮每转90°推动推杆1L，其余270°推杆由弹簧复位</li>
+</ul>
+</details>
+<p><strong>题目10.6</strong>：系统集成
+设计一个LEGO机械臂，要求：</p>
+<ul>
+<li>3个自由度</li>
+<li>末端夹持器</li>
+<li>单个电机驱动所有关节（通过离合器切换）</li>
+<li>估算各关节所需扭矩</li>
+</ul>
+<p><em>提示：考虑重力矩和传动效率</em></p>
+<details>
+<summary>答案</summary>
+<p>设计方案：</p>
+<ul>
+<li>基座旋转：蜗轮蜗杆40:1</li>
+<li>大臂俯仰：齿轮减速15:1</li>
+<li>小臂俯仰：齿轮减速10:1</li>
+<li>夹持器：凸轮机构</li>
+</ul>
+<p>扭矩估算（臂长20cm，载荷100g）：</p>
+<ul>
+<li>基座：0.2 N·m</li>
+<li>大臂：1.0 N·m（含自重）</li>
+<li>小臂：0.5 N·m
+选用L电机（0.4 N·m）+ 减速足够</li>
+</ul>
+</details>
+<h2 id="gotchas">常见陷阱与错误 (Gotchas)</h2>
+<h3 id="1">1. 齿轮啮合问题</h3>
+<p><strong>错误</strong>：齿轮中心距不是8mm整数倍
+<strong>症状</strong>：齿轮卡死或跳齿
+<strong>解决</strong>：使用半格偏移技术或选择合适齿数组合</p>
+<h3 id="2">2. 轴的弯曲</h3>
+<p><strong>错误</strong>：长轴无中间支撑
+<strong>症状</strong>：高负载下轴明显弯曲，传动不畅
+<strong>解决</strong>：每4-5L添加轴承支撑</p>
+<h3 id="3">3. 连接松动</h3>
+<p><strong>错误</strong>：仅使用无摩擦销连接承重结构
+<strong>症状</strong>：使用中结构逐渐松散
+<strong>解决</strong>：承重位置必须使用摩擦销或轴</p>
+<h3 id="4">4. 电机过载</h3>
+<p><strong>错误</strong>：直接驱动大负载
+<strong>症状</strong>：电机发热、停转或损坏
+<strong>解决</strong>：合理计算减速比，使用电流限制</p>
+<h3 id="5">5. 结构共振</h3>
+<p><strong>错误</strong>：未考虑动态载荷
+<strong>症状</strong>：特定转速下剧烈振动
+<strong>解决</strong>：增加结构刚度，避开共振频率</p>
+<h2 id="_6">最佳实践检查清单</h2>
+<h3 id="_7">设计阶段</h3>
+<ul>
+<li>[ ] 所有尺寸符合8mm模块</li>
+<li>[ ] 齿轮中心距计算正确</li>
+<li>[ ] 传动比满足扭矩要求</li>
+<li>[ ] 结构使用三角支撑</li>
+<li>[ ] 预留装配和维护空间</li>
+</ul>
+<h3 id="_8">零件选择</h3>
+<ul>
+<li>[ ] 承重位置使用摩擦销</li>
+<li>[ ] 长轴有足够支撑</li>
+<li>[ ] 高应力区使用加强件</li>
+<li>[ ] 齿轮材质匹配（避免金属齿轮配塑料齿轮）</li>
+</ul>
+<h3 id="_9">动力系统</h3>
+<ul>
+<li>[ ] 电机功率足够</li>
+<li>[ ] 传动效率&gt;70%</li>
+<li>[ ] 有过载保护机制</li>
+<li>[ ] 电池容量满足运行时间</li>
+</ul>
+<h3 id="_10">测试验证</h3>
+<ul>
+<li>[ ] 空载运行平滑</li>
+<li>[ ] 满载无异常噪音</li>
+<li>[ ] 连续运行温升正常</li>
+<li>[ ] 所有紧固件牢固</li>
+<li>[ ] 符合设计性能指标</li>
+</ul>
+<h3 id="_11">文档记录</h3>
+<ul>
+<li>[ ] 零件清单完整</li>
+<li>[ ] 装配顺序清晰</li>
+<li>[ ] 关键参数标注</li>
+<li>[ ] 维护要点说明</li>
+</ul>
+            </article>
+            
+            <nav class="page-nav"><a href="chapter9.html" class="nav-link prev">← 第9章：铝材加工与应用</a><a href="chapter11.html" class="nav-link next">第11章：配重与动平衡 →</a></nav>
+        </main>
+    </div>
+</body>
+</html>

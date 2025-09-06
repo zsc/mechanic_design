@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="./">
+    <title>第1章：机械设计基础</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/highlight.css">
+    <script src="assets/script.js" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: false,
+                packages: {'[+]': ['noerrors', 'ams']}
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            loader: {
+                load: ['[tex]/noerrors', '[tex]/ams']
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>目录</h3>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" id="sidebar-search-input" placeholder="搜索..." autocomplete="off">
+            </div>
+            <div id="tree-container">
+                <nav class="tree-nav" role="tree">
+                    <div class="tree-item " >
+                        <a href="index.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">机械设计实践教程</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item active" >
+                        <a href="chapter1.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第1章：机械设计基础</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter2.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第2章：CAD软件基础操作</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter3.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第3章：机械结构设计原理</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter4.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第4章：螺纹连接与紧固件</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter5.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第5章：轴承与关节系统</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter6.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第6章：传动系统设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter7.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第7章：舵机原理与选型</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter8.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第8章：3D打印设计指南</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter9.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第9章：铝材加工与应用</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter10.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第10章：LEGO技术积木机械设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter11.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第11章：配重与动平衡</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter12.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第12章：CAN总线与控制系统</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter13.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第13章：润滑与维护保养</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter14.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第14章：簧片与弹性元件</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter15.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第15章：热管理与散热设计</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter16.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第16章：线束管理与电气集成</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter17.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第17章：机械故障诊断技术</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="chapter18.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">第18章：综合设计案例</span>
+                        </a>
+                    </div>
+                
+                    <div class="tree-item " >
+                        <a href="CLAUDE.html" class="tree-link">
+                            <span class="tree-icon">📄</span>
+                            <span class="tree-title">Untitled</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <article>
+                <h1 id="1">第1章：机械设计基础</h1>
+<p>本章介绍机械设计的基础知识，包括材料力学基本概念、常用工程材料特性、以及实用的材料选择方法。通过本章学习，你将掌握机械设计中最核心的基础知识，建立工程直觉，为后续章节的深入学习打下坚实基础。</p>
+<h2 id="11">1.1 材料力学基础概念</h2>
+<p>材料力学是机械设计的理论基础。作为程序员，你可以把材料看作具有特定"API"的对象——每种材料都有其独特的属性和响应特性。</p>
+<h3 id="_1">基本概念</h3>
+<p><strong>力（Force）</strong>：使物体产生变形或运动状态改变的作用，单位为牛顿(N)。在机械设计中，我们关心三种基本载荷：</p>
+<ul>
+<li>拉伸/压缩：沿轴向的力</li>
+<li>弯曲：垂直于轴向的力导致的弯矩  </li>
+<li>扭转：绕轴旋转的力矩</li>
+<li>剪切：平行于截面的力</li>
+</ul>
+<p>对于程序员来说，可以把力看作是系统的输入，而变形和应力是系统的响应。就像函数调用一样，输入力会产生可预测的输出。</p>
+<p><strong>应力（Stress, σ）</strong>：单位面积上的内力，$\sigma = \frac{F}{A}$，单位为帕斯卡(Pa)或兆帕(MPa)。可以理解为材料内部的"压力密度"。</p>
+<p>常见应力类型：</p>
+<ul>
+<li>正应力（σ）：垂直于截面的应力，拉为正，压为负</li>
+<li>剪应力（τ）：平行于截面的应力</li>
+<li>主应力：某个方向上剪应力为零时的正应力</li>
+</ul>
+<p><strong>应变（Strain, ε）</strong>：材料的相对变形量，$\varepsilon = \frac{\Delta L}{L_0}$，无量纲。表示材料被拉伸或压缩的程度。</p>
+<p>应变的物理意义：</p>
+<ul>
+<li>ε = 0.001 表示伸长0.1%</li>
+<li>ε = 0.002 是钢材的典型屈服应变</li>
+<li>ε &gt; 0.05 通常意味着大变形，需要非线性分析</li>
+</ul>
+<p><strong>力矩（Moment）</strong>：力与力臂的乘积，$M = F \times d$，单位N·m。在梁的弯曲中，力矩导致截面产生转动趋势，引起弯曲应力分布。</p>
+<h3 id="_2">胡克定律</h3>
+<p>在弹性范围内，应力与应变成正比：
+$$\sigma = E \cdot \varepsilon$$
+其中E为弹性模量（杨氏模量），描述材料的刚度。E越大，材料越"硬"。</p>
+<div class="codehilite"><pre><span></span><code>     应力↑
+      │   破坏点
+      │    ╱
+      │   ╱ 屈服点
+      │  ╱ 塑性区
+      │ ╱ 弹性区
+      │╱
+      └────────→ 应变
+</code></pre></div>
+
+<p>典型的应力-应变曲线阶段：</p>
+<ol>
+<li><strong>弹性阶段</strong>（0到屈服点）：应力与应变线性关系，卸载后完全恢复</li>
+<li><strong>屈服阶段</strong>：应力基本不变，应变快速增加</li>
+<li><strong>强化阶段</strong>：需要更大应力才能继续变形</li>
+<li><strong>颈缩阶段</strong>：局部变细，应力下降直至断裂</li>
+</ol>
+<p><strong>深入理解弹性模量</strong>：</p>
+<ul>
+<li>弹性模量是材料的固有属性，几乎不受热处理影响</li>
+<li>同一类材料（如各种钢材）的E值相近：钢约200 GPa</li>
+<li>E值决定结构刚度：梁的挠度与E成反比</li>
+<li>温度影响：温度升高，E值略有下降（钢材每100°C下降约4%）</li>
+</ul>
+<p><strong>实际曲线的细节特征</strong>：</p>
+<ul>
+<li><strong>上屈服点与下屈服点</strong>：某些钢材有明显的屈服平台，设计时取下屈服点</li>
+<li><strong>0.2%残余应变</strong>：无明显屈服点的材料（如铝合金），取0.2%塑性应变对应的应力为屈服强度</li>
+<li><strong>加工硬化</strong>：经过塑性变形后，材料屈服强度提高但塑性降低</li>
+<li><strong>包辛格效应</strong>：反向加载时屈服强度降低</li>
+</ul>
+<p>工程应用要点：</p>
+<ul>
+<li>设计时必须保持在弹性区内工作</li>
+<li>屈服强度是设计的关键参数</li>
+<li>塑性变形可用于成型加工（如折弯、冲压）</li>
+<li>循环载荷下需考虑材料的循环硬化或软化</li>
+</ul>
+<h3 id="_3">关键材料参数</h3>
+<ol>
+<li>
+<p><strong>弹性模量(E)</strong>：材料刚度指标
+   - 钢：200 GPa
+   - 铝合金：70 GPa<br />
+   - ABS塑料：2 GPa
+   - 碳纤维复合材料：150 GPa（纵向）
+   - 玻璃：70 GPa
+   - 混凝土：30 GPa</p>
+</li>
+<li>
+<p><strong>屈服强度(σy)</strong>：材料开始产生永久变形的应力
+   - 普通钢：250 MPa
+   - 6061-T6铝合金：270 MPa
+   - ABS塑料：40 MPa
+   - 钛合金：880 MPa
+   - 黄铜：200 MPa</p>
+</li>
+<li>
+<p><strong>抗拉强度(σu)</strong>：材料断裂前能承受的最大应力
+   - 普通钢：400 MPa
+   - 6061-T6铝合金：310 MPa
+   - ABS塑料：45 MPa
+   - 高强度钢：1000+ MPa
+   - 尼龙6：80 MPa</p>
+</li>
+<li>
+<p><strong>泊松比(ν)</strong>：横向应变与纵向应变之比
+   - 大多数金属：0.3
+   - 橡胶：接近0.5（体积不变）
+   - 混凝土：0.2
+   - 软木塞：接近0（横向几乎不变形）
+   - 泡沫材料：0.1-0.4（取决于密度）</p>
+</li>
+<li>
+<p><strong>密度(ρ)</strong>：单位体积质量
+   - 钢：7850 kg/m³
+   - 铝：2700 kg/m³
+   - 钛：4500 kg/m³
+   - 碳纤维复合材料：1600 kg/m³
+   - 工程塑料：900-1400 kg/m³</p>
+</li>
+<li>
+<p><strong>比强度</strong>：强度/密度，衡量轻量化性能
+   - 高强度钢：0.13
+   - 铝合金：0.10
+   - 钛合金：0.20
+   - 碳纤维复合材料：0.40
+   - 这解释了为什么航空航天偏爱钛合金和碳纤维</p>
+</li>
+<li>
+<p><strong>热膨胀系数(α)</strong>：温度变化引起的应变
+   - 钢：11×10⁻⁶/°C
+   - 铝：23×10⁻⁶/°C
+   - 不锈钢：17×10⁻⁶/°C
+   - ABS：90×10⁻⁶/°C
+   - 殷钢：1.2×10⁻⁶/°C（极低，用于精密仪器）</p>
+</li>
+</ol>
+<h3 id="_4">实用经验法则</h3>
+<ol>
+<li>
+<p><strong>刚度设计</strong>：
+   - 一般机械：变形量 &lt; 跨度/300
+   - 精密机械：变形量 &lt; 跨度/1000
+   - 机床主轴：变形量 &lt; 跨度/3000
+   - 光学平台：变形量 &lt; 跨度/10000
+   - 经验值：先按刚度设计，再校核强度（刚度往往是瓶颈）
+   - <strong>快速判断</strong>：如果零件"看起来"太细长，刚度可能不足
+   - <strong>梁的选择</strong>：工字梁刚度/重量比优于实心梁约3倍</p>
+</li>
+<li>
+<p><strong>强度设计</strong>：
+   - 工作应力 &lt; 屈服强度/安全系数
+   - 脆性材料：用抗拉强度计算
+   - 塑性材料：用屈服强度计算
+   - 快速估算：截面积 = 1.5×(力/许用应力)
+   - <strong>螺栓经验</strong>：M8螺栓安全拉力约5kN，M10约8kN，M12约12kN
+   - <strong>焊缝强度</strong>：角焊缝强度约为母材的70%
+   - <strong>铆接强度</strong>：单剪切强度约为铆钉材料抗拉强度的60%</p>
+</li>
+<li>
+<p><strong>疲劳设计</strong>：
+   - 无限寿命：循环应力 &lt; 疲劳极限
+   - 钢材疲劳极限 ≈ 0.5×抗拉强度
+   - 铝合金无明确疲劳极限，按10^7次循环设计
+   - 应力集中处疲劳强度降低50-70%
+   - <strong>表面处理影响</strong>：抛光提高20%，粗加工降低20%，腐蚀降低50%
+   - <strong>尺寸效应</strong>：直径&gt;50mm的轴，疲劳强度降低15-25%
+   - <strong>缺口敏感度</strong>：高强度材料对缺口更敏感</p>
+</li>
+<li>
+<p><strong>共振避免</strong>：
+   - 工作频率 &lt; 0.8×一阶固有频率（保守设计）
+   - 或工作频率 &gt; 1.2×一阶固有频率
+   - 提高固有频率：增加刚度或减少质量
+   - <strong>经验估算</strong>：悬臂梁固有频率 $f \approx \frac{0.56}{L^2}\sqrt{\frac{EI}{m}}$
+   - <strong>阻尼添加</strong>：结构阻尼比&gt;2%可有效抑制共振
+   - <strong>支撑优化</strong>：两端固支比简支固有频率提高2.3倍</p>
+</li>
+<li>
+<p><strong>热变形控制</strong>：
+   - 温差10°C，钢件每米伸长0.11mm
+   - 温差10°C，铝件每米伸长0.23mm
+   - 双金属配合需预留热膨胀间隙
+   - 精密设备采用恒温控制或零膨胀材料
+   - <strong>对称设计</strong>：热变形对称可自动补偿</p>
+</li>
+<li>
+<p><strong>最小特征尺寸</strong>：
+   - CNC加工最小圆角：0.5mm（由刀具决定）
+   - 3D打印最小壁厚：1mm（FDM），0.5mm（SLA）
+   - 钣金最小折弯半径：1倍料厚
+   - 注塑最小壁厚：0.8mm（小件），1.5mm（大件）
+   - 激光切割最小特征：0.2倍料厚</p>
+</li>
+</ol>
+<h2 id="12">1.2 应力、应变与安全系数</h2>
+<h3 id="_5">应力集中</h3>
+<p>实际零件中的孔、槽、圆角等几何突变会导致应力集中：</p>
+<div class="codehilite"><pre><span></span><code>    均匀应力区
+    ├─────────┤
+    │ → → → → │
+    │ → →╱╲→ → │  ← 应力集中
+    │ → ╱──╲→ │     (孔边缘)
+    │ → ╲──╱→ │
+    │ → →╲╱→ → │
+    │ → → → → │
+    ├─────────┤
+</code></pre></div>
+
+<p>应力集中系数 $K_t = \frac{\sigma_{max}}{\sigma_{nom}}$</p>
+<p>常见应力集中系数：</p>
+<ul>
+<li>圆孔：Kt ≈ 3</li>
+<li>椭圆孔（长轴垂直载荷）：Kt ≈ 2</li>
+<li>直角：Kt ≈ 2-3</li>
+<li>圆角(r/d=0.1)：Kt ≈ 1.8</li>
+<li>圆角(r/d=0.3)：Kt ≈ 1.5</li>
+<li>V型槽(60°)：Kt ≈ 2.5</li>
+<li>轴肩(r/d=0.05)：Kt ≈ 2.2</li>
+</ul>
+<p><strong>缓解应力集中的方法</strong>：</p>
+<ol>
+<li><strong>增大圆角半径</strong>：r/d比值越大越好，推荐r/d &gt; 0.2</li>
+<li><strong>渐变过渡</strong>：避免截面突变，采用锥形过渡</li>
+<li><strong>卸载槽</strong>：在应力集中附近开卸载槽分散应力</li>
+<li><strong>多孔分散</strong>：用多个小孔代替单个大孔</li>
+<li><strong>预应力</strong>：通过预紧产生有利的残余应力场</li>
+</ol>
+<h3 id="_6">安全系数选择</h3>
+<p>安全系数 $n = \frac{\sigma_{允许}}{\sigma_{工作}}$</p>
+<p><strong>影响安全系数的因素</strong>：</p>
+<ol>
+<li><strong>载荷类型</strong>：静载 &lt; 动载 &lt; 冲击载荷</li>
+<li><strong>材料可靠性</strong>：标准材料 &lt; 新材料 &lt; 复合材料</li>
+<li><strong>计算精度</strong>：FEA分析 &lt; 简化计算 &lt; 经验估算</li>
+<li><strong>失效后果</strong>：可修复 &lt; 经济损失 &lt; 人身安全</li>
+<li><strong>使用环境</strong>：室内 &lt; 室外 &lt; 恶劣环境</li>
+</ol>
+<p><strong>经验取值表</strong>：</p>
+<p>| 应用场景 | 安全系数 | 说明 |</p>
+<table>
+<thead>
+<tr>
+<th>应用场景</th>
+<th>安全系数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>建筑钢结构</td>
+<td>1.5-2.0</td>
+<td>载荷明确，材料可靠</td>
+</tr>
+<tr>
+<td>机床床身</td>
+<td>2.0-2.5</td>
+<td>振动载荷，精度要求</td>
+</tr>
+<tr>
+<td>起重设备</td>
+<td>3.0-5.0</td>
+<td>动载荷，安全要求高</td>
+</tr>
+<tr>
+<td>压力容器</td>
+<td>3.5-4.0</td>
+<td>内压载荷，失效危险</td>
+</tr>
+<tr>
+<td>飞机结构</td>
+<td>1.5-2.0</td>
+<td>重量敏感，严格测试</td>
+</tr>
+<tr>
+<td>汽车底盘</td>
+<td>2.5-3.0</td>
+<td>冲击载荷，疲劳考虑</td>
+</tr>
+<tr>
+<td>电梯钢丝绳</td>
+<td>8-12</td>
+<td>人身安全，法规要求</td>
+</tr>
+<tr>
+<td>实验原型</td>
+<td>3.0-5.0</td>
+<td>不确定因素多</td>
+</tr>
+</tbody>
+</table>
+<p><strong>动载荷系数</strong>：</p>
+<ul>
+<li>平稳运转：Kd = 1.0-1.2</li>
+<li>轻微冲击：Kd = 1.2-1.5</li>
+<li>中等冲击：Kd = 1.5-2.0</li>
+<li>严重冲击：Kd = 2.0-3.0</li>
+</ul>
+<h3 id="_7">复合应力状态</h3>
+<p>实际零件常同时承受多种应力，使用Von Mises等效应力：
+$$\sigma_{eq} = \sqrt{\sigma_x^2 + \sigma_y^2 - \sigma_x\sigma_y + 3\tau_{xy}^2}$$</p>
+<p>简化情况：</p>
+<ul>
+<li>纯弯曲：$\sigma = \frac{M \cdot y}{I}$</li>
+<li>纯扭转：$\tau = \frac{T \cdot r}{J}$</li>
+<li>弯扭组合：$\sigma_{eq} = \sqrt{\sigma^2 + 3\tau^2}$</li>
+</ul>
+<h3 id="_8">变形计算</h3>
+<p>常用变形公式：</p>
+<ol>
+<li><strong>拉伸/压缩</strong>：$\delta = \frac{FL}{EA}$</li>
+<li><strong>悬臂梁端部挠度</strong>：$\delta = \frac{FL^3}{3EI}$（集中载荷）</li>
+<li><strong>悬臂梁均布载荷</strong>：$\delta = \frac{qL^4}{8EI}$</li>
+<li><strong>简支梁中点挠度</strong>：$\delta = \frac{FL^3}{48EI}$（集中载荷）</li>
+<li><strong>简支梁均布载荷</strong>：$\delta = \frac{5qL^4}{384EI}$</li>
+<li><strong>扭转角</strong>：$\phi = \frac{TL}{GJ}$</li>
+</ol>
+<p>其中：</p>
+<ul>
+<li>I：截面惯性矩</li>
+<li>J：极惯性矩  </li>
+<li>G：剪切模量 ≈ E/(2(1+ν))</li>
+<li>q：均布载荷(N/m)</li>
+</ul>
+<p><strong>梁的边界条件影响</strong>：</p>
+<p>| 支撑方式 | 最大挠度位置 | 挠度公式(集中载荷F) | 相对刚度 |</p>
+<table>
+<thead>
+<tr>
+<th>支撑方式</th>
+<th>最大挠度位置</th>
+<th>挠度公式(集中载荷F)</th>
+<th>相对刚度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>悬臂梁</td>
+<td>自由端</td>
+<td>$\frac{FL^3}{3EI}$</td>
+<td>1</td>
+</tr>
+<tr>
+<td>简支梁</td>
+<td>中点</td>
+<td>$\frac{FL^3}{48EI}$</td>
+<td>16</td>
+</tr>
+<tr>
+<td>两端固支</td>
+<td>中点</td>
+<td>$\frac{FL^3}{192EI}$</td>
+<td>64</td>
+</tr>
+<tr>
+<td>一端固支一端简支</td>
+<td>0.447L处</td>
+<td>$\frac{FL^3}{107EI}$</td>
+<td>36</td>
+</tr>
+</tbody>
+</table>
+<p><strong>组合变形的叠加原理</strong>：</p>
+<ul>
+<li>多个载荷作用时，可分别计算各载荷引起的变形，然后叠加</li>
+<li>弯曲+拉伸：总变形 = 弯曲变形 + 轴向变形</li>
+<li>双向弯曲：$\delta_{total} = \sqrt{\delta_x^2 + \delta_y^2}$</li>
+</ul>
+<p><strong>大变形修正</strong>：
+当挠度&gt;跨度/10时，需考虑几何非线性：</p>
+<ul>
+<li>实际挠度比线性计算值大</li>
+<li>产生附加轴力（薄膜效应）</li>
+<li>需用有限元软件精确计算</li>
+</ul>
+<p><strong>常用截面的惯性矩</strong>：</p>
+<p>| 截面形状 | 惯性矩I | 截面模量W | 回转半径r |</p>
+<table>
+<thead>
+<tr>
+<th>截面形状</th>
+<th>惯性矩I</th>
+<th>截面模量W</th>
+<th>回转半径r</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>矩形(b×h)</td>
+<td>$\frac{bh^3}{12}$</td>
+<td>$\frac{bh^2}{6}$</td>
+<td>$\frac{h}{\sqrt{12}}$</td>
+</tr>
+<tr>
+<td>圆形(d)</td>
+<td>$\frac{\pi d^4}{64}$</td>
+<td>$\frac{\pi d^3}{32}$</td>
+<td>$\frac{d}{4}$</td>
+</tr>
+<tr>
+<td>圆管(D,d)</td>
+<td>$\frac{\pi(D^4-d^4)}{64}$</td>
+<td>$\frac{\pi(D^4-d^4)}{32D}$</td>
+<td>$\frac{\sqrt{D^2+d^2}}{4}$</td>
+</tr>
+<tr>
+<td>工字型</td>
+<td>查表或CAD计算</td>
+<td>I/y_max</td>
+<td>查表</td>
+</tr>
+<tr>
+<td>方管(B×H,t)</td>
+<td>$\frac{BH^3-(B-2t)(H-2t)^3}{12}$</td>
+<td>$\frac{2I}{H}$</td>
+<td>约$0.4H$</td>
+</tr>
+<tr>
+<td>L型角钢</td>
+<td>查表</td>
+<td>查表</td>
+<td>查表</td>
+</tr>
+</tbody>
+</table>
+<p><strong>截面效率对比</strong>（相同截面积）：</p>
+<ul>
+<li>圆管 vs 实心圆：惯性矩提高2-3倍</li>
+<li>工字梁 vs 矩形：惯性矩提高3-5倍</li>
+<li>箱型梁 vs 实心：惯性矩提高4-6倍</li>
+</ul>
+<p><strong>提高抗弯刚度的策略</strong>：</p>
+<ol>
+<li>增大惯性矩：材料远离中性轴布置</li>
+<li>选择高效截面：工字型、箱型优于实心</li>
+<li>减小跨度：支撑点靠近载荷</li>
+<li>改变约束：固支比简支刚度提高4倍</li>
+<li>预应力：施加预拉力抵消工作弯矩</li>
+<li>变截面设计：弯矩大处加粗，弯矩小处减细</li>
+<li>桁架化：将弯曲转换为轴向力</li>
+</ol>
+<h2 id="13">1.3 常用材料特性</h2>
+<h3 id="_9">铝合金</h3>
+<p><strong>6061-T6</strong>（最常用）</p>
+<ul>
+<li>密度：2.7 g/cm³</li>
+<li>弹性模量：70 GPa</li>
+<li>屈服强度：270 MPa</li>
+<li>抗拉强度：310 MPa</li>
+<li>延伸率：12%</li>
+<li>优点：轻量、易加工、耐腐蚀、可焊接、性价比高</li>
+<li>缺点：强度不如钢、价格较高、易划伤</li>
+<li>应用：无人机框架、机器人结构件、散热器</li>
+<li>加工提示：切削速度300-600m/min，使用冷却液</li>
+</ul>
+<p><strong>7075-T6</strong>（航空级）</p>
+<ul>
+<li>密度：2.8 g/cm³</li>
+<li>屈服强度：500 MPa</li>
+<li>抗拉强度：570 MPa</li>
+<li>延伸率：11%</li>
+<li>特点：强度接近钢，但重量仅1/3</li>
+<li>缺点：焊接性差、价格昂贵、耐腐蚀性较差</li>
+<li>应用：航空结构、赛车零件、高端装备</li>
+<li>注意：应力腐蚀敏感，需表面处理</li>
+</ul>
+<p><strong>5052-H32</strong>（经济型）</p>
+<ul>
+<li>屈服强度：130 MPa</li>
+<li>特点：成型性好、耐海水腐蚀</li>
+<li>应用：钣金件、船舶配件、化工容器</li>
+</ul>
+<p><strong>2024-T3</strong>（高强度）</p>
+<ul>
+<li>屈服强度：345 MPa</li>
+<li>特点：疲劳性能优异</li>
+<li>应用：飞机蒙皮、高周疲劳件</li>
+</ul>
+<h3 id="_10">钢材</h3>
+<p><strong>Q235普通碳钢</strong></p>
+<ul>
+<li>密度：7.85 g/cm³</li>
+<li>弹性模量：200 GPa</li>
+<li>屈服强度：235 MPa</li>
+<li>抗拉强度：370-500 MPa</li>
+<li>延伸率：26%</li>
+<li>优点：便宜、强度高、易焊接、材料易得</li>
+<li>缺点：重、易生锈、需要表面处理</li>
+<li>应用：建筑结构、一般机械、焊接构件</li>
+<li>表面处理：镀锌、喷漆、发黑</li>
+</ul>
+<p><strong>304不锈钢</strong></p>
+<ul>
+<li>密度：7.93 g/cm³</li>
+<li>屈服强度：215 MPa</li>
+<li>抗拉强度：520 MPa</li>
+<li>优点：耐腐蚀、美观、卫生、无磁性</li>
+<li>缺点：难加工、价格高、易产生加工硬化</li>
+<li>应用：食品机械、医疗器械、装饰件</li>
+<li>加工提示：低速切削，充分冷却，专用刀具</li>
+</ul>
+<p><strong>45号钢</strong>（中碳钢）</p>
+<ul>
+<li>屈服强度：355 MPa（正火）</li>
+<li>抗拉强度：600 MPa</li>
+<li>特点：综合性能好，可热处理强化</li>
+<li>应用：轴类、齿轮、连杆</li>
+<li>热处理：调质后硬度HRC 28-32</li>
+</ul>
+<p><strong>65Mn弹簧钢</strong></p>
+<ul>
+<li>屈服强度：785 MPa（淬火回火）</li>
+<li>特点：高弹性极限、良好回弹性</li>
+<li>应用：弹簧、弹片、锯条</li>
+<li>注意：必须热处理后使用</li>
+</ul>
+<h3 id="_11">工程塑料</h3>
+<p><strong>ABS</strong>（丙烯腈-丁二烯-苯乙烯）</p>
+<ul>
+<li>密度：1.05 g/cm³</li>
+<li>弹性模量：2-2.5 GPa</li>
+<li>抗拉强度：40-50 MPa</li>
+<li>热变形温度：95°C</li>
+<li>优点：3D打印友好、成本低、易加工、抗冲击</li>
+<li>缺点：强度低、易蠕变、不耐UV、溶于丙酮</li>
+<li>应用：外壳、原型件、非承力结构</li>
+<li>3D打印参数：喷嘴230°C，热床110°C</li>
+</ul>
+<p><strong>POM</strong>（聚甲醛/赛钢）</p>
+<ul>
+<li>密度：1.41 g/cm³</li>
+<li>弹性模量：3 GPa</li>
+<li>抗拉强度：70 MPa</li>
+<li>摩擦系数：0.2（自润滑）</li>
+<li>优点：高刚性、尺寸稳定、耐磨、自润滑</li>
+<li>缺点：不耐酸、难粘接、价格较高</li>
+<li>应用：齿轮、轴承、滑块、精密零件</li>
+<li>加工提示：可车削至±0.02mm精度</li>
+</ul>
+<p><strong>PC</strong>（聚碳酸酯）</p>
+<ul>
+<li>密度：1.2 g/cm³</li>
+<li>抗拉强度：60-70 MPa</li>
+<li>冲击强度：600-850 J/m</li>
+<li>透光率：90%</li>
+<li>优点：透明、超强抗冲击、耐热120°C</li>
+<li>缺点：易划伤、应力开裂、价格高</li>
+<li>应用：防护罩、透明窗口、安全面罩</li>
+<li>注意：避免接触碱性物质</li>
+</ul>
+<p><strong>尼龙（PA6/PA66）</strong></p>
+<ul>
+<li>密度：1.14 g/cm³</li>
+<li>抗拉强度：80 MPa（干燥）</li>
+<li>吸水率：2.5%</li>
+<li>优点：高强度、耐磨、自润滑、韧性好</li>
+<li>缺点：吸水膨胀、尺寸不稳定</li>
+<li>应用：轴套、滑轮、传动件</li>
+<li>提示：使用前需干燥处理</li>
+</ul>
+<p><strong>PEEK</strong>（聚醚醚酮）</p>
+<ul>
+<li>抗拉强度：100 MPa</li>
+<li>使用温度：-200°C到+250°C</li>
+<li>特点：最高性能工程塑料</li>
+<li>应用：航空航天、医疗植入物</li>
+<li>缺点：极其昂贵（&gt;1000元/kg）</li>
+</ul>
+<h3 id="_12">材料选择快速对比</h3>
+<p>| 特性 | 铝合金 | 钢材 | ABS塑料 |</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>铝合金</th>
+<th>钢材</th>
+<th>ABS塑料</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>比强度</td>
+<td>★★★★☆</td>
+<td>★★★☆☆</td>
+<td>★★☆☆☆</td>
+</tr>
+<tr>
+<td>刚度</td>
+<td>★★★☆☆</td>
+<td>★★★★★</td>
+<td>★☆☆☆☆</td>
+</tr>
+<tr>
+<td>成本</td>
+<td>★★★☆☆</td>
+<td>★★★★★</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td>加工性</td>
+<td>★★★★☆</td>
+<td>★★★☆☆</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td>耐腐蚀</td>
+<td>★★★★☆</td>
+<td>★★☆☆☆</td>
+<td>★★★★★</td>
+</tr>
+</tbody>
+</table>
+<h2 id="14">1.4 经验法则：材料选择决策树</h2>
+<p>材料选择的系统化方法：</p>
+<div class="codehilite"><pre><span></span><code>                 开始
+                  │
+        ┌─────────┴─────────┐
+        │ 承载要求高？      │
+        └─────────┬─────────┘
+               是 │ 否
+        ┌─────────┴─────────┐
+        │                   │
+    ┌───┴───┐          ┌───┴───┐
+    │重量敏感?│          │成本敏感?│
+    └───┬───┘          └───┬───┘
+     是 │ 否            是 │ 否
+    ┌───┴───┐      ┌───┴───┐
+    │铝合金  │      │ABS/PLA │
+    │碳纤维  │      │POM     │
+    └───────┘      └───────┘
+        │                │
+    ┌───┴───┐      ┌───┴───┐
+    │钢材    │      │PC/尼龙 │
+    │钛合金  │      │铝合金  │
+    └───────┘      └───────┘
+</code></pre></div>
+
+<h3 id="_13">具体选择策略</h3>
+<p><strong>第一步：功能需求</strong></p>
+<ol>
+<li>承载结构 → 金属材料</li>
+<li>外观件 → 塑料材料</li>
+<li>运动件 → 考虑摩擦磨损</li>
+</ol>
+<p><strong>第二步：环境因素</strong></p>
+<ol>
+<li>户外使用 → 耐候性材料</li>
+<li>高温环境 → 耐热材料</li>
+<li>腐蚀环境 → 不锈钢或塑料</li>
+</ol>
+<p><strong>第三步：制造工艺</strong></p>
+<ol>
+<li>3D打印 → ABS、PLA、尼龙</li>
+<li>CNC加工 → 铝合金、POM</li>
+<li>钣金折弯 → 钢板、铝板</li>
+<li>注塑成型 → 各类塑料</li>
+</ol>
+<p><strong>第四步：成本优化</strong></p>
+<ol>
+<li>原型验证 → 3D打印塑料</li>
+<li>小批量 → 铝合金CNC</li>
+<li>大批量 → 注塑或压铸</li>
+</ol>
+<h3 id="_14">实用速查表</h3>
+<p>| 应用场景 | 推荐材料 | 理由 |</p>
+<table>
+<thead>
+<tr>
+<th>应用场景</th>
+<th>推荐材料</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无人机机架</td>
+<td>碳纤维/铝合金</td>
+<td>高比强度</td>
+</tr>
+<tr>
+<td>机器人关节</td>
+<td>铝合金</td>
+<td>刚度好、易加工</td>
+</tr>
+<tr>
+<td>齿轮</td>
+<td>POM/尼龙</td>
+<td>自润滑、低噪音</td>
+</tr>
+<tr>
+<td>外壳</td>
+<td>ABS/PC</td>
+<td>成本低、易成型</td>
+</tr>
+<tr>
+<td>高速主轴</td>
+<td>钢材</td>
+<td>高刚度、耐磨</td>
+</tr>
+<tr>
+<td>弹簧</td>
+<td>弹簧钢/不锈钢</td>
+<td>高弹性极限</td>
+</tr>
+<tr>
+<td>导轨</td>
+<td>硬化钢</td>
+<td>高硬度、耐磨</td>
+</tr>
+<tr>
+<td>散热片</td>
+<td>铝合金</td>
+<td>导热好、轻量</td>
+</tr>
+</tbody>
+</table>
+<h2 id="15">1.5 公差与配合基础</h2>
+<p>公差配合是保证零件互换性和功能的关键。</p>
+<h3 id="_15">公差基础</h3>
+<p><strong>公差</strong>：允许的尺寸变化范围</p>
+<ul>
+<li>基本尺寸：设计给定的尺寸</li>
+<li>上偏差：最大极限尺寸-基本尺寸</li>
+<li>下偏差：最小极限尺寸-基本尺寸</li>
+<li>公差：上偏差-下偏差</li>
+</ul>
+<p>标注示例：$\phi 20_{-0.02}^{+0.05}$ 表示直径20mm，上偏差+0.05mm，下偏差-0.02mm</p>
+<h3 id="it">IT公差等级</h3>
+<p>国际公差(IT)等级从IT01到IT18，数字越小精度越高：</p>
+<p>| 等级 | 应用场景 | 典型公差(φ20mm) |</p>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>应用场景</th>
+<th>典型公差(φ20mm)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IT5-6</td>
+<td>精密配合</td>
+<td>±0.008mm</td>
+</tr>
+<tr>
+<td>IT7-8</td>
+<td>一般配合</td>
+<td>±0.021mm</td>
+</tr>
+<tr>
+<td>IT9-11</td>
+<td>非配合尺寸</td>
+<td>±0.084mm</td>
+</tr>
+<tr>
+<td>IT12-14</td>
+<td>粗糙加工</td>
+<td>±0.21mm</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_16">配合类型</h3>
+<div class="codehilite"><pre><span></span><code>    间隙配合        过渡配合        过盈配合
+      孔                孔              孔
+    ┌─────┐        ┌─────┐        ┌─────┐
+    │     │        │     │        │╱╱╱╱╱│
+    │     │        │ ─── │        │─────│
+    │     │        │     │        │╲╲╲╲╲│
+    └─────┘        └─────┘        └─────┘
+      轴                轴              轴
+</code></pre></div>
+
+<p><strong>间隙配合（H7/g6）</strong></p>
+<ul>
+<li>始终有间隙</li>
+<li>应用：活动连接、滑动轴承</li>
+</ul>
+<p><strong>过渡配合（H7/k6）</strong></p>
+<ul>
+<li>可能有微小间隙或过盈</li>
+<li>应用：定位销、可拆卸连接</li>
+</ul>
+<p><strong>过盈配合（H7/p6）</strong></p>
+<ul>
+<li>始终有过盈</li>
+<li>应用：永久连接、过盈套筒</li>
+</ul>
+<h3 id="_17">实用公差选择</h3>
+<p><strong>3D打印</strong></p>
+<ul>
+<li>一般公差：±0.2mm</li>
+<li>配合间隙：0.2-0.3mm</li>
+<li>最小壁厚：1.5mm</li>
+</ul>
+<p><strong>CNC加工</strong></p>
+<ul>
+<li>一般公差：±0.05mm</li>
+<li>精密公差：±0.01mm</li>
+<li>配合间隙：0.02-0.05mm</li>
+</ul>
+<p><strong>钣金加工</strong></p>
+<ul>
+<li>折弯公差：±0.5mm</li>
+<li>孔位公差：±0.2mm</li>
+<li>外形公差：±0.3mm</li>
+</ul>
+<h3 id="_18">公差设计原则</h3>
+<ol>
+<li><strong>功能优先</strong>：关键配合面给严格公差</li>
+<li><strong>成本考虑</strong>：非关键尺寸放宽公差</li>
+<li><strong>累积效应</strong>：考虑公差链累积</li>
+<li><strong>工艺能力</strong>：匹配加工工艺能力</li>
+<li><strong>测量可行</strong>：确保可以检测</li>
+</ol>
+<h2 id="16">1.6 案例研究：无人机机架材料选择与优化</h2>
+<p>让我们通过一个250mm轴距的竞速无人机机架设计来综合运用本章知识。</p>
+<h3 id="_19">设计需求</h3>
+<ul>
+<li>轴距：250mm</li>
+<li>电机：2205 2300KV</li>
+<li>电池：4S 1500mAh</li>
+<li>目标重量：&lt;100g</li>
+<li>预期载荷：最大40N推力，15g加速度冲击</li>
+</ul>
+<h3 id="_20">材料分析</h3>
+<p><strong>方案一：3mm碳纤维板</strong></p>
+<ul>
+<li>密度：1.6 g/cm³</li>
+<li>抗拉强度：600 MPa</li>
+<li>弹性模量：70 GPa（单向）</li>
+<li>预计重量：65g</li>
+<li>成本：$$</li>
+</ul>
+<p><strong>方案二：2mm 7075铝合金</strong></p>
+<ul>
+<li>密度：2.8 g/cm³</li>
+<li>屈服强度：500 MPa</li>
+<li>弹性模量：70 GPa</li>
+<li>预计重量：95g</li>
+<li>成本：$</li>
+</ul>
+<p><strong>方案三：5mm ABS 3D打印</strong></p>
+<ul>
+<li>密度：1.05 g/cm³</li>
+<li>抗拉强度：40 MPa</li>
+<li>弹性模量：2 GPa</li>
+<li>预计重量：80g</li>
+<li>成本：$</li>
+</ul>
+<h3 id="_21">强度校核</h3>
+<p>最大应力位置：电机安装孔附近
+简化为悬臂梁模型：</p>
+<div class="codehilite"><pre><span></span><code>         F=10N (单个电机推力)
+          ↓
+    ┌─────┼─────┐
+    │           │ L=125mm
+    ████████████
+    固定端
+</code></pre></div>
+
+<p>弯矩：$M = F \times L = 10 \times 0.125 = 1.25 N \cdot m$</p>
+<p>碳纤维板截面模量：$W = \frac{bh^2}{6} = \frac{30 \times 3^2}{6} = 45 mm^3$</p>
+<p>最大应力：$\sigma = \frac{M}{W} = \frac{1250}{45} = 28 MPa$</p>
+<p>安全系数：$n = \frac{600}{28} = 21$ ✓</p>
+<h3 id="_22">刚度校核</h3>
+<p>最大挠度：$\delta = \frac{FL^3}{3EI}$</p>
+<p>惯性矩：$I = \frac{bh^3}{12} = \frac{30 \times 3^3}{12} = 67.5 mm^4$</p>
+<p>挠度：$\delta = \frac{10 \times 125^3}{3 \times 70000 \times 67.5} = 1.4mm$</p>
+<p>相对挠度：$\frac{1.4}{125} = \frac{1}{89} &lt; \frac{1}{50}$ ✓</p>
+<h3 id="_23">优化措施</h3>
+<ol>
+<li>
+<p><strong>减重孔设计</strong>
+   - 在低应力区开孔
+   - 保持孔边距&gt;2倍孔径
+   - 使用圆角避免应力集中</p>
+</li>
+<li>
+<p><strong>振动抑制</strong>
+   - 增加阻尼垫
+   - 避开电机振动频率（400-600Hz）</p>
+</li>
+<li>
+<p><strong>碰撞保护</strong>
+   - 机臂末端加厚至4mm
+   - 增加TPU缓冲件</p>
+</li>
+</ol>
+<h3 id="_24">最终方案</h3>
+<p>选择3mm碳纤维板：</p>
+<ul>
+<li>实际重量：68g</li>
+<li>材料成本：15元</li>
+<li>加工：激光切割</li>
+<li>公差要求：±0.2mm</li>
+</ul>
+<h2 id="17">1.7 高级话题：复合材料在轻量化设计中的应用</h2>
+<h3 id="_25">复合材料基础</h3>
+<p>复合材料由基体和增强相组成，综合两者优点：</p>
+<p><strong>碳纤维复合材料(CFRP)</strong></p>
+<ul>
+<li>基体：环氧树脂</li>
+<li>增强：碳纤维</li>
+<li>特点：极高比强度、各向异性</li>
+</ul>
+<p><strong>玻璃纤维复合材料(GFRP)</strong></p>
+<ul>
+<li>比碳纤维便宜</li>
+<li>绝缘性好</li>
+<li>强度略低</li>
+</ul>
+<h3 id="_26">设计考虑</h3>
+<ol>
+<li>
+<p><strong>各向异性</strong>
+   - 沿纤维方向强度最高
+   - 垂直纤维方向强度仅为1/10
+   - 使用多层不同角度铺层</p>
+</li>
+<li>
+<p><strong>铺层设计</strong></p>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="mf">0</span><span class="err">°</span><span class="o">/</span><span class="mf">90</span><span class="err">°</span><span class="o">/</span><span class="mf">45</span><span class="err">°</span><span class="o">/-</span><span class="mf">45</span><span class="err">°</span><span class="o">/</span><span class="mf">0</span><span class="err">°（</span><span class="n">准各向同性</span><span class="err">）</span>
+<span class="mf">0</span><span class="err">°</span><span class="o">/</span><span class="mf">0</span><span class="err">°</span><span class="o">/</span><span class="mf">0</span><span class="err">°（</span><span class="n">单向强化</span><span class="err">）</span>
+</code></pre></div>
+
+<ol start="3">
+<li><strong>连接设计</strong>
+   - 避免剥离载荷
+   - 使用胶接或铆接
+   - 局部加厚连接区</li>
+</ol>
+<h3 id="_27">制造工艺</h3>
+<p><strong>预浸料工艺</strong></p>
+<ul>
+<li>精度高、性能好</li>
+<li>需要热压罐</li>
+<li>成本高</li>
+</ul>
+<p><strong>真空灌注(VARTM)</strong></p>
+<ul>
+<li>适合大型件</li>
+<li>设备要求低</li>
+<li>纤维含量略低</li>
+</ul>
+<p><strong>拉挤成型</strong></p>
+<ul>
+<li>适合等截面型材</li>
+<li>自动化程度高</li>
+<li>初期投资大</li>
+</ul>
+<h3 id="_28">应用实例</h3>
+<p><strong>无人机机臂</strong></p>
+<ul>
+<li>碳纤维管：外径16mm，壁厚1mm</li>
+<li>重量：8g/根</li>
+<li>抗弯刚度等效于φ16mm实心铝棒</li>
+<li>重量仅为铝的1/5</li>
+</ul>
+<p><strong>机器人连杆</strong></p>
+<ul>
+<li>碳纤维三明治板</li>
+<li>面板：0.5mm碳纤维</li>
+<li>芯材：3mm PMI泡沫</li>
+<li>综合性能优于5mm铝板</li>
+</ul>
+<h3 id="_29">成本优化策略</h3>
+<ol>
+<li>
+<p><strong>混合使用</strong>
+   - 关键部位用碳纤维
+   - 次要部位用玻纤或铝</p>
+</li>
+<li>
+<p><strong>标准化设计</strong>
+   - 使用标准碳纤维管
+   - 减少定制部件</p>
+</li>
+<li>
+<p><strong>回收利用</strong>
+   - 边角料制作小件
+   - 失效件研磨后做填料</p>
+</li>
+</ol>
+<h2 id="_30">本章小结</h2>
+<p>本章介绍了机械设计的基础知识：</p>
+<p><strong>核心概念</strong></p>
+<ul>
+<li>应力 = 力/面积，应变 = 变形/原长</li>
+<li>弹性模量E描述刚度，屈服强度描述强度极限</li>
+<li>安全系数确保设计可靠性</li>
+</ul>
+<p><strong>材料选择</strong></p>
+<ul>
+<li>铝合金：轻量化首选，平衡性能与成本</li>
+<li>钢材：高强度高刚度，适合重载</li>
+<li>工程塑料：成本低、易成型，适合非关键件</li>
+<li>复合材料：极致轻量化，成本较高</li>
+</ul>
+<p><strong>公差配合</strong></p>
+<ul>
+<li>IT7-8级适合一般机械配合</li>
+<li>3D打印公差约±0.2mm</li>
+<li>CNC加工可达±0.01mm</li>
+</ul>
+<p><strong>设计原则</strong></p>
+<ol>
+<li>功能决定材料</li>
+<li>工艺决定公差</li>
+<li>成本驱动优化</li>
+<li>迭代完善设计</li>
+</ol>
+<h2 id="_31">练习题</h2>
+<h3 id="_32">基础题</h3>
+<p><strong>习题1.1</strong> 一根直径10mm的铝合金杆，受到5000N的拉力，计算杆中的应力。铝合金的屈服强度为270MPa，安全系数取2，判断是否安全。</p>
+<details>
+<summary>提示</summary>
+<p>先计算横截面积，然后用力除以面积得到应力。</p>
+</details>
+<details>
+<summary>答案</summary>
+<p>截面积：$A = \pi r^2 = \pi \times 5^2 = 78.5 mm^2$</p>
+<p>应力：$\sigma = \frac{F}{A} = \frac{5000}{78.5} = 63.7 MPa$</p>
+<p>许用应力：$\sigma_{allow} = \frac{270}{2} = 135 MPa$</p>
+<p>因为 63.7 &lt; 135 MPa，所以安全。</p>
+</details>
+<p><strong>习题1.2</strong> 设计一个简支梁，跨度500mm，中心载荷100N，要求挠度不超过1mm。如果使用矩形截面铝合金梁（E=70GPa），宽度20mm，求所需的最小高度。</p>
+<details>
+<summary>提示</summary>
+<p>使用简支梁挠度公式，惯性矩I与高度h的三次方成正比。</p>
+</details>
+<details>
+<summary>答案</summary>
+<p>简支梁中点挠度：$\delta = \frac{FL^3}{48EI}$</p>
+<p>矩形截面惯性矩：$I = \frac{bh^3}{12}$</p>
+<p>代入得：$1 = \frac{100 \times 500^3}{48 \times 70000 \times \frac{20h^3}{12}}$</p>
+<p>解得：$h^3 = \frac{100 \times 500^3 \times 12}{48 \times 70000 \times 20 \times 1} = 223.2$</p>
+<p>$h = 6.1 mm$</p>
+<p>取h = 7mm以上。</p>
+</details>
+<p><strong>习题1.3</strong> 选择合适的配合：轴径φ20mm的电机轴与皮带轮配合，要求可以手工装配但运转时不打滑。</p>
+<details>
+<summary>提示</summary>
+<p>考虑过渡配合或轻微过盈配合，并可能需要键连接。</p>
+</details>
+<details>
+<summary>答案</summary>
+<p>选择H7/k6过渡配合：</p>
+<ul>
+<li>孔：φ20 +0.021/0</li>
+<li>轴：φ20 +0.015/+0.002</li>
+<li>最大间隙：0.019mm</li>
+<li>最大过盈：0.015mm</li>
+</ul>
+<p>配合使用平键或紧定螺钉防止打滑。</p>
+</details>
+<h3 id="_33">挑战题</h3>
+<p><strong>习题1.4</strong> 设计一个四旋翼无人机的机臂结构。要求：承受单个电机15N推力，机臂长度150mm，重量尽可能轻。对比分析圆管、方管、工字型三种截面方案。</p>
+<details>
+<summary>提示</summary>
+<p>比较相同重量下的截面模量和惯性矩，考虑制造难易度。</p>
+</details>
+<details>
+<summary>答案</summary>
+<p>设定相同截面积A=50mm²：</p>
+<ol>
+<li>
+<p>圆管（外径12mm，壁厚1.5mm）
+   - 惯性矩：I = 325 mm⁴
+   - 截面模量：W = 54 mm³
+   - 优点：各向同性，标准件易得</p>
+</li>
+<li>
+<p>方管（10×10mm，壁厚1.5mm）
+   - 惯性矩：I = 290 mm⁴
+   - 截面模量：W = 58 mm³
+   - 优点：安装面平整</p>
+</li>
+<li>
+<p>工字型（翼缘10×2mm，腹板6×2mm）
+   - 惯性矩：I = 420 mm⁴
+   - 截面模量：W = 70 mm³
+   - 缺点：加工复杂</p>
+</li>
+</ol>
+<p>推荐：碳纤维圆管，标准件成本低，性能满足要求。</p>
+</details>
+<p><strong>习题1.5</strong> 某减速器齿轮箱需要选择材料，工作环境：室温，输入转速3000rpm，传递功率1kW，预期寿命5年。齿轮模数2mm，齿数30。请选择齿轮和箱体材料，并说明理由。</p>
+<details>
+<summary>提示</summary>
+<p>考虑接触应力、弯曲应力、耐磨性、噪音、成本等因素。</p>
+</details>
+<details>
+<summary>答案</summary>
+<p>齿轮材料选择：</p>
+<ul>
+<li>小齿轮：40Cr调质钢（HRC 35-40）</li>
+<li>高硬度，耐磨</li>
+<li>
+<p>适合高速运转</p>
+</li>
+<li>
+<p>大齿轮：POM（聚甲醛）</p>
+</li>
+<li>自润滑，低噪音</li>
+<li>成本低，易成型</li>
+<li>与钢齿轮配合减少磨损</li>
+</ul>
+<p>箱体材料：铝合金压铸</p>
+<ul>
+<li>散热好</li>
+<li>重量轻</li>
+<li>可集成散热筋</li>
+</ul>
+<p>润滑：齿轮油脂，定期补充。</p>
+</details>
+<p><strong>习题1.6</strong> 开放思考题：如何设计一个成本低于50元、能承重1kg、自重小于200g的桌面机械臂底座？考虑稳定性、制造工艺和美观性。</p>
+<details>
+<summary>提示</summary>
+<p>考虑重心、底面积、配重、材料组合等因素。</p>
+</details>
+<details>
+<summary>答案</summary>
+<p>设计方案：</p>
+<p>结构设计：</p>
+<ul>
+<li>三角形底板，边长200mm</li>
+<li>中心立柱φ30mm</li>
+<li>三个可调支脚</li>
+</ul>
+<p>材料选择：</p>
+<ul>
+<li>底板：3mm铝板激光切割（30元）</li>
+<li>立柱：φ30mm铝管（10元）</li>
+<li>支脚：M8螺栓+橡胶垫（5元）</li>
+<li>配重：底板下贴铁片（5元）</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>重心低，稳定性好</li>
+<li>支脚可调，适应不平地面</li>
+<li>模块化设计，易组装</li>
+<li>阳极氧化处理，美观耐用</li>
+</ul>
+<p>重量核算：150g，成本50元。</p>
+</details>
+<h2 id="_34">常见陷阱与错误</h2>
+<h3 id="_35">材料选择误区</h3>
+<p>❌ <strong>错误</strong>：一味追求高强度材料
+✅ <strong>正确</strong>：根据实际需求选择，考虑刚度往往比强度更重要</p>
+<p>❌ <strong>错误</strong>：忽视材料的各向异性
+✅ <strong>正确</strong>：碳纤维、3D打印件都有方向性，设计时需考虑</p>
+<p>❌ <strong>错误</strong>：过度依赖材料参数表
+✅ <strong>正确</strong>：考虑实际加工、热处理、表面状态的影响</p>
+<h3 id="_36">强度设计陷阱</h3>
+<p>❌ <strong>错误</strong>：只考虑静载荷
+✅ <strong>正确</strong>：考虑动载荷、疲劳、冲击等实际工况</p>
+<p>❌ <strong>错误</strong>：忽视应力集中
+✅ <strong>正确</strong>：尖角、小圆角、突变处应力可能增大3-5倍</p>
+<p>❌ <strong>错误</strong>：安全系数取值随意
+✅ <strong>正确</strong>：根据载荷确定性、失效后果等因素合理选择</p>
+<h3 id="_37">公差配合错误</h3>
+<p>❌ <strong>错误</strong>：所有尺寸都标注严格公差
+✅ <strong>正确</strong>：只在功能面标注必要公差，降低成本</p>
+<p>❌ <strong>错误</strong>：忽视公差累积
+✅ <strong>正确</strong>：分析公差链，关键尺寸直接标注</p>
+<p>❌ <strong>错误</strong>：不考虑温度变化
+✅ <strong>正确</strong>：不同材料热膨胀系数不同，需预留间隙</p>
+<h3 id="_38">实际应用失误</h3>
+<p>❌ <strong>错误</strong>：设计与制造脱节
+✅ <strong>正确</strong>：设计初期就考虑可制造性</p>
+<p>❌ <strong>错误</strong>：忽视装配过程
+✅ <strong>正确</strong>：考虑装配顺序、工具可达性、调整余量</p>
+<p>❌ <strong>错误</strong>：不做原型验证
+✅ <strong>正确</strong>：关键设计先3D打印验证，再批量生产</p>
+<h2 id="_39">最佳实践检查清单</h2>
+<h3 id="_40">设计前</h3>
+<ul>
+<li>[ ] 明确功能需求和约束条件</li>
+<li>[ ] 调研类似产品的材料选择</li>
+<li>[ ] 评估可用的加工资源</li>
+<li>[ ] 确定成本和时间预算</li>
+</ul>
+<h3 id="_41">材料选择</h3>
+<ul>
+<li>[ ] 列出候选材料清单</li>
+<li>[ ] 对比关键性能参数</li>
+<li>[ ] 考虑材料的可获得性</li>
+<li>[ ] 评估加工难度和成本</li>
+<li>[ ] 检查环境适应性</li>
+</ul>
+<h3 id="_42">强度校核</h3>
+<ul>
+<li>[ ] 识别最大应力位置</li>
+<li>[ ] 计算工作应力</li>
+<li>[ ] 检查应力集中系数</li>
+<li>[ ] 确定合适的安全系数</li>
+<li>[ ] 验证刚度要求</li>
+</ul>
+<h3 id="_43">公差标注</h3>
+<ul>
+<li>[ ] 识别功能配合面</li>
+<li>[ ] 选择合适的公差等级</li>
+<li>[ ] 分析公差链</li>
+<li>[ ] 标注关键尺寸</li>
+<li>[ ] 考虑测量可行性</li>
+</ul>
+<h3 id="_44">设计评审</h3>
+<ul>
+<li>[ ] 可制造性分析</li>
+<li>[ ] 可装配性检查</li>
+<li>[ ] 成本估算</li>
+<li>[ ] 重量核算</li>
+<li>[ ] 可靠性评估</li>
+</ul>
+<h3 id="_45">原型验证</h3>
+<ul>
+<li>[ ] 制作功能原型</li>
+<li>[ ] 进行强度测试</li>
+<li>[ ] 检查配合精度</li>
+<li>[ ] 收集改进建议</li>
+<li>[ ] 迭代优化设计</li>
+</ul>
+<hr />
+<p>下一章：<a href="chapter2.html">第2章：CAD软件基础操作</a></p>
+            </article>
+            
+            <nav class="page-nav"><a href="index.html" class="nav-link prev">← 机械设计实践教程</a><a href="chapter2.html" class="nav-link next">第2章：CAD软件基础操作 →</a></nav>
+        </main>
+    </div>
+</body>
+</html>
